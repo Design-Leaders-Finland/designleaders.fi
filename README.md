@@ -109,4 +109,12 @@ If you have run out of energy or time for your project, put a note at the top of
 
 https://purgecss.com/CLI.html
 
+```sh
+purgecss --css luro/style.css --content luro.html  --output .
+```
+
 https://github.com/postcss/autoprefixer#cli
+
+```sh
+npx postcss style.css --use autoprefixer --replace --no-map
+```
