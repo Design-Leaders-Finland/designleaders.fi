@@ -4,14 +4,13 @@
 
 ## Colors
 
-
 ```css
 :root {
-  --color-green: #2DD67F;
-  --color-violet: #D638C5;
-  --color-velvet: #8A2B7F;
-  --color-brown: #8A480F;
-  --color-brown-light: #D6AE8A;
+  --color-green: #2dd67f;
+  --color-violet: #d638c5;
+  --color-velvet: #8a2b7f;
+  --color-brown: #8a480f;
+  --color-brown-light: #d6ae8a;
 }
 ```
 
@@ -35,5 +34,7 @@ Assuming Rust and its package manager Cargo have been installed:
 
 ```sh
 cargo install cargo-server
-cargo server --path . --port 8888
+cargo server --port 8888
 ```
+
+Now open `http://localhost:8888` in your browser.

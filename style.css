@@ -193,7 +193,6 @@ h4 {
   font-size: clamp(1.825rem, 1.35rem + 1vw, 2rem);
 }
 @media (min-width: 900px) {
-  
   .h3,
   .h4 {
     line-height: 1.025;
@@ -531,18 +530,26 @@ hr.glow-meter {
 }
 @keyframes doodad-gradient {
   0% {
-    background-position: 0 100%, 0 0;
+    background-position:
+      0 100%,
+      0 0;
   }
   to {
-    background-position: 0 100%, 3000px 0;
+    background-position:
+      0 100%,
+      3000px 0;
   }
 }
 @keyframes dotgradient {
   0% {
-    background-position: 60% 0, 0 0;
+    background-position:
+      60% 0,
+      0 0;
   }
   to {
-    background-position: 60% 0, 3000px 0;
+    background-position:
+      60% 0,
+      3000px 0;
   }
 }
 @keyframes subtleness {
