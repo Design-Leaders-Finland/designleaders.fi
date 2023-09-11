@@ -399,7 +399,7 @@ hr.glow-meter {
 .site-footer .action-items ul li:last-child {
   margin-right: 0;
 }
-.site-footer .action-items ul a {
+.site-footer .action-items ul a:hover {
   text-decoration: none;
 }
 .site-footer .action-items:last-child {
