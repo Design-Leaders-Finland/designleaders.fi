@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg width="360.899" height="360.9" version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg">
+  <title>designleaders.fi</title>
+  <defs/>
+  <g>
+    <g>
+      <path d="M.841 0h361.782v142H.841z" fill="#8a2b7f" fill-opacity="1" stroke-width="1.00339"/>
+      <path d="M0 142h363.879v219.049H0z" fill="#d638c5" fill-opacity="1" stroke-width="1.00483"/>
+      <path d="M60 141.899c.576 0 1.133.075 1.708.086h80.043V60.4A81.754 81.754 0 0 0 60 141.9m164-81.5v81.585h81.755A81.756 81.756 0 0 0 224 60.4" fill="#d638c5" fill-opacity="1"/>
+      <path d="M92.765 139.439h-.006v.086-.086" fill="#fa8907"/>
+      <path d="M94.473 139.528c-.576-.011-1.133-.086-1.708-.086 0 .028-.006.056-.006.086ZM60 222.043v1.715h163.429a81.75 81.75 0 0 0-81.5-81.745V142H60Z" fill="#fff" fill-opacity="1"/>
+      <path d="M223.457 223H141.7v81.932a81.76 81.76 0 0 0 81.758-81.758v-.173" fill="#fff" fill-opacity="1"/>
+    </g>
+  </g>
+</svg>
