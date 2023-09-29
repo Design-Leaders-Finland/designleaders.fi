@@ -1,0 +1,4 @@
+version: STSv1
+mode: testing
+mx: inbound-smtp.skiff.com
+max_age: 604800
