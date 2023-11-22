@@ -419,6 +419,10 @@ hr.glow-meter {
   color: var(--heavy-text);
   position: relative;
 }
+.banner img {
+  width: 100%;
+  padding: 2rem;
+}
 .banner p:first-of-type {
   margin-top: 0;
 }
