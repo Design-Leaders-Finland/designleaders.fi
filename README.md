@@ -19,7 +19,7 @@
 https://purgecss.com/CLI.html
 
 ```sh
-purgecss --css luro/style.css --content luro.html  --output .
+purgecss --css style.css --content *.html  --output .
 ```
 
 https://github.com/postcss/autoprefixer#cli
