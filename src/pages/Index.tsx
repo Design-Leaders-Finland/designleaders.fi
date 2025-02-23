@@ -1,7 +1,7 @@
-
 import Navigation from "@/components/Navigation";
 import { useEffect } from "react";
 import { ArrowRight, Sparkles, Users, Zap } from "lucide-react";
+import LottieCursor from "@/components/LottieCursor";
 
 const Index = () => {
   useEffect(() => {
@@ -97,6 +97,127 @@ const Index = () => {
                 <p className="text-gray-600">{service.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 animate-on-scroll opacity-0">
+            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-gray-100 text-gray-800 rounded-full">
+              Our Team
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Meet the Experts
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              A collective of seasoned design leaders and practitioners dedicated to elevating digital design in Finland.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Founder */}
+            <div className="relative group animate-on-scroll opacity-0">
+              <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
+                <img
+                  src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
+                  alt="Maria Virtanen - Founder"
+                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <LottieCursor />
+                </div>
+              </div>
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold">Maria Virtanen</h3>
+                <p className="text-accent-red">Founder & Principal Consultant</p>
+                <p className="mt-2 text-gray-600">
+                  Former Design Lead at Nokia, with 15+ years of experience in design systems and leadership.
+                </p>
+              </div>
+            </div>
+
+            {/* Design Director 1 */}
+            <div className="relative group animate-on-scroll opacity-0">
+              <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
+                <img
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+                  alt="Antti Korhonen - Design Director"
+                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <LottieCursor />
+                </div>
+              </div>
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold">Antti Korhonen</h3>
+                <p className="text-accent-sage">Design Director</p>
+                <p className="mt-2 text-gray-600">
+                  Specialist in design systems implementation and team scaling.
+                </p>
+              </div>
+            </div>
+
+            {/* Design Director 2 */}
+            <div className="relative group animate-on-scroll opacity-0">
+              <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
+                <img
+                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+                  alt="Laura Mäkinen - Design Director"
+                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <LottieCursor />
+                </div>
+              </div>
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold">Laura Mäkinen</h3>
+                <p className="text-accent-sage">Design Director</p>
+                <p className="mt-2 text-gray-600">
+                  Expert in design quality processes and team mentoring.
+                </p>
+              </div>
+            </div>
+
+            {/* Advisor Grid */}
+            <div className="md:col-span-2 lg:col-span-3 mt-12">
+              <h3 className="text-2xl font-semibold mb-8 text-center">Our Advisors</h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  {
+                    name: "Mikko Seppänen",
+                    role: "Strategy Advisor",
+                    expertise: "Digital Transformation"
+                  },
+                  {
+                    name: "Elena Järvinen",
+                    role: "Technology Advisor",
+                    expertise: "Design Systems Architecture"
+                  },
+                  {
+                    name: "Juho Nieminen",
+                    role: "Industry Advisor",
+                    expertise: "Enterprise Design"
+                  },
+                  {
+                    name: "Sofia Koskinen",
+                    role: "Research Advisor",
+                    expertise: "Design Analytics"
+                  }
+                ].map((advisor, index) => (
+                  <div
+                    key={index}
+                    className="text-center p-6 rounded-xl border border-gray-200 hover:border-accent-red/20 transition-all duration-300 animate-on-scroll opacity-0"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <h4 className="text-lg font-semibold">{advisor.name}</h4>
+                    <p className="text-accent-red text-sm">{advisor.role}</p>
+                    <p className="mt-2 text-gray-600 text-sm">{advisor.expertise}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
