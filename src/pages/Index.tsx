@@ -101,6 +101,86 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Work Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 animate-on-scroll opacity-0">
+            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-accent-red/10 text-accent-red rounded-full">
+              Our Work
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Featured Case Studies
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore how we've helped organizations transform their design practices.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+                title: "Fintech Design System",
+                description: "Creating a scalable design system for Finland's fastest-growing fintech company",
+                tags: ["Design Systems", "Fintech"]
+              },
+              {
+                image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+                title: "E-commerce Redesign",
+                description: "Implementing design quality framework for major Nordic retailer",
+                tags: ["Design Quality", "E-commerce"]
+              },
+              {
+                image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+                title: "Design Team Scaling",
+                description: "Supporting rapid design team growth for enterprise SaaS platform",
+                tags: ["Leadership", "Enterprise"]
+              }
+            ].map((project, index) => (
+              <div
+                key={index}
+                className="group rounded-2xl overflow-hidden border border-border bg-card motion-safe:animate-on-scroll opacity-0"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                  <p className="text-muted-foreground mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="px-3 py-1 text-sm rounded-full bg-secondary text-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center motion-safe:animate-on-scroll opacity-0">
+            <a
+              href="https://dribbble.com/consulto"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
+            >
+              View More on Dribbble
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
