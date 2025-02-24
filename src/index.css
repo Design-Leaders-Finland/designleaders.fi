@@ -4,49 +4,49 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 98%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
-    --radius: 0.75rem;
+    --background: #ffffff; /* white */
+    --foreground: #0a0a0a; /* dark blue */
+    --card: #fafafa; /* very light gray */
+    --card-foreground: #0a0a0a; /* dark blue */
+    --popover: #ffffff; /* white */
+    --popover-foreground: #0a0a0a; /* dark blue */
+    --primary: #1a1a1a; /* dark navy */
+    --primary-foreground: #fafafa; /* very light gray */
+    --secondary: #f2f7ff; /* very light blue */
+    --secondary-foreground: #1a1a1a; /* dark navy */
+    --muted: #f2f7ff; /* very light blue */
+    --muted-foreground: #767676; /* medium gray */
+    --accent: #f2f7ff; /* very light blue */
+    --accent-foreground: #1a1a1a; /* dark navy */
+    --destructive: #CF3C3F; /* red */
+    --destructive-foreground: #fafafa; /* very light gray */
+    --border: #e6e6e6; /* light gray */
+    --input: #e6e6e6; /* light gray */
+    --ring: #1a1a1a; /* dark navy */
+    --radius: 0.75rem; /* border radius */
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --background: 240 10% 3.9%;
-      --foreground: 0 0% 98%;
-      --card: 240 10% 3.9%;
-      --card-foreground: 0 0% 98%;
-      --popover: 240 10% 3.9%;
-      --popover-foreground: 0 0% 98%;
-      --primary: 0 0% 98%;
-      --primary-foreground: 240 5.9% 10%;
-      --secondary: 240 3.7% 15.9%;
-      --secondary-foreground: 0 0% 98%;
-      --muted: 240 3.7% 15.9%;
-      --muted-foreground: 240 5% 64.9%;
-      --accent: 240 3.7% 15.9%;
-      --accent-foreground: 0 0% 98%;
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 0 0% 98%;
-      --border: 240 3.7% 15.9%;
-      --input: 240 3.7% 15.9%;
-      --ring: 240 4.9% 83.9%;
+      --background: #0a0a0a; /* dark blue */
+      --foreground: #fafafa; /* very light gray */
+      --card: #0a0a0a; /* dark blue */
+      --card-foreground: #fafafa; /* very light gray */
+      --popover: #0a0a0a; /* dark blue */
+      --popover-foreground: #fafafa; /* very light gray */
+      --primary: #fafafa; /* very light gray */
+      --primary-foreground: #1a1a1a; /* dark navy */
+      --secondary: #262626; /* dark gray */
+      --secondary-foreground: #fafafa; /* very light gray */
+      --muted: #262626; /* dark gray */
+      --muted-foreground: #a3a3a3; /* medium gray */
+      --accent: #262626; /* dark gray */
+      --accent-foreground: #fafafa; /* very light gray */
+      --destructive: #CF3C3F; /* dark red */
+      --destructive-foreground: #fafafa; /* very light gray */
+      --border: #262626; /* dark gray */
+      --input: #262626; /* dark gray */
+      --ring: #d9e6ff; /* light blue */
     }
   }
 
