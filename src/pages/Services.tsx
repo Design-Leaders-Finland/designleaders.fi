@@ -9,19 +9,20 @@ const Services = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-background">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-4xl mx-auto text-center">
           <Link 
             to="/" 
-            className="inline-flex items-center mb-8 text-sm text-gray-600 dark:text-gray-400 hover:text-accent-red transition-colors"
+            className="inline-flex items-center mb-8 text-sm text-foreground hover:text-accent-red transition-colors"
+            aria-label="Back to home page"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Link>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6 animate-fade-up">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6 motion-safe:animate-fade-up">
             Our Services
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground mb-8 animate-fade-up delay-100">
+          <p className="text-lg sm:text-xl text-foreground mb-8 motion-safe:animate-fade-up motion-safe:delay-100">
             Comprehensive design consulting services to transform your digital products and team capabilities.
           </p>
         </div>
@@ -58,7 +59,7 @@ const Services = () => {
               ]
             },
             {
-              icon: <Users className="h-12 w-12" />,
+              icon: <Users className="h-12 w-12 text-foreground" />,
               title: "Design Leadership",
               description: "Develop strong design leadership capabilities and establish effective design processes.",
               features: [
@@ -73,32 +74,33 @@ const Services = () => {
           ].map((service, index) => (
             <div 
               key={index}
-              className="mb-20 last:mb-0 grid md:grid-cols-2 gap-12 items-start animate-on-scroll opacity-0"
+              className="mb-20 last:mb-0 grid md:grid-cols-2 gap-12 items-start motion-safe:animate-on-scroll opacity-0"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="space-y-6">
                 <div className="p-3 rounded-2xl bg-secondary inline-block">
                   {service.icon}
                 </div>
-                <h2 className="text-3xl font-bold">{service.title}</h2>
-                <p className="text-lg text-muted-foreground">
+                <h2 className="text-3xl font-bold text-foreground">{service.title}</h2>
+                <p className="text-lg text-foreground">
                   {service.description}
                 </p>
                 <a
                   href="#contact"
-                  className="inline-flex items-center text-accent-red hover:text-accent-red/90 transition-colors"
+                  className="inline-flex items-center text-accent-red hover:text-accent-red/90 transition-colors font-medium"
+                  aria-label={`Learn more about ${service.title}`}
                 >
                   Learn more
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </div>
-              <div className="bg-card rounded-2xl p-8 border">
-                <h3 className="text-xl font-semibold mb-6">Key Features</h3>
+              <div className="bg-card rounded-2xl p-8 border border-border">
+                <h3 className="text-xl font-semibold mb-6 text-foreground">Key Features</h3>
                 <ul className="space-y-4">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
                       <Shield className="h-5 w-5 mr-3 text-accent-red shrink-0 mt-1" />
-                      <span>{feature}</span>
+                      <span className="text-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -109,9 +111,9 @@ const Services = () => {
       </section>
 
       {/* Additional Services */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Additional Services</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">Additional Services</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -125,19 +127,19 @@ const Services = () => {
                 description: "Facilitated sessions to spark creativity and problem-solving."
               },
               {
-                icon: <Shield className="h-8 w-8" />,
+                icon: <Shield className="h-8 w-8 text-foreground" />,
                 title: "Design Audits",
                 description: "Comprehensive evaluation of your current design practices."
               }
             ].map((service, index) => (
               <div
                 key={index}
-                className="p-8 rounded-2xl bg-card border group hover:border-accent-red/20 transition-all duration-300 animate-on-scroll opacity-0"
+                className="p-8 rounded-2xl bg-card border border-border group hover:border-accent-red/20 transition-colors motion-safe:animate-on-scroll opacity-0"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
+                <h3 className="text-xl font-semibold mb-3 text-foreground">{service.title}</h3>
+                <p className="text-foreground">{service.description}</p>
               </div>
             ))}
           </div>
@@ -147,13 +149,14 @@ const Services = () => {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Design Practice?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <h2 className="text-3xl font-bold mb-6 text-foreground">Ready to Transform Your Design Practice?</h2>
+          <p className="text-lg text-foreground mb-8">
             Let's discuss how our services can help you achieve your design goals.
           </p>
           <Link
             to="/#contact"
             className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
+            aria-label="Get in touch with us"
           >
             Get in Touch
             <ArrowRight className="ml-2 h-5 w-5" />
@@ -162,8 +165,8 @@ const Services = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 sm:px-6 lg:px-8 bg-background border-t">
-        <div className="max-w-7xl mx-auto text-center text-muted-foreground">
+      <footer className="py-8 px-4 sm:px-6 lg:px-8 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto text-center text-foreground">
           <p>© {new Date().getFullYear()} Consulto. All rights reserved.</p>
         </div>
       </footer>

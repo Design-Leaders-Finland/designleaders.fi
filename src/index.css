@@ -73,10 +73,26 @@
       @apply brightness-90;
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  .motion-safe\:animate-on-scroll {
+    @media (prefers-reduced-motion: no-preference) {
+      opacity: 0;
+      animation: fade-up 0.5s ease-out forwards;
+    }
   }
 }
