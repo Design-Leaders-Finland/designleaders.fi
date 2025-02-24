@@ -5,31 +5,31 @@ import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <Link 
             to="/" 
-            className="inline-flex items-center mb-8 text-sm text-foreground hover:text-accent-red transition-colors"
+            className="inline-flex items-center mb-8 text-sm font-medium text-foreground hover:text-accent-red transition-colors"
             aria-label="Back to home page"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Link>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6 motion-safe:animate-fade-up">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground motion-safe:animate-fade-up">
             Our Services
           </h1>
-          <p className="text-lg sm:text-xl text-foreground mb-8 motion-safe:animate-fade-up motion-safe:delay-100">
+          <p className="text-lg sm:text-xl text-foreground/80 mb-8 motion-safe:animate-fade-up motion-safe:delay-100">
             Comprehensive design consulting services to transform your digital products and team capabilities.
           </p>
         </div>
       </section>
 
       {/* Main Services */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {[
             {
@@ -74,15 +74,14 @@ const Services = () => {
           ].map((service, index) => (
             <div 
               key={index}
-              className="mb-20 last:mb-0 grid md:grid-cols-2 gap-12 items-start motion-safe:animate-on-scroll opacity-0"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="mb-20 last:mb-0 grid md:grid-cols-2 gap-12 items-start motion-safe:animate-on-scroll"
             >
               <div className="space-y-6">
                 <div className="p-3 rounded-2xl bg-secondary inline-block">
                   {service.icon}
                 </div>
                 <h2 className="text-3xl font-bold text-foreground">{service.title}</h2>
-                <p className="text-lg text-foreground">
+                <p className="text-lg text-foreground/80">
                   {service.description}
                 </p>
                 <a
@@ -94,13 +93,13 @@ const Services = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </div>
-              <div className="bg-card rounded-2xl p-8 border border-border">
+              <div className="bg-card rounded-2xl p-8 border border-border shadow-sm">
                 <h3 className="text-xl font-semibold mb-6 text-foreground">Key Features</h3>
                 <ul className="space-y-4">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
                       <Shield className="h-5 w-5 mr-3 text-accent-red shrink-0 mt-1" />
-                      <span className="text-foreground">{feature}</span>
+                      <span className="text-foreground/80">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -134,12 +133,11 @@ const Services = () => {
             ].map((service, index) => (
               <div
                 key={index}
-                className="p-8 rounded-2xl bg-card border border-border group hover:border-accent-red/20 transition-colors motion-safe:animate-on-scroll opacity-0"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="p-8 rounded-2xl bg-card border border-border shadow-sm group hover:border-accent-red/20 transition-colors motion-safe:animate-on-scroll"
               >
                 <div className="mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold mb-3 text-foreground">{service.title}</h3>
-                <p className="text-foreground">{service.description}</p>
+                <p className="text-foreground/80">{service.description}</p>
               </div>
             ))}
           </div>
@@ -147,10 +145,10 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6 text-foreground">Ready to Transform Your Design Practice?</h2>
-          <p className="text-lg text-foreground mb-8">
+          <p className="text-lg text-foreground/80 mb-8">
             Let's discuss how our services can help you achieve your design goals.
           </p>
           <Link
@@ -165,8 +163,8 @@ const Services = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 sm:px-6 lg:px-8 bg-background border-t border-border">
-        <div className="max-w-7xl mx-auto text-center text-foreground">
+      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-border">
+        <div className="max-w-7xl mx-auto text-center text-foreground/80">
           <p>© {new Date().getFullYear()} Consulto. All rights reserved.</p>
         </div>
       </footer>

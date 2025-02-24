@@ -35,8 +35,8 @@ export default {
           foreground: "hsl(var(--secondary-foreground))",
         },
         accent: {
-          red: "#DC2626",
-          sage: "#84A98C",
+          red: "#B91C1C", // Darker red for better contrast
+          sage: "#4B5F53", // Darker sage for better contrast
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
