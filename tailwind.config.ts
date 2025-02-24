@@ -1,9 +1,8 @@
-
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
-  darkMode: ["class", '(prefers-color-scheme: dark)'],
+  darkMode: ["class", "(prefers-color-scheme: dark)"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",

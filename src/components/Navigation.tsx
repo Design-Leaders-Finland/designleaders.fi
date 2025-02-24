@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -18,26 +17,37 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+        isScrolled
+          ? "bg-background/90 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link to="/" className="text-xl font-semibold">
-              Consulto
+              Design Leaders Finland
             </Link>
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/services" className="text-foreground/80 hover:text-accent-red transition-colors">
+            <Link
+              to="/services"
+              className="text-foreground/80 hover:text-accent-red transition-colors"
+            >
               Services
             </Link>
-            <Link to="/#about" className="text-foreground/80 hover:text-accent-red transition-colors">
+            <Link
+              to="/about"
+              className="text-foreground/80 hover:text-accent-red transition-colors"
+            >
               About
             </Link>
-            <Link to="/#contact" className="text-foreground/80 hover:text-accent-red transition-colors">
+            <Link
+              to="/#contact"
+              className="text-foreground/80 hover:text-accent-red transition-colors"
+            >
               Contact
             </Link>
           </div>
@@ -65,7 +75,7 @@ const Navigation = () => {
                 Services
               </Link>
               <Link
-                to="/#about"
+                to="/about"
                 className="block px-3 py-2 text-foreground/80 hover:text-accent-red transition-colors"
                 onClick={() => setIsOpen(false)}
               >

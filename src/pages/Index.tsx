@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import { useEffect } from "react";
 import { ArrowRight, Sparkles, Users, Zap } from "lucide-react";
 import LottieCursor from "@/components/LottieCursor";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   useEffect(() => {
@@ -31,7 +32,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center bg-background">
         <div className="max-w-4xl mx-auto text-center">
@@ -42,7 +43,8 @@ const Index = () => {
             Elevating Digital Design Through Expert Guidance
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-up delay-100">
-            We provide strategic sparring, mentoring, and leadership in design systems, quality, and leadership to help your team excel.
+            We provide strategic sparring, mentoring, and leadership in design
+            systems, quality, and leadership to help your team excel.
           </p>
           <a
             href="#contact"
@@ -55,7 +57,10 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+      <section
+        id="services"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-background"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-on-scroll opacity-0">
             <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-secondary text-foreground rounded-full">
@@ -65,7 +70,8 @@ const Index = () => {
               Comprehensive Design Expertise
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We offer specialized consulting services to elevate your design practices and team capabilities.
+              We offer specialized consulting services to elevate your design
+              practices and team capabilities.
             </p>
           </div>
 
@@ -74,17 +80,20 @@ const Index = () => {
               {
                 icon: <Sparkles className="h-8 w-8 text-accent-red" />,
                 title: "Design Systems",
-                description: "Build and maintain scalable design systems that enhance consistency and efficiency.",
+                description:
+                  "Build and maintain scalable design systems that enhance consistency and efficiency.",
               },
               {
                 icon: <Zap className="h-8 w-8 text-accent-sage" />,
                 title: "Design Quality",
-                description: "Implement processes and tools to ensure exceptional design quality across all touchpoints.",
+                description:
+                  "Implement processes and tools to ensure exceptional design quality across all touchpoints.",
               },
               {
                 icon: <Users className="h-8 w-8" />,
                 title: "Design Leadership",
-                description: "Develop strong design leadership capabilities within your organization.",
+                description:
+                  "Develop strong design leadership capabilities within your organization.",
               },
             ].map((service, index) => (
               <div
@@ -112,30 +121,37 @@ const Index = () => {
               Featured Case Studies
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore how we've helped organizations transform their design practices.
+              Explore how we've helped organizations transform their design
+              practices.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {[
               {
-                image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+                image:
+                  "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
                 title: "Fintech Design System",
-                description: "Creating a scalable design system for Finland's fastest-growing fintech company",
-                tags: ["Design Systems", "Fintech"]
+                description:
+                  "Creating a scalable design system for Finland's fastest-growing fintech company",
+                tags: ["Design Systems", "Fintech"],
               },
               {
-                image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+                image:
+                  "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
                 title: "E-commerce Redesign",
-                description: "Implementing design quality framework for major Nordic retailer",
-                tags: ["Design Quality", "E-commerce"]
+                description:
+                  "Implementing design quality framework for major Nordic retailer",
+                tags: ["Design Quality", "E-commerce"],
               },
               {
-                image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+                image:
+                  "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
                 title: "Design Team Scaling",
-                description: "Supporting rapid design team growth for enterprise SaaS platform",
-                tags: ["Leadership", "Enterprise"]
-              }
+                description:
+                  "Supporting rapid design team growth for enterprise SaaS platform",
+                tags: ["Leadership", "Enterprise"],
+              },
             ].map((project, index) => (
               <div
                 key={index}
@@ -150,8 +166,12 @@ const Index = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
+                  <h3 className="text-xl font-semibold mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, tagIndex) => (
                       <span
@@ -169,7 +189,7 @@ const Index = () => {
 
           <div className="text-center motion-safe:animate-on-scroll opacity-0">
             <a
-              href="https://dribbble.com/consulto"
+              href="https://dribbble.com/Design Leaders Finland"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
@@ -192,7 +212,8 @@ const Index = () => {
               Meet the Experts
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A collective of seasoned design leaders and practitioners dedicated to elevating digital design in Finland.
+              A collective of seasoned design leaders and practitioners
+              dedicated to elevating digital design in Finland.
             </p>
           </div>
 
@@ -211,9 +232,12 @@ const Index = () => {
               </div>
               <div className="mt-4">
                 <h3 className="text-xl font-semibold">Maria Virtanen</h3>
-                <p className="text-accent-red">Founder & Principal Consultant</p>
+                <p className="text-accent-red">
+                  Founder & Principal Consultant
+                </p>
                 <p className="mt-2 text-gray-600">
-                  Former Design Lead at Nokia, with 15+ years of experience in design systems and leadership.
+                  Former Design Lead at Nokia, with 15+ years of experience in
+                  design systems and leadership.
                 </p>
               </div>
             </div>
@@ -262,29 +286,31 @@ const Index = () => {
 
             {/* Advisor Grid */}
             <div className="md:col-span-2 lg:col-span-3 mt-12">
-              <h3 className="text-2xl font-semibold mb-8 text-center">Our Advisors</h3>
+              <h3 className="text-2xl font-semibold mb-8 text-center">
+                Our Advisors
+              </h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   {
                     name: "Mikko Seppänen",
                     role: "Strategy Advisor",
-                    expertise: "Digital Transformation"
+                    expertise: "Digital Transformation",
                   },
                   {
                     name: "Elena Järvinen",
                     role: "Technology Advisor",
-                    expertise: "Design Systems Architecture"
+                    expertise: "Design Systems Architecture",
                   },
                   {
                     name: "Juho Nieminen",
                     role: "Industry Advisor",
-                    expertise: "Enterprise Design"
+                    expertise: "Enterprise Design",
                   },
                   {
                     name: "Sofia Koskinen",
                     role: "Research Advisor",
-                    expertise: "Design Analytics"
-                  }
+                    expertise: "Design Analytics",
+                  },
                 ].map((advisor, index) => (
                   <div
                     key={index}
@@ -293,7 +319,9 @@ const Index = () => {
                   >
                     <h4 className="text-lg font-semibold">{advisor.name}</h4>
                     <p className="text-accent-red text-sm">{advisor.role}</p>
-                    <p className="mt-2 text-gray-600 text-sm">{advisor.expertise}</p>
+                    <p className="mt-2 text-gray-600 text-sm">
+                      {advisor.expertise}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -313,14 +341,18 @@ const Index = () => {
               Start Your Design Journey
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ready to elevate your design practice? Let's discuss how we can help.
+              Ready to elevate your design practice? Let's discuss how we can
+              help.
             </p>
           </div>
 
           <form className="space-y-6 animate-on-scroll opacity-0">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-foreground mb-1"
+                >
                   Name
                 </label>
                 <input
@@ -331,7 +363,10 @@ const Index = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-foreground mb-1"
+                >
                   Email
                 </label>
                 <input
@@ -343,7 +378,10 @@ const Index = () => {
               </div>
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-foreground mb-1"
+              >
                 Message
               </label>
               <textarea
@@ -367,11 +405,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 sm:px-6 lg:px-8 bg-background border-t border-border">
-        <div className="max-w-7xl mx-auto text-center text-muted-foreground">
-          <p>© {new Date().getFullYear()} Consulto. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

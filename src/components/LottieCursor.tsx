@@ -1,4 +1,3 @@
-
 import Lottie from "lottie-react";
 
 const cursorAnimation = {
@@ -23,7 +22,7 @@ const cursorAnimation = {
         r: { a: 0, k: 0, ix: 10 },
         p: { a: 0, k: [400, 400, 0], ix: 2, l: 2 },
         a: { a: 0, k: [0, 0, 0], ix: 1, l: 2 },
-        s: { a: 0, k: [100, 100, 100], ix: 6, l: 2 }
+        s: { a: 0, k: [100, 100, 100], ix: 6, l: 2 },
       },
       ao: 0,
       shapes: [
@@ -45,19 +44,19 @@ const cursorAnimation = {
                       {
                         i: [
                           [0, 0],
-                          [0, 0]
+                          [0, 0],
                         ],
                         o: [
                           [0, 0],
-                          [0, 0]
+                          [0, 0],
                         ],
                         v: [
                           [-100, -100],
-                          [100, 100]
+                          [100, 100],
                         ],
-                        c: false
-                      }
-                    ]
+                        c: false,
+                      },
+                    ],
                   },
                   {
                     t: 59,
@@ -65,26 +64,26 @@ const cursorAnimation = {
                       {
                         i: [
                           [0, 0],
-                          [0, 0]
+                          [0, 0],
                         ],
                         o: [
                           [0, 0],
-                          [0, 0]
+                          [0, 0],
                         ],
                         v: [
                           [-100, -100],
-                          [100, 100]
+                          [100, 100],
                         ],
-                        c: false
-                      }
-                    ]
-                  }
+                        c: false,
+                      },
+                    ],
+                  },
                 ],
-                ix: 2
+                ix: 2,
               },
               nm: "Path 1",
               mn: "ADBE Vector Shape - Group",
-              hd: false
+              hd: false,
             },
             {
               ty: "st",
@@ -96,8 +95,8 @@ const cursorAnimation = {
               bm: 0,
               nm: "Stroke 1",
               mn: "ADBE Vector Graphic - Stroke",
-              hd: false
-            }
+              hd: false,
+            },
           ],
           nm: "Shape 1",
           np: 2,
@@ -105,15 +104,15 @@ const cursorAnimation = {
           bm: 0,
           ix: 1,
           mn: "ADBE Vector Group",
-          hd: false
-        }
+          hd: false,
+        },
       ],
       ip: 0,
       op: 60,
       st: 0,
-      bm: 0
-    }
-  ]
+      bm: 0,
+    },
+  ],
 };
 
 const LottieCursor = () => {
