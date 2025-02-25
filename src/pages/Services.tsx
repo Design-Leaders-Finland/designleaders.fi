@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import {
   ArrowLeft,
@@ -8,6 +9,8 @@ import {
   BarChart,
   Lightbulb,
   Shield,
+  CircuitBoard,
+  Computer,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
@@ -43,7 +46,21 @@ const Services = () => {
         <div className="max-w-7xl mx-auto">
           {[
             {
-              icon: <Sparkles className="h-12 w-12 text-accent-red" />,
+              icon: <CircuitBoard className="h-12 w-12 text-accent-red" />,
+              title: "Prototyping",
+              description:
+                "End-to-end prototyping services for both hardware and software solutions, bringing your ideas to life.",
+              features: [
+                "Hardware Prototype Development",
+                "Software Prototype Creation",
+                "Rapid Prototyping & Iteration",
+                "User Testing & Validation",
+                "Technical Feasibility Studies",
+                "Integration Planning",
+              ],
+            },
+            {
+              icon: <Sparkles className="h-12 w-12 text-accent-sage" />,
               title: "Design Systems",
               description:
                 "Build and maintain scalable design systems that enhance consistency and efficiency across your digital products.",
@@ -57,7 +74,7 @@ const Services = () => {
               ],
             },
             {
-              icon: <Zap className="h-12 w-12 text-accent-sage" />,
+              icon: <Zap className="h-12 w-12 text-accent-red" />,
               title: "Design Quality",
               description:
                 "Establish and maintain exceptional design quality standards throughout your organization.",
@@ -135,6 +152,18 @@ const Services = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
+                icon: <Computer className="h-8 w-8 text-accent-red" />,
+                title: "Software Prototyping",
+                description:
+                  "Rapid development of interactive software prototypes for validation and testing.",
+              },
+              {
+                icon: <CircuitBoard className="h-8 w-8 text-accent-sage" />,
+                title: "Hardware Prototyping",
+                description:
+                  "Physical prototype development with advanced manufacturing techniques.",
+              },
+              {
                 icon: <BarChart className="h-8 w-8 text-accent-red" />,
                 title: "Design Analytics",
                 description:
@@ -189,7 +218,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
