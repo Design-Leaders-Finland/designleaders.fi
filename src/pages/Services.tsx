@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import {
   ArrowLeft,
@@ -104,7 +103,7 @@ const Services = () => {
           ].map((service, index) => (
             <div
               key={index}
-              className="mb-20 last:mb-0 grid md:grid-cols-2 gap-12 items-start motion-safe:animate-on-scroll"
+              className="mb-20 last:mb-0 grid md:grid-cols-2 gap-12 items-start"
             >
               <div className="space-y-6">
                 <div className="p-3 rounded-2xl bg-secondary inline-block">
@@ -184,7 +183,7 @@ const Services = () => {
             ].map((service, index) => (
               <div
                 key={index}
-                className="p-8 rounded-2xl bg-card border border-border shadow-sm group hover:border-accent-red/20 transition-colors motion-safe:animate-on-scroll"
+                className="p-8 rounded-2xl bg-card border border-border shadow-sm group hover:border-accent-red/20 transition-colors"
               >
                 <div className="mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold mb-3 text-foreground">

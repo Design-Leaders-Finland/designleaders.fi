@@ -41,7 +41,7 @@ const About = () => {
         <div className="max-w-3xl mx-auto">
           <div className="space-y-24">
             {/* Foundation */}
-            <div className="relative motion-safe:animate-on-scroll opacity-0">
+            <div className="relative ">
               <div className="flex items-center mb-6">
                 <Building className="h-8 w-8 text-accent-red" />
                 <h2 className="text-2xl font-bold ml-4">
@@ -58,7 +58,7 @@ const About = () => {
             </div>
 
             {/* Early Days */}
-            <div className="relative motion-safe:animate-on-scroll opacity-0">
+            <div className="relative ">
               <div className="flex items-center mb-6">
                 <Heart className="h-8 w-8 text-accent-sage" />
                 <h2 className="text-2xl font-bold ml-4">2019: Early Success</h2>
@@ -73,7 +73,7 @@ const About = () => {
             </div>
 
             {/* Growth */}
-            <div className="relative motion-safe:animate-on-scroll opacity-0">
+            <div className="relative ">
               <div className="flex items-center mb-6">
                 <Users className="h-8 w-8 text-foreground" />
                 <h2 className="text-2xl font-bold ml-4">
@@ -90,7 +90,7 @@ const About = () => {
             </div>
 
             {/* Present */}
-            <div className="relative motion-safe:animate-on-scroll opacity-0">
+            <div className="relative ">
               <div className="flex items-center mb-6">
                 <Award className="h-8 w-8 text-accent-red" />
                 <h2 className="text-2xl font-bold ml-4">
@@ -136,7 +136,7 @@ const About = () => {
             ].map((value, index) => (
               <div
                 key={index}
-                className="p-8 rounded-2xl bg-card border border-border motion-safe:animate-on-scroll opacity-0"
+                className="p-8 rounded-2xl bg-card border border-border "
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <h3 className="text-xl font-semibold mb-3 text-foreground">

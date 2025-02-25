@@ -1,34 +1,9 @@
 import Navigation from "@/components/Navigation";
-import { useEffect } from "react";
 import { ArrowRight, Sparkles, Users, Zap } from "lucide-react";
 import LottieCursor from "@/components/LottieCursor";
 import Footer from "@/components/Footer";
 
 const Index = () => {
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      threshold: 0.1,
-      rootMargin: "0px",
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-fade-up");
-          entry.target.classList.remove("opacity-0");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll(".animate-on-scroll").forEach((el) => {
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -62,7 +37,7 @@ const Index = () => {
         className="py-20 px-4 sm:px-6 lg:px-8 bg-background"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 animate-on-scroll opacity-0">
+          <div className="text-center mb-16 ">
             <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-secondary text-foreground rounded-full">
               Our Services
             </span>
@@ -98,7 +73,7 @@ const Index = () => {
             ].map((service, index) => (
               <div
                 key={index}
-                className="group p-8 rounded-2xl border border-border hover:border-accent-red/20 bg-card transition-all duration-300 animate-on-scroll opacity-0"
+                className="group p-8 rounded-2xl border border-border hover:border-accent-red/20 bg-card transition-all duration-300 "
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="mb-4">{service.icon}</div>
@@ -113,7 +88,7 @@ const Index = () => {
       {/* Work Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 animate-on-scroll opacity-0">
+          <div className="text-center mb-16 ">
             <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-accent-red/10 text-accent-red rounded-full">
               Our Work
             </span>
@@ -155,7 +130,7 @@ const Index = () => {
             ].map((project, index) => (
               <div
                 key={index}
-                className="group rounded-2xl overflow-hidden border border-border bg-card motion-safe:animate-on-scroll opacity-0"
+                className="group rounded-2xl overflow-hidden border border-border bg-card motion-safe:"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -187,7 +162,7 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="text-center motion-safe:animate-on-scroll opacity-0">
+          <div className="text-center motion-safe:">
             <a
               href="https://dribbble.com/Design Leaders Finland"
               target="_blank"
@@ -204,7 +179,7 @@ const Index = () => {
       {/* About Section */}
       <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 animate-on-scroll opacity-0">
+          <div className="text-center mb-16 ">
             <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-secondary text-foreground rounded-full">
               Our Team
             </span>
@@ -219,7 +194,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Founder */}
-            <div className="relative group animate-on-scroll opacity-0">
+            <div className="relative group ">
               <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
                 <img
                   src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
@@ -243,7 +218,7 @@ const Index = () => {
             </div>
 
             {/* Design Director 1 */}
-            <div className="relative group animate-on-scroll opacity-0">
+            <div className="relative group ">
               <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
                 <img
                   src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
@@ -264,7 +239,7 @@ const Index = () => {
             </div>
 
             {/* Design Director 2 */}
-            <div className="relative group animate-on-scroll opacity-0">
+            <div className="relative group ">
               <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
                 <img
                   src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
@@ -314,7 +289,7 @@ const Index = () => {
                 ].map((advisor, index) => (
                   <div
                     key={index}
-                    className="text-center p-6 rounded-xl border border-gray-200 hover:border-accent-red/20 transition-all duration-300 animate-on-scroll opacity-0"
+                    className="text-center p-6 rounded-xl border border-gray-200 hover:border-accent-red/20 transition-all duration-300 "
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <h4 className="text-lg font-semibold">{advisor.name}</h4>
@@ -333,7 +308,7 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16 animate-on-scroll opacity-0">
+          <div className="text-center mb-16 ">
             <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-accent-red/10 text-accent-red rounded-full">
               Get in Touch
             </span>
@@ -346,7 +321,7 @@ const Index = () => {
             </p>
           </div>
 
-          <form className="space-y-6 animate-on-scroll opacity-0">
+          <form className="space-y-6 ">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label
