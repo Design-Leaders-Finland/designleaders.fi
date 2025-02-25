@@ -1,6 +1,5 @@
 import Navigation from "@/components/Navigation";
 import { ArrowRight, Sparkles, Users, Zap } from "lucide-react";
-import LottieCursor from "@/components/LottieCursor";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -198,15 +197,12 @@ const Index = () => {
               <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
                 <img
                   src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
-                  alt="Maria Virtanen - Founder"
+                  alt="Jukka Paasonen - Founder"
                   className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <LottieCursor />
-                </div>
               </div>
               <div className="mt-4">
-                <h3 className="text-xl font-semibold">Maria Virtanen</h3>
+                <h3 className="text-xl font-semibold">Jukka Paasonen</h3>
                 <p className="text-accent-red">
                   Founder & Principal Consultant
                 </p>
@@ -222,15 +218,12 @@ const Index = () => {
               <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
                 <img
                   src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
-                  alt="Antti Korhonen - Design Director"
+                  alt="Vesa-Matti Nurmi - Design Director"
                   className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <LottieCursor />
-                </div>
               </div>
               <div className="mt-4">
-                <h3 className="text-xl font-semibold">Antti Korhonen</h3>
+                <h3 className="text-xl font-semibold">Vesa-Matti Nurmi</h3>
                 <p className="text-accent-sage">Design Director</p>
                 <p className="mt-2 text-gray-600">
                   Specialist in design systems implementation and team scaling.
@@ -243,15 +236,12 @@ const Index = () => {
               <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
                 <img
                   src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-                  alt="Laura Mäkinen - Design Director"
+                  alt="Antti Hämäläinen - Design Director"
                   className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <LottieCursor />
-                </div>
               </div>
               <div className="mt-4">
-                <h3 className="text-xl font-semibold">Laura Mäkinen</h3>
+                <h3 className="text-xl font-semibold">Antti Hämäläinen</h3>
                 <p className="text-accent-sage">Design Director</p>
                 <p className="mt-2 text-gray-600">
                   Expert in design quality processes and team mentoring.
@@ -267,7 +257,7 @@ const Index = () => {
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
                   {
-                    name: "Mikko Seppänen",
+                    name: "Olli Mannerkoski",
                     role: "Strategy Advisor",
                     expertise: "Digital Transformation",
                   },
