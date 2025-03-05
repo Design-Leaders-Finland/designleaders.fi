@@ -249,6 +249,24 @@ const Index = () => {
               </div>
             </div>
 
+            {/* Design Director 3 */}
+            <div className="relative group ">
+              <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
+                <img
+                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+                  alt="Antero Meuronen - Design Director"
+                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold">Antero Meuronen</h3>
+                <p className="text-accent-sage">Design Director</p>
+                <p className="mt-2 text-gray-600">
+                  Expert in product leadership, ROI, and stuff.
+                </p>
+              </div>
+            </div>
+
             {/* Advisor Grid */}
             <div className="md:col-span-2 lg:col-span-3 mt-12">
               <h3 className="text-2xl font-semibold mb-8 text-center">
@@ -260,21 +278,6 @@ const Index = () => {
                     name: "Olli Mannerkoski",
                     role: "Strategy Advisor",
                     expertise: "Digital Transformation",
-                  },
-                  {
-                    name: "Elena Järvinen",
-                    role: "Technology Advisor",
-                    expertise: "Design Systems Architecture",
-                  },
-                  {
-                    name: "Juho Nieminen",
-                    role: "Industry Advisor",
-                    expertise: "Enterprise Design",
-                  },
-                  {
-                    name: "Sofia Koskinen",
-                    role: "Research Advisor",
-                    expertise: "Design Analytics",
                   },
                 ].map((advisor, index) => (
                   <div
