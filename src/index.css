@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff; /* white */
+    --foreground: #0a0a0a; /* dark blue */
+    --card: #fafafa; /* very light gray */
+    --card-foreground: #0a0a0a; /* dark blue */
+    --popover: #ffffff; /* white */
+    --popover-foreground: #0a0a0a; /* dark blue */
+    --primary: #1a1a1a; /* dark navy */
+    --primary-foreground: #fafafa; /* very light gray */
+    --secondary: #f2f7ff; /* very light blue */
+    --secondary-foreground: #1a1a1a; /* dark navy */
+    --muted: #f2f7ff; /* very light blue */
+    --muted-foreground: #767676; /* medium gray */
+    --accent: #f2f7ff; /* very light blue */
+    --accent-foreground: #1a1a1a; /* dark navy */
+    --destructive: #cf3c3f; /* red */
+    --destructive-foreground: #fafafa; /* very light gray */
+    --border: #e6e6e6; /* light gray */
+    --input: #e6e6e6; /* light gray */
+    --ring: #1a1a1a; /* dark navy */
+    --radius: 0.75rem; /* border radius */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a; /* dark blue */
+      --foreground: #fafafa; /* very light gray */
+      --card: #0a0a0a; /* dark blue */
+      --card-foreground: #fafafa; /* very light gray */
+      --popover: #0a0a0a; /* dark blue */
+      --popover-foreground: #fafafa; /* very light gray */
+      --primary: #fafafa; /* very light gray */
+      --primary-foreground: #1a1a1a; /* dark navy */
+      --secondary: #262626; /* dark gray */
+      --secondary-foreground: #fafafa; /* very light gray */
+      --muted: #262626; /* dark gray */
+      --muted-foreground: #a3a3a3; /* medium gray */
+      --accent: #262626; /* dark gray */
+      --accent-foreground: #fafafa; /* very light gray */
+      --destructive: #cf3c3f; /* dark red */
+      --destructive-foreground: #fafafa; /* very light gray */
+      --border: #262626; /* dark gray */
+      --input: #262626; /* dark gray */
+      --ring: #d9e6ff; /* light blue */
+    }
+  }
+
+  * {
+    @apply border-border selection:bg-accent-red/10;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-screen transition-colors duration-300;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
