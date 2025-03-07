@@ -10,19 +10,19 @@ const Index = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center bg-background">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-accent-red/10 text-accent-red rounded-full animate-fade-in">
+          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-accent-red/10 text-accent-red rounded-full ">
             Leading Digital Design in Finland
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight animate-fade-up">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight ">
             Elevating Digital Design Through Expert Guidance
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-up delay-100">
+          <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto  ">
             We provide strategic sparring, mentoring, and leadership in design
             systems, quality, and leadership to help your team excel.
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors animate-fade-up delay-200"
+            className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors  "
           >
             Start a Conversation
             <ArrowRight className="ml-2 h-5 w-5" />

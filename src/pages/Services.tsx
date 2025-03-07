@@ -30,10 +30,10 @@ const Services = () => {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Link>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground motion-safe:animate-fade-up">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground ">
             Our Services
           </h1>
-          <p className="text-lg sm:text-xl text-foreground/80 mb-8 motion-safe:animate-fade-up motion-safe:delay-100">
+          <p className="text-lg sm:text-xl text-foreground/80 mb-8  ">
             Comprehensive design consulting services to transform your digital
             products and team capabilities.
           </p>

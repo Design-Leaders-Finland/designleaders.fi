@@ -5,11 +5,11 @@
 @layer base {
   :root {
     --background: #ffffff; /* white */
-    --foreground: #0a0a0a; /* dark blue */
+    --foreground: #161616; /* dark blue */
     --card: #fafafa; /* very light gray */
-    --card-foreground: #0a0a0a; /* dark blue */
+    --card-foreground: #161616; /* dark blue */
     --popover: #ffffff; /* white */
-    --popover-foreground: #0a0a0a; /* dark blue */
+    --popover-foreground: #161616; /* dark blue */
     --primary: #1a1a1a; /* dark navy */
     --primary-foreground: #fafafa; /* very light gray */
     --secondary: #f2f7ff; /* very light blue */
@@ -28,11 +28,11 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --background: #0a0a0a; /* dark blue */
+      --background: #161616; /* dark blue */
       --foreground: #fafafa; /* very light gray */
-      --card: #0a0a0a; /* dark blue */
+      --card: #161616; /* dark blue */
       --card-foreground: #fafafa; /* very light gray */
-      --popover: #0a0a0a; /* dark blue */
+      --popover: #161616; /* dark blue */
       --popover-foreground: #fafafa; /* very light gray */
       --primary: #fafafa; /* very light gray */
       --primary-foreground: #1a1a1a; /* dark navy */
@@ -60,23 +60,15 @@
 
   body {
     @apply bg-background text-foreground min-h-screen transition-colors duration-300;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    font-feature-settings: "salt";
+    font-family:
+      Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+      sans-serif;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

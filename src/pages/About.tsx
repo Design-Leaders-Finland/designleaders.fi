@@ -26,10 +26,8 @@ const About = () => {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Link>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6 motion-safe:animate-fade-up">
-            Our Story
-          </h1>
-          <p className="text-lg sm:text-xl text-foreground mb-8 motion-safe:animate-fade-up motion-safe:delay-100">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6 ">Our Story</h1>
+          <p className="text-lg sm:text-xl text-foreground mb-8  ">
             From a vision of better design to Finland's leading design
             consultancy
           </p>
