@@ -1,8 +1,11 @@
+import React, { useState } from "react";
 import Navigation from "@/components/Navigation";
 import { ArrowRight, Sparkles, Users, Zap } from "lucide-react";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -129,7 +132,7 @@ const Index = () => {
             ].map((project, index) => (
               <div
                 key={index}
-                className="group rounded-2xl overflow-hidden border border-border bg-card motion-safe:"
+                className="group rounded-2xl overflow-hidden border border-border bg-card"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -159,18 +162,6 @@ const Index = () => {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center motion-safe:">
-            <a
-              href="https://dribbble.com/Design Leaders Finland"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
-            >
-              View More on Dribbble
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
           </div>
         </div>
       </section>
@@ -267,31 +258,22 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Advisor Grid */}
-            <div className="md:col-span-2 lg:col-span-3 mt-12">
-              <h3 className="text-2xl font-semibold mb-8 text-center">
-                Our Advisors
-              </h3>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[
-                  {
-                    name: "Olli Mannerkoski",
-                    role: "Strategy Advisor",
-                    expertise: "Digital Transformation",
-                  },
-                ].map((advisor, index) => (
-                  <div
-                    key={index}
-                    className="text-center p-6 rounded-xl border border-gray-200 hover:border-accent-red/20 transition-all duration-300 "
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <h4 className="text-lg font-semibold">{advisor.name}</h4>
-                    <p className="text-accent-red text-sm">{advisor.role}</p>
-                    <p className="mt-2 text-gray-600 text-sm">
-                      {advisor.expertise}
-                    </p>
-                  </div>
-                ))}
+            {/* Design Director 4 */}
+            <div className="relative group ">
+              <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
+                <img
+                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+                  alt="Olli Mannerkoski- Head of Strategic Design"
+                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold">Olli Mannerkoski</h3>
+                <p className="text-accent-sage">Head of Strategic Design</p>
+                <p className="mt-2 text-gray-600">
+                  Expert in product leadership, auditing design teams, and
+                  stuff.
+                </p>
               </div>
             </div>
           </div>
@@ -314,7 +296,29 @@ const Index = () => {
             </p>
           </div>
 
-          <form className="space-y-6 ">
+          <form
+            className="space-y-6"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            onSubmit={(event) => {
+              event.preventDefault();
+
+              const form = event.target as HTMLFormElement;
+              const formData = new FormData(form);
+
+              fetch("/", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: new URLSearchParams(formData).toString(),
+              })
+                .then(() => setIsSubmitted(true))
+                .catch((error) => alert(error));
+            }}
+          >
+            <input type="hidden" name="form-name" value="contact" />
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label
@@ -326,6 +330,7 @@ const Index = () => {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   className="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-accent-red focus:ring-1 focus:ring-accent-red/20 transition-colors"
                   required
                 />
@@ -340,6 +345,7 @@ const Index = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-accent-red focus:ring-1 focus:ring-accent-red/20 transition-colors"
                   required
                 />
@@ -354,6 +360,7 @@ const Index = () => {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={4}
                 className="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-accent-red focus:ring-1 focus:ring-accent-red/20 transition-colors"
                 required
@@ -369,6 +376,25 @@ const Index = () => {
               </button>
             </div>
           </form>
+
+          {isSubmitted && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-black p-8 rounded-lg shadow-lg text-center">
+                <h3 className="text-2xl font-semibold mb-4">Thank You!</h3>
+                <p className="text-lg mb-6">
+                  Your message has been sent successfully and we will be
+                  contacting you soon.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setIsSubmitted(false)}
+                  className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
