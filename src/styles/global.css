@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is((prefers-color-scheme: dark) *));
+
+@theme {
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent-red: #b91c1c;
+  --color-accent-sage: #4b5f53;
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@layer base {
+  :root {
+    --background: #ffffff; /* white */
+    --foreground: #161616; /* dark blue */
+    --card: #fafafa; /* very light gray */
+    --card-foreground: #161616; /* dark blue */
+    --popover: #ffffff; /* white */
+    --popover-foreground: #161616; /* dark blue */
+    --primary: #1a1a1a; /* dark navy */
+    --primary-foreground: #fafafa; /* very light gray */
+    --secondary: #f2f7ff; /* very light blue */
+    --secondary-foreground: #1a1a1a; /* dark navy */
+    --muted: #f2f7ff; /* very light blue */
+    --muted-foreground: #767676; /* medium gray */
+    --accent: #f2f7ff; /* very light blue */
+    --accent-foreground: #1a1a1a; /* dark navy */
+    --destructive: #cf3c3f; /* red */
+    --destructive-foreground: #fafafa; /* very light gray */
+    --border: #e6e6e6; /* light gray */
+    --input: #e6e6e6; /* light gray */
+    --ring: #1a1a1a; /* dark navy */
+    --radius: 0.75rem; /* border radius */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #161616; /* dark blue */
+      --foreground: #fafafa; /* very light gray */
+      --card: #161616; /* dark blue */
+      --card-foreground: #fafafa; /* very light gray */
+      --popover: #161616; /* dark blue */
+      --popover-foreground: #fafafa; /* very light gray */
+      --primary: #fafafa; /* very light gray */
+      --primary-foreground: #1a1a1a; /* dark navy */
+      --secondary: #262626; /* dark gray */
+      --secondary-foreground: #fafafa; /* very light gray */
+      --muted: #262626; /* dark gray */
+      --muted-foreground: #a3a3a3; /* medium gray */
+      --accent: #262626; /* dark gray */
+      --accent-foreground: #fafafa; /* very light gray */
+      --destructive: #cf3c3f; /* dark red */
+      --destructive-foreground: #fafafa; /* very light gray */
+      --border: #262626; /* dark gray */
+      --input: #262626; /* dark gray */
+      --ring: #d9e6ff; /* light blue */
+    }
+  }
+
+  * {
+    @apply border-border selection:bg-accent-red/10;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-screen transition-colors duration-300;
+    font-feature-settings: "salt";
+    font-family:
+      Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+      sans-serif;
+  }
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}

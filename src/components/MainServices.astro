@@ -1,0 +1,110 @@
+---
+
+import {
+  ArrowRight,
+  Sparkles,
+  Users,
+  Zap,
+  Shield,
+  CircuitBoard,
+} from "lucide-react";
+---
+      <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+          {[
+            {
+              icon: <CircuitBoard className="h-12 w-12 text-accent-red" />,
+              title: "Prototyping",
+              description:
+                "End-to-end prototyping services for both hardware and software solutions, bringing your ideas to life.",
+              features: [
+                "Hardware Prototype Development",
+                "Software Prototype Creation",
+                "Rapid Prototyping & Iteration",
+                "User Testing & Validation",
+                "Technical Feasibility Studies",
+                "Integration Planning",
+              ],
+            },
+            {
+              icon: <Sparkles className="h-12 w-12 text-accent-sage" />,
+              title: "Design Systems",
+              description:
+                "Build and maintain scalable design systems that enhance consistency and efficiency across your digital products.",
+              features: [
+                "Design System Strategy & Planning",
+                "Component Library Development",
+                "Documentation & Guidelines",
+                "Implementation Support",
+                "Team Training & Workshops",
+                "System Maintenance & Evolution",
+              ],
+            },
+            {
+              icon: <Zap className="h-12 w-12 text-accent-red" />,
+              title: "Design Quality",
+              description:
+                "Establish and maintain exceptional design quality standards throughout your organization.",
+              features: [
+                "Quality Assessment Framework",
+                "Design Review Processes",
+                "Usability Testing",
+                "Accessibility Compliance",
+                "Performance Optimization",
+                "Design Metrics & Analytics",
+              ],
+            },
+            {
+              icon: <Users className="h-12 w-12 text-foreground" />,
+              title: "Design Leadership",
+              description:
+                "Develop strong design leadership capabilities and establish effective design processes.",
+              features: [
+                "Design Team Structure",
+                "Process Optimization",
+                "Career Development",
+                "Design Operations",
+                "Stakeholder Management",
+                "Design Culture Building",
+              ],
+            },
+          ].map((service, index) => (
+            <div
+              class="mb-20 last:mb-0 grid md:grid-cols-2 gap-12 items-start"
+            >
+              <div class="space-y-6">
+                <div class="p-3 rounded-2xl bg-secondary inline-block">
+                  {service.icon}
+                </div>
+                <h2 class="text-3xl font-bold text-foreground">
+                  {service.title}
+                </h2>
+                <p class="text-lg text-foreground/80">
+                  {service.description}
+                </p>
+                <a
+                  href="#contact"
+                  class="inline-flex items-center text-accent-red hover:text-accent-red/90 transition-colors font-medium"
+                  aria-label={`Learn more about ${service.title}`}
+                >
+                  Learn more
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </div>
+              <div class="bg-card rounded-2xl p-8 border border-border shadow-sm">
+                <h3 class="text-xl font-semibold mb-6 text-foreground">
+                  Key Features
+                </h3>
+                <ul class="space-y-4">
+                  {service.features.map((feature) => (
+                    <li class="flex items-start">
+                      <Shield className="h-5 w-5 mr-3 text-accent-red shrink-0 mt-1" />
+                      <span class="text-foreground/80">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
