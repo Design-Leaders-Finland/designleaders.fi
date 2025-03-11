@@ -1,6 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import MainServices from '../components/MainServices.astro';
+import Layout from "../layouts/Layout.astro";
+import MainServices from "../components/MainServices.astro";
 
 import {
   ArrowLeft,
@@ -14,104 +14,102 @@ import {
   CircuitBoard,
   Computer,
 } from "lucide-react";
-
-
 ---
+
 <Layout title="Home Page">
-      {/* Hero Section */}
-      <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center">
-          <a
-            href="/"
-            class="inline-flex items-center mb-8 text-sm font-medium text-foreground hover:text-accent-red transition-colors"
-            aria-label="Back to home page"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-        </a>
-          <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-foreground ">
-            Our Services
-          </h1>
-          <p class="text-lg sm:text-xl text-foreground/80 mb-8  ">
-            Comprehensive design consulting services to transform your digital
-            products and team capabilities.
-          </p>
-        </div>
-      </section>
+  {/* Hero Section */}
+  <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <a
+        href="/"
+        class="inline-flex items-center mb-8 text-sm font-medium text-foreground hover:text-accent-red transition-colors"
+        aria-label="Back to home page"
+      >
+        <ArrowLeft className="w-4 h-4 mr-2" />
+        Back to Home
+      </a>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-foreground">
+        Our Services
+      </h1>
+      <p class="text-lg sm:text-xl text-foreground/80 mb-8">
+        Comprehensive design consulting services to transform your digital
+        products and team capabilities.
+      </p>
+    </div>
+  </section>
 
-      <MainServices />
+  <MainServices />
 
-      {/* Additional Services */}
-      <section class="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
-        <div class="max-w-7xl mx-auto">
-          <h2 class="text-3xl font-bold text-center mb-12 text-foreground">
-            Additional Services
-          </h2>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Computer className="h-8 w-8 text-accent-red" />,
-                title: "Software Prototyping",
-                description:
-                  "Rapid development of interactive software prototypes for validation and testing.",
-              },
-              {
-                icon: <CircuitBoard className="h-8 w-8 text-accent-sage" />,
-                title: "Hardware Prototyping",
-                description:
-                  "Physical prototype development with advanced manufacturing techniques.",
-              },
-              {
-                icon: <BarChart className="h-8 w-8 text-accent-red" />,
-                title: "Design Analytics",
-                description:
-                  "Data-driven insights to measure and improve design impact.",
-              },
-              {
-                icon: <Lightbulb className="h-8 w-8 text-accent-sage" />,
-                title: "Innovation Workshops",
-                description:
-                  "Facilitated sessions to spark creativity and problem-solving.",
-              },
-              {
-                icon: <Shield className="h-8 w-8 text-foreground" />,
-                title: "Design Audits",
-                description:
-                  "Comprehensive evaluation of your current design practices.",
-              },
-            ].map((service) => (
-              <div
-                class="p-8 rounded-2xl bg-card border border-border shadow-sm group hover:border-accent-red/20 transition-colors"
-              >
-                <div class="mb-4">{service.icon}</div>
-                <h3 class="text-xl font-semibold mb-3 text-foreground">
-                  {service.title}
-                </h3>
-                <p class="text-foreground/80">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+  {/* Additional Services */}
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-foreground">
+        Additional Services
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          [
+            {
+              icon: <Computer className="h-8 w-8 text-accent-red" />,
+              title: "Software Prototyping",
+              description:
+                "Rapid development of interactive software prototypes for validation and testing.",
+            },
+            {
+              icon: <CircuitBoard className="h-8 w-8 text-accent-sage" />,
+              title: "Hardware Prototyping",
+              description:
+                "Physical prototype development with advanced manufacturing techniques.",
+            },
+            {
+              icon: <BarChart className="h-8 w-8 text-accent-red" />,
+              title: "Design Analytics",
+              description:
+                "Data-driven insights to measure and improve design impact.",
+            },
+            {
+              icon: <Lightbulb className="h-8 w-8 text-accent-sage" />,
+              title: "Innovation Workshops",
+              description:
+                "Facilitated sessions to spark creativity and problem-solving.",
+            },
+            {
+              icon: <Shield className="h-8 w-8 text-foreground" />,
+              title: "Design Audits",
+              description:
+                "Comprehensive evaluation of your current design practices.",
+            },
+          ].map((service) => (
+            <div class="p-8 rounded-2xl bg-card border border-border shadow-sm group hover:border-accent-red/20 transition-colors">
+              <div class="mb-4">{service.icon}</div>
+              <h3 class="text-xl font-semibold mb-3 text-foreground">
+                {service.title}
+              </h3>
+              <p class="text-foreground/80">{service.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
-      {/* CTA Section */}
-      <section class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-3xl font-bold mb-6 text-foreground">
-            Ready to Transform Your Design Practice?
-          </h2>
-          <p class="text-lg text-foreground/80 mb-8">
-            Let's discuss how our services can help you achieve your design
-            goals.
-          </p>
-          <a
-          href="/#contact"
-            class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
-            aria-label="Get in touch with us"
-          >
-            Get in Touch
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </a
-        </div>
-      </section>
-</Layout>
+  {/* CTA Section */}
+  <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6 text-foreground">
+        Ready to Transform Your Design Practice?
+      </h2>
+      <p class="text-lg text-foreground/80 mb-8">
+        Let's discuss how our services can help you achieve your design goals.
+      </p>
+      <a
+        href="/#contact"
+        class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
+        aria-label="Get in touch with us"
+      >
+        Get in Touch
+        <ArrowRight className="ml-2 h-5 w-5" />
+      </a>
+    </div>
+  </section></Layout
+>

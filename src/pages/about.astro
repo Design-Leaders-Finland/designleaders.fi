@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 import {
   ArrowLeft,
@@ -9,158 +9,150 @@ import {
   Award,
   Heart,
 } from "lucide-react";
-
 ---
+
 <Layout title="About Us">
+  <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <div class="max-w-4xl mx-auto text-center">
+      <a
+        href="/"
+        class="inline-flex items-center mb-8 text-sm text-foreground hover:text-accent-red transition-colors"
+        aria-label="Back to home page"
+      >
+        <ArrowLeft className="w-4 h-4 mr-2" />
+        Back to Home
+      </a>
+      <h1 class="text-4xl sm:text-5xl font-bold mb-6">Our Story</h1>
+      <p class="text-lg sm:text-xl text-foreground mb-8">
+        From a vision of better design to Finland's leading design consultancy
+      </p>
+    </div>
+  </section>
 
-      <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-background">
-        <div class="max-w-4xl mx-auto text-center">
-          <a
-            href="/"
-            class="inline-flex items-center mb-8 text-sm text-foreground hover:text-accent-red transition-colors"
-            aria-label="Back to home page"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </a>
-          <h1 class="text-4xl sm:text-5xl font-bold mb-6 ">Our Story</h1>
-          <p class="text-lg sm:text-xl text-foreground mb-8  ">
-            From a vision of better design to Finland's leading design
-            consultancy
+  {/* Story Timeline */}
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <div class="max-w-3xl mx-auto">
+      <div class="space-y-24">
+        {/* Foundation */}
+        <div class="relative">
+          <div class="flex items-center mb-6">
+            <Building className="h-8 w-8 text-accent-red" />
+            <h2 class="text-2xl font-bold ml-4">2018: The Foundation</h2>
+          </div>
+          <p class="text-foreground text-lg leading-relaxed">
+            Design Leaders Finland was born from a simple observation: Finnish
+            companies were creating amazing digital products, but many lacked
+            the design infrastructure to scale effectively. Our founders,
+            experienced design leaders from Nokia and Supercell, joined forces
+            to bridge this gap.
           </p>
         </div>
-      </section>
 
-      {/* Story Timeline */}
-      <section class="py-20 px-4 sm:px-6 lg:px-8 bg-background">
-        <div class="max-w-3xl mx-auto">
-          <div class="space-y-24">
-            {/* Foundation */}
-            <div class="relative ">
-              <div class="flex items-center mb-6">
-                <Building className="h-8 w-8 text-accent-red" />
-                <h2 class="text-2xl font-bold ml-4">
-                  2018: The Foundation
-                </h2>
-              </div>
-              <p class="text-foreground text-lg leading-relaxed">
-                Design Leaders Finland was born from a simple observation:
-                Finnish companies were creating amazing digital products, but
-                many lacked the design infrastructure to scale effectively. Our
-                founders, experienced design leaders from Nokia and Supercell,
-                joined forces to bridge this gap.
-              </p>
-            </div>
-
-            {/* Early Days */}
-            <div class="relative ">
-              <div class="flex items-center mb-6">
-                <Heart className="h-8 w-8 text-accent-sage" />
-                <h2 class="text-2xl font-bold ml-4">2019: Early Success</h2>
-              </div>
-              <p class="text-foreground text-lg leading-relaxed">
-                Our first year saw us partnering with three of Finland's
-                fastest-growing startups, helping them establish design systems
-                and processes that could scale with their rapid growth. The
-                results spoke for themselves - our clients saw significant
-                improvements in design consistency and development speed.
-              </p>
-            </div>
-
-            {/* Growth */}
-            <div class="relative ">
-              <div class="flex items-center mb-6">
-                <Users className="h-8 w-8 text-foreground" />
-                <h2 class="text-2xl font-bold ml-4">
-                  2020-2021: Growing Impact
-                </h2>
-              </div>
-              <p class="text-foreground text-lg leading-relaxed">
-                As our reputation grew, so did our team. We expanded our
-                services beyond design systems to include comprehensive design
-                quality frameworks and leadership development. During this
-                period, we helped over 20 companies transform their design
-                practices, from early-stage startups to established enterprises.
-              </p>
-            </div>
-
-            {/* Present */}
-            <div class="relative ">
-              <div class="flex items-center mb-6">
-                <Award className="h-8 w-8 text-accent-red" />
-                <h2 class="text-2xl font-bold ml-4">
-                  Today: Leading the Way
-                </h2>
-              </div>
-              <p class="text-foreground text-lg leading-relaxed">
-                Today, Design Leaders Finland stands as Finland's premier design
-                consultancy, known for our expertise in design systems, quality,
-                and leadership. Our team of experienced consultants continues to
-                push the boundaries of what's possible in digital design, while
-                maintaining our core mission: helping organizations build better
-                products through better design practices.
-              </p>
-            </div>
+        {/* Early Days */}
+        <div class="relative">
+          <div class="flex items-center mb-6">
+            <Heart className="h-8 w-8 text-accent-sage" />
+            <h2 class="text-2xl font-bold ml-4">2019: Early Success</h2>
           </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section class="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
-        <div class="max-w-7xl mx-auto">
-          <h2 class="text-3xl font-bold text-center mb-12 text-foreground">
-            Our Values
-          </h2>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Excellence",
-                description:
-                  "We strive for excellence in everything we do, from the advice we give to the relationships we build.",
-              },
-              {
-                title: "Collaboration",
-                description:
-                  "We believe the best results come from true partnership with our clients and within our team.",
-              },
-              {
-                title: "Innovation",
-                description:
-                  "We constantly explore new approaches and technologies to keep our clients ahead of the curve.",
-              },
-            ].map((value, index) => (
-              <div
-                class="p-8 rounded-2xl bg-card border border-border "
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <h3 class="text-xl font-semibold mb-3 text-foreground">
-                  {value.title}
-                </h3>
-                <p class="text-foreground">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section class="py-20 px-4 sm:px-6 lg:px-8 bg-background">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-3xl font-bold mb-6 text-foreground">
-            Join Our Story
-          </h2>
-          <p class="text-lg text-foreground mb-8">
-            Ready to be part of the next chapter in our journey? Let's create
-            something amazing together.
+          <p class="text-foreground text-lg leading-relaxed">
+            Our first year saw us partnering with three of Finland's
+            fastest-growing startups, helping them establish design systems and
+            processes that could scale with their rapid growth. The results
+            spoke for themselves - our clients saw significant improvements in
+            design consistency and development speed.
           </p>
-          <a
-            href="/#contact"
-            class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
-            aria-label="Contact us to learn more"
-          >
-            Get in Touch
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </a
         </div>
-      </section>
-    </Layout>
+
+        {/* Growth */}
+        <div class="relative">
+          <div class="flex items-center mb-6">
+            <Users className="h-8 w-8 text-foreground" />
+            <h2 class="text-2xl font-bold ml-4">2020-2021: Growing Impact</h2>
+          </div>
+          <p class="text-foreground text-lg leading-relaxed">
+            As our reputation grew, so did our team. We expanded our services
+            beyond design systems to include comprehensive design quality
+            frameworks and leadership development. During this period, we helped
+            over 20 companies transform their design practices, from early-stage
+            startups to established enterprises.
+          </p>
+        </div>
+
+        {/* Present */}
+        <div class="relative">
+          <div class="flex items-center mb-6">
+            <Award className="h-8 w-8 text-accent-red" />
+            <h2 class="text-2xl font-bold ml-4">Today: Leading the Way</h2>
+          </div>
+          <p class="text-foreground text-lg leading-relaxed">
+            Today, Design Leaders Finland stands as Finland's premier design
+            consultancy, known for our expertise in design systems, quality, and
+            leadership. Our team of experienced consultants continues to push
+            the boundaries of what's possible in digital design, while
+            maintaining our core mission: helping organizations build better
+            products through better design practices.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Values Section */}
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12 text-foreground">
+        Our Values
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          [
+            {
+              title: "Excellence",
+              description:
+                "We strive for excellence in everything we do, from the advice we give to the relationships we build.",
+            },
+            {
+              title: "Collaboration",
+              description:
+                "We believe the best results come from true partnership with our clients and within our team.",
+            },
+            {
+              title: "Innovation",
+              description:
+                "We constantly explore new approaches and technologies to keep our clients ahead of the curve.",
+            },
+          ].map((value, index) => (
+            <div
+              class="p-8 rounded-2xl bg-card border border-border "
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <h3 class="text-xl font-semibold mb-3 text-foreground">
+                {value.title}
+              </h3>
+              <p class="text-foreground">{value.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* CTA Section */}
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6 text-foreground">Join Our Story</h2>
+      <p class="text-lg text-foreground mb-8">
+        Ready to be part of the next chapter in our journey? Let's create
+        something amazing together.
+      </p>
+      <a
+        href="/#contact"
+        class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
+        aria-label="Contact us to learn more"
+      >
+        Get in Touch
+        <ArrowRight className="ml-2 h-5 w-5" />
+      </a>
+    </div>
+  </section></Layout
+>

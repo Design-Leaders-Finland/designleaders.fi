@@ -1,30 +1,24 @@
 ---
-
-import {
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 ---
+
 <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
   <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-16 ">
-      <span class="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-accent-red/10 text-accent-red rounded-full">
+    <div class="text-center mb-16">
+      <span
+        class="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-accent-red/10 text-accent-red rounded-full"
+      >
         Get in Touch
       </span>
       <h2 class="text-3xl sm:text-4xl font-bold mb-4">
         Start Your Design Journey
       </h2>
       <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-        Ready to elevate your design practice? Let's discuss how we can
-        help.
+        Ready to elevate your design practice? Let's discuss how we can help.
       </p>
     </div>
 
-    <form
-      class="space-y-6"
-      name="contact"
-      method="POST"
-      data-netlify="true"
-    >
+    <form class="space-y-6" name="contact" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="contact" />
       <div class="grid md:grid-cols-2 gap-6">
         <div>
@@ -70,8 +64,7 @@ import {
           name="message"
           rows={4}
           class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-accent-red focus:ring-1 focus:ring-accent-red/20 transition-colors"
-          required
-        ></textarea>
+          required></textarea>
       </div>
       <div class="text-center">
         <button
@@ -84,51 +77,51 @@ import {
       </div>
     </form>
 
-      <div id="form-sent-feedback-dialog" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-        <div class="bg-black p-8 rounded-lg shadow-lg text-center">
-          <h3 class="text-2xl font-semibold mb-4">Thank You!</h3>
-          <p class="text-lg mb-6">
-            Your message has been sent successfully and we will be
-            contacting you soon.
-          </p>
-          <button
+    <div
+      id="form-sent-feedback-dialog"
+      class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+    >
+      <div class="bg-black p-8 rounded-lg shadow-lg text-center">
+        <h3 class="text-2xl font-semibold mb-4">Thank You!</h3>
+        <p class="text-lg mb-6">
+          Your message has been sent successfully and we will be contacting you
+          soon.
+        </p>
+        <button
           id="close-dialog-button"
-            type="button"
-            class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
-          >
-            Close
-          </button>
-        </div>
+          type="button"
+          class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
+        >
+          Close
+        </button>
       </div>
-      <script is:inline>
-        const dialog = document.getElementById("form-sent-feedback-dialog");
-        const form = document.querySelector('form[name="contact"]');
-        form.addEventListener('submit', (event) => {
-          event.preventDefault();
+    </div>
+    <script is:inline>
+      const dialog = document.getElementById("form-sent-feedback-dialog");
+      const form = document.querySelector('form[name="contact"]');
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
 
-          const formData = new FormData(form);
-          const formObject = Object.fromEntries(formData.entries());
+        const formData = new FormData(form);
+        const formObject = Object.fromEntries(formData.entries());
 
-          fetch("/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams(formObject).toString(),
+        fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(formObject).toString(),
+        })
+          .then(() => {
+            dialog.classList.remove("hidden");
           })
-            .then(() => {
-              dialog.classList.remove("hidden");
-            })
-            .catch((error) => console.error(error));
-        });
-        
+          .catch((error) => console.error(error));
+      });
 
-        const button = document.getElementById("close-dialog-button");
-        button.addEventListener("click", function () {
-          dialog.classList.add("hidden");
-        });
-  
-      </script>
-
+      const button = document.getElementById("close-dialog-button");
+      button.addEventListener("click", function () {
+        dialog.classList.add("hidden");
+      });
+    </script>
   </div>
 </section>
