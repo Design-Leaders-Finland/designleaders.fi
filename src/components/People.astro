@@ -1,96 +1,43 @@
 ---
+import { contentfulClient } from "../lib/contentful";
+import type { PeopleInfo } from "../lib/contentful";
 
+const entries = await contentfulClient.getEntries<PeopleInfo>({
+  content_type: "peopleInformation",
+});
+
+// All this does is shortens the object chain
+const people = entries.items.map((item) => {
+  const { title, name, keyCompetencies, story } = item.fields;
+  return {
+    title,
+    name,
+    keyCompetencies,
+    story,
+  };
+});
 ---
 
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-  {/* Founder */}
-  <div class="relative group">
-    <div class="relative overflow-hidden rounded-2xl aspect-[3/4]">
-      <img
-        alt="Jukka Paasonen - Founder"
-        class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-        src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
-      />
-    </div>
-    <div class="mt-4">
-      <h3 class="text-xl font-semibold">Jukka Paasonen</h3>
-      <p class="text-accent-red">Founder & Principal Consultant</p>
-      <p class="mt-2 text-gray-600">
-        Former Design Lead at Nokia, with 15+ years of experience in design
-        systems and leadership.
-      </p>
-    </div>
-  </div>
-
-  {/* Design Director 1 */}
-  <div class="relative group">
-    <div class="relative overflow-hidden rounded-2xl aspect-[3/4]">
-      <img
-        alt="Vesa-Matti Nurmi - Design Director"
-        class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-        src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
-      />
-    </div>
-    <div class="mt-4">
-      <h3 class="text-xl font-semibold">Vesa-Matti Nurmi</h3>
-      <p class="text-accent-sage">Design Director</p>
-      <p class="mt-2 text-gray-600">
-        Specialist in design systems implementation and team scaling.
-      </p>
-    </div>
-  </div>
-
-  {/* Design Director 2 */}
-  <div class="relative group">
-    <div class="relative overflow-hidden rounded-2xl aspect-[3/4]">
-      <img
-        alt="Antti Hämäläinen - Design Director"
-        class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-        src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-      />
-    </div>
-    <div class="mt-4">
-      <h3 class="text-xl font-semibold">Antti Hämäläinen</h3>
-      <p class="text-accent-sage">Design Director</p>
-      <p class="mt-2 text-gray-600">
-        Expert in design quality processes and team mentoring.
-      </p>
-    </div>
-  </div>
-
-  {/* Design Director 3 */}
-  <div class="relative group">
-    <div class="relative overflow-hidden rounded-2xl aspect-[3/4]">
-      <img
-        alt="Antero Meuronen - Design Director"
-        class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-        src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-      />
-    </div>
-    <div class="mt-4">
-      <h3 class="text-xl font-semibold">Antero Meuronen</h3>
-      <p class="text-accent-sage">Design Director</p>
-      <p class="mt-2 text-gray-600">
-        Expert in product leadership, ROI, and stuff.
-      </p>
-    </div>
-  </div>
-
-  {/* Design Director 4 */}
-  <div class="relative group">
-    <div class="relative overflow-hidden rounded-2xl aspect-[3/4]">
-      <img
-        alt="Olli Mannerkoski- Head of Strategic Design"
-        class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-        src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-      />
-    </div>
-    <div class="mt-4">
-      <h3 class="text-xl font-semibold">Olli Mannerkoski</h3>
-      <p class="text-accent-sage">Head of Strategic Design</p>
-      <p class="mt-2 text-gray-600">
-        Expert in product leadership, auditing design teams, and stuff.
-      </p>
-    </div>
-  </div>
+  {
+    people.map((person) => (
+      <div class="relative group">
+        <div class="relative overflow-hidden rounded-2xl aspect-[3/4]">
+          <img
+            alt={person.name}
+            class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+            src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
+          />
+        </div>
+        <div class="mt-4">
+          <h3 class="text-xl font-semibold">{person.name}</h3>
+          <p class="text-accent-sage">{person.title}</p>
+          <p class="mt-2 text-gray-600">{person.story}</p>
+          <p class="mt-2 text-gray-600">
+            <strong>Key Competencies:</strong> {person.keyCompetencies}
+          </p>
+        </div>
+      </div>
+    ))
+  }
 </div>
