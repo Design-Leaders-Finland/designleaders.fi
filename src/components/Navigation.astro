@@ -8,24 +8,28 @@ const navigationItems = [
 ---
 
 <nav
-  class={`fixed top-0 w-full z-50 transition-all duration-300 ${
-    true ? "bg-background/90 backdrop-blur-md shadow-sm" : "bg-transparent"
-  }`}
+  class:list={[
+    `fixed top-0 w-full z-50 transition-all duration-300`,
+    {
+      "bg-background/90 backdrop-blur-md shadow-sm": true,
+      "bg-transparent": !true,
+    },
+  ]}
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <div class="flex-shrink-0">
         <a
-          href="/"
           class="text-xl font-semibold"
+          href="/"
           title="Design Leaders Finland"
         >
           <svg
-            role="img"
-            width="286"
+            aria-hidden="true"
+            fill="none"
             height="100"
             viewBox="0 0 143 50"
-            fill="none"
+            width="286"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -78,8 +82,8 @@ const navigationItems = [
         {
           navigationItems.map((item) => (
             <a
-              href={item.href}
               class="text-foreground/80 hover:text-accent-red transition-colors"
+              href={item.href}
             >
               {item.name}
             </a>

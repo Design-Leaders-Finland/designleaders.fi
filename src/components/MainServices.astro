@@ -69,7 +69,7 @@ import {
             "Design Culture Building",
           ],
         },
-      ].map((service, index) => (
+      ].map((service) => (
         <div class="mb-20 last:mb-0 grid md:grid-cols-2 gap-12 items-start">
           <div class="space-y-6">
             <div class="p-3 rounded-2xl bg-secondary inline-block">
@@ -78,9 +78,9 @@ import {
             <h2 class="text-3xl font-bold text-foreground">{service.title}</h2>
             <p class="text-lg text-foreground/80">{service.description}</p>
             <a
-              href="#contact"
-              class="inline-flex items-center text-accent-red hover:text-accent-red/90 transition-colors font-medium"
               aria-label={`Learn more about ${service.title}`}
+              class="inline-flex items-center text-accent-red hover:text-accent-red/90 transition-colors font-medium"
+              href="#contact"
             >
               Learn more
               <ArrowRight className="ml-2 h-5 w-5" />

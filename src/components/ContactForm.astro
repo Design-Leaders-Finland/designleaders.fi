@@ -2,7 +2,7 @@
 import { ArrowRight } from "lucide-react";
 ---
 
-<section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-secondary" id="contact">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-16">
       <span
@@ -18,58 +18,58 @@ import { ArrowRight } from "lucide-react";
       </p>
     </div>
 
-    <form class="space-y-6" name="contact" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="contact" />
+    <form class="space-y-6" data-netlify="true" method="POST" name="contact">
+      <input name="form-name" type="hidden" value="contact" />
       <div class="grid md:grid-cols-2 gap-6">
         <div>
           <label
-            for="name"
             class="block text-sm font-medium text-foreground mb-1"
+            for="name"
           >
             Name
           </label>
           <input
-            type="text"
+            class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-accent-red focus:ring-1 focus:ring-accent-red/20 transition-colors"
             id="name"
             name="name"
-            class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-accent-red focus:ring-1 focus:ring-accent-red/20 transition-colors"
             required
+            type="text"
           />
         </div>
         <div>
           <label
-            for="email"
             class="block text-sm font-medium text-foreground mb-1"
+            for="email"
           >
             Email
           </label>
           <input
-            type="email"
+            class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-accent-red focus:ring-1 focus:ring-accent-red/20 transition-colors"
             id="email"
             name="email"
-            class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-accent-red focus:ring-1 focus:ring-accent-red/20 transition-colors"
             required
+            type="email"
           />
         </div>
       </div>
       <div>
         <label
-          for="message"
           class="block text-sm font-medium text-foreground mb-1"
+          for="message"
         >
           Message
         </label>
         <textarea
+          class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-accent-red focus:ring-1 focus:ring-accent-red/20 transition-colors"
           id="message"
           name="message"
-          rows={4}
-          class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-accent-red focus:ring-1 focus:ring-accent-red/20 transition-colors"
-          required></textarea>
+          required
+          rows={4}></textarea>
       </div>
       <div class="text-center">
         <button
-          type="submit"
           class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
+          type="submit"
         >
           Send Message
           <ArrowRight className="ml-2 h-5 w-5" />
@@ -78,8 +78,8 @@ import { ArrowRight } from "lucide-react";
     </form>
 
     <div
-      id="form-sent-feedback-dialog"
       class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+      id="form-sent-feedback-dialog"
     >
       <div class="bg-black p-8 rounded-lg shadow-lg text-center">
         <h3 class="text-2xl font-semibold mb-4">Thank You!</h3>
@@ -88,9 +88,9 @@ import { ArrowRight } from "lucide-react";
           soon.
         </p>
         <button
+          class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
           id="close-dialog-button"
           type="button"
-          class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
         >
           Close
         </button>
