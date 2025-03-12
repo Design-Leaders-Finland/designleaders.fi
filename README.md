@@ -113,3 +113,22 @@ CONTENTFUL_SPACE_ID=jgqf8lrrjobv
 CONTENTFUL_DELIVERY_TOKEN=qwerty
 CONTENTFUL_PREVIEW_TOKEN=qwerty
 ```
+
+## SVG to PNG
+
+First use [`resvg`](https://github.com/linebender/resvg/tree/main/crates/resvg) to get png file from svg, by zooming it 4 times:
+
+```sh
+resvg -z 4 logo.svg logo.png
+```
+
+Then compress the png file with [`pngquant`](https://pngquant.org/) to get is smaller, by using only 16 colors:
+
+```sh
+pngquant 16 logo.png
+```
+
+Now there should be a `logo-fs8.png` file which is much smaller than the initial png file.
+
+While each image really has only 3 distinct colors, there are some shades in the diagonal line which will pixelate too much if colors are reduced below 16.
+The file size difference between 8 and 16 colors is rather small.
