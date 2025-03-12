@@ -17,8 +17,11 @@ export default [
       parser: tsParser,
       globals: globals.browser,
     },
+  },
+  {
+    files: ["**/*.astro"],
     rules: {
-      "@typescript-eslint/no-unused-vars": "off",
+      "astro/no-set-html-directive": "off",
     },
   },
 ];

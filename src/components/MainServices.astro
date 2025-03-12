@@ -1,18 +1,29 @@
 ---
-import {
-  ArrowRight,
-  Sparkles,
-  Users,
-  Zap,
-  Shield,
-  CircuitBoard,
-} from "lucide-react";
----
+import * as Lucide from "lucide-react";
 
-<section class="py-20 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-7xl mx-auto">
-    {
-      [
+import { contentfulClient } from "../lib/contentful";
+import type { Services } from "../lib/contentful";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+
+const entries = await contentfulClient.getEntries<Services>({
+  content_type: "services",
+});
+
+// All this does is shortens the object chain
+const services = entries.items.map((item) => {
+  const { title, description, features, icon } = item.fields;
+  const Icon = Lucide[icon];
+  return {
+    title,
+    description,
+    features,
+    Icon, // CircuitBoard
+  };
+});
+
+/*
+
+[
         {
           icon: <CircuitBoard className="h-12 w-12 text-accent-red" />,
           title: "Prototyping",
@@ -69,38 +80,52 @@ import {
             "Design Culture Building",
           ],
         },
-      ].map((service) => (
-        <div class="mb-20 last:mb-0 grid md:grid-cols-2 gap-12 items-start">
-          <div class="space-y-6">
-            <div class="p-3 rounded-2xl bg-secondary inline-block">
-              {service.icon}
+      ]
+        */
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    {
+      services.map((service) => {
+        return (
+          <div class="mb-20 last:mb-0 grid md:grid-cols-2 gap-12 items-start">
+            <div class="space-y-6">
+              <div class="p-3 rounded-2xl bg-secondary inline-block">
+                <service.Icon color="red" size={48} />
+              </div>
+              <h2 class="text-3xl font-bold text-foreground">
+                {service.title}
+              </h2>
+              <p
+                class="text-lg text-foreground/80"
+                set:html={documentToHtmlString(service.description)}
+              ></p>
+              <a
+                aria-label={`Learn more about ${service.title}`}
+                class="inline-flex items-center text-accent-red hover:text-accent-red/90 transition-colors font-medium"
+                href="#contact"
+              >
+                Learn more
+                <Lucide.ArrowRight className="ml-2 h-5 w-5" />
+              </a>
             </div>
-            <h2 class="text-3xl font-bold text-foreground">{service.title}</h2>
-            <p class="text-lg text-foreground/80">{service.description}</p>
-            <a
-              aria-label={`Learn more about ${service.title}`}
-              class="inline-flex items-center text-accent-red hover:text-accent-red/90 transition-colors font-medium"
-              href="#contact"
-            >
-              Learn more
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
+            <div class="bg-card rounded-2xl p-8 border border-border shadow-sm">
+              <h3 class="text-xl font-semibold mb-6 text-foreground">
+                Key Features
+              </h3>
+              <ul class="space-y-4">
+                {service.features.map((feature) => (
+                  <li class="flex items-start">
+                    <Lucide.Shield className="h-5 w-5 mr-3 text-accent-red shrink-0 mt-1" />
+                    <span class="text-foreground/80">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div class="bg-card rounded-2xl p-8 border border-border shadow-sm">
-            <h3 class="text-xl font-semibold mb-6 text-foreground">
-              Key Features
-            </h3>
-            <ul class="space-y-4">
-              {service.features.map((feature) => (
-                <li class="flex items-start">
-                  <Shield className="h-5 w-5 mr-3 text-accent-red shrink-0 mt-1" />
-                  <span class="text-foreground/80">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      ))
+        );
+      })
     }
   </div>
 </section>

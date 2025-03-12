@@ -2,15 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import MainServices from "../components/MainServices.astro";
 
-import {
-  ArrowLeft,
-  ArrowRight,
-  BarChart,
-  Lightbulb,
-  Shield,
-  CircuitBoard,
-  Computer,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 ---
 
 <Layout title="Home Page">
@@ -36,59 +28,6 @@ import {
   </section>
 
   <MainServices />
-
-  {/* Additional Services */}
-  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-secondary">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-12 text-foreground">
-        Additional Services
-      </h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {
-          [
-            {
-              icon: <Computer className="h-8 w-8 text-accent-red" />,
-              title: "Software Prototyping",
-              description:
-                "Rapid development of interactive software prototypes for validation and testing.",
-            },
-            {
-              icon: <CircuitBoard className="h-8 w-8 text-accent-sage" />,
-              title: "Hardware Prototyping",
-              description:
-                "Physical prototype development with advanced manufacturing techniques.",
-            },
-            {
-              icon: <BarChart className="h-8 w-8 text-accent-red" />,
-              title: "Design Analytics",
-              description:
-                "Data-driven insights to measure and improve design impact.",
-            },
-            {
-              icon: <Lightbulb className="h-8 w-8 text-accent-sage" />,
-              title: "Innovation Workshops",
-              description:
-                "Facilitated sessions to spark creativity and problem-solving.",
-            },
-            {
-              icon: <Shield className="h-8 w-8 text-foreground" />,
-              title: "Design Audits",
-              description:
-                "Comprehensive evaluation of your current design practices.",
-            },
-          ].map((service) => (
-            <div class="p-8 rounded-2xl bg-card border border-border shadow-sm group hover:border-accent-red/20 transition-colors">
-              <div class="mb-4">{service.icon}</div>
-              <h3 class="text-xl font-semibold mb-3 text-foreground">
-                {service.title}
-              </h3>
-              <p class="text-foreground/80">{service.description}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
 
   {/* CTA Section */}
   <section class="py-20 px-4 sm:px-6 lg:px-8">

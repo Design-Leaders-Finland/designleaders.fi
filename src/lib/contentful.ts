@@ -11,6 +11,18 @@ export interface PeopleInfo {
   };
 }
 
+export interface Services {
+  contentTypeId: "services";
+  fields: {
+    title: EntryFieldTypes.Text;
+    description: EntryFieldTypes.RichText;
+    features: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+
+    // CamelCase name of https://lucide.dev/icons/
+    icon: EntryFieldTypes.Text;
+  };
+}
+
 export const contentfulClient = contentful.createClient({
   space: import.meta.env.CONTENTFUL_SPACE_ID,
   accessToken: import.meta.env.DEV
