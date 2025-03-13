@@ -3,31 +3,15 @@
 ![Visual regression status](https://api.ghostinspector.com/v1/suites/64fde281e0dfa97aa90682f9/status-badge)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/373f7b37-7020-49f9-894f-a23cf2f074ae/deploy-status)](https://app.netlify.com/sites/designleaders/deploys)
 
-## Colors
-
-```css
-:root {
-  --color-green: #2dd67f;
-  --color-violet: #d638c5;
-  --color-velvet: #8a2b7f;
-  --color-brown: #8a480f;
-  --color-brown-light: #d6ae8a;
-}
-```
-
 ## WebPerformance
 
-https://purgecss.com/CLI.html
+Essentially: Minify everything!
 
-```sh
-purgecss --css style.css --content *.html  --output .
-```
-
-https://github.com/postcss/autoprefixer#cli
-
-```sh
-npx postcss style.css --use autoprefixer --replace --no-map
-```
+* CSS - https://lightningcss.dev/minification.html
+* JS
+* PNG - `pngquant 16 logo.png`
+* SVG - `svgo *.svg`
+* JPEG - `jpegoptim --all-progressive --strip-all *.jpg`
 
 ## Run locally
 
@@ -52,20 +36,6 @@ Now open `http://localhost:8080` in your browser.
 - [React](https://reactjs.org/)
 - [shadcn-ui](https://ui.shadcn.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
-
-# Astro Starter Kit: Basics
-
-```sh
-npm create astro@latest -- --template basics
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
 ## 🚀 Project Structure
 
