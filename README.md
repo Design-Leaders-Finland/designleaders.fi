@@ -7,11 +7,11 @@
 
 Essentially: Minify everything!
 
-* CSS - https://lightningcss.dev/minification.html
-* JS
-* PNG - `pngquant 16 logo.png`
-* SVG - `svgo *.svg`
-* JPEG - `jpegoptim --all-progressive --strip-all *.jpg`
+- CSS - https://lightningcss.dev/minification.html
+- JS
+- PNG - `pngquant 16 logo.png`
+- SVG - `svgo *.svg`
+- JPEG - `jpegoptim --all-progressive --strip-all *.jpg`
 
 ## Run locally
 

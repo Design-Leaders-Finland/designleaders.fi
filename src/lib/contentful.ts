@@ -8,6 +8,8 @@ export interface PeopleInfo {
     title: EntryFieldTypes.Text;
     keyCompetencies: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
     story: EntryFieldTypes.RichText;
+    picture: EntryFieldTypes.AssetLink;
+    linkedin: EntryFieldTypes.Text;
   };
 }
 

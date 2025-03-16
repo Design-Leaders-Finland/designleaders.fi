@@ -6,14 +6,23 @@ const entries = await contentfulClient.getEntries<PeopleInfo>({
   content_type: "peopleInformation",
 });
 
+// https://www.contentful.com/developers/docs/concepts/links/
+const findUrl = (id: string) =>
+  entries?.includes?.Asset?.find((asset) => asset.sys.id === id)?.fields?.file
+    ?.url;
+
 // All this does is shortens the object chain
 const people = entries.items.map((item) => {
-  const { title, name, keyCompetencies, story } = item.fields;
+  const { title, name, keyCompetencies, story, picture, linkedin } =
+    item.fields;
+  const pictureUrl = findUrl(picture?.sys.id);
   return {
     title,
     name,
     keyCompetencies,
     story,
+    picture: pictureUrl,
+    linkedin,
   };
 });
 ---
@@ -26,7 +35,7 @@ const people = entries.items.map((item) => {
           <img
             alt={person.name}
             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-            src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
+            src={person.picture}
           />
         </div>
         <div class="mt-4">
@@ -35,6 +44,11 @@ const people = entries.items.map((item) => {
           <p class="mt-2 text-gray-600">{person.story}</p>
           <p class="mt-2 text-gray-600">
             <strong>Key Competencies:</strong> {person.keyCompetencies}
+          </p>
+          <p class="mt-4 flex items-center gap-x-3">
+            <a href={person.linkedin} rel="noopener noreferrer" target="_blank">
+              LinkedIn Profile
+            </a>
           </p>
         </div>
       </div>
