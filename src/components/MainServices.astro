@@ -1,93 +1,23 @@
 ---
 import * as Lucide from "lucide-react";
 
-import { contentfulClient } from "../lib/contentful";
-import type { Services } from "../lib/contentful";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { services } from "../data/services";
 
-const entries = await contentfulClient.getEntries<Services>({
-  content_type: "services",
-});
-
-// All this does is shortens the object chain
-const services = entries.items.map((item) => {
-  const { title, description, features, icon } = item.fields;
-  const Icon = Lucide[icon];
+const resolved = services.map((service) => {
+  const Icon = Lucide[service.icon as keyof typeof Lucide] as
+    | typeof Lucide.CircuitBoard
+    | undefined;
   return {
-    title,
-    description,
-    features,
-    Icon, // CircuitBoard
+    ...service,
+    Icon: Icon ?? Lucide.CircleHelp,
   };
 });
-
-/*
-
-[
-        {
-          icon: <CircuitBoard className="h-12 w-12 text-accent-red" />,
-          title: "Prototyping",
-          description:
-            "End-to-end prototyping services for both hardware and software solutions, bringing your ideas to life.",
-          features: [
-            "Hardware Prototype Development",
-            "Software Prototype Creation",
-            "Rapid Prototyping & Iteration",
-            "User Testing & Validation",
-            "Technical Feasibility Studies",
-            "Integration Planning",
-          ],
-        },
-        {
-          icon: <Sparkles className="h-12 w-12 text-accent-sage" />,
-          title: "Design Systems",
-          description:
-            "Build and maintain scalable design systems that enhance consistency and efficiency across your digital products.",
-          features: [
-            "Design System Strategy & Planning",
-            "Component Library Development",
-            "Documentation & Guidelines",
-            "Implementation Support",
-            "Team Training & Workshops",
-            "System Maintenance & Evolution",
-          ],
-        },
-        {
-          icon: <Zap className="h-12 w-12 text-accent-red" />,
-          title: "Design Quality",
-          description:
-            "Establish and maintain exceptional design quality standards throughout your organization.",
-          features: [
-            "Quality Assessment Framework",
-            "Design Review Processes",
-            "Usability Testing",
-            "Accessibility Compliance",
-            "Performance Optimization",
-            "Design Metrics & Analytics",
-          ],
-        },
-        {
-          icon: <Users className="h-12 w-12 text-foreground" />,
-          title: "Design Leadership",
-          description:
-            "Develop strong design leadership capabilities and establish effective design processes.",
-          features: [
-            "Design Team Structure",
-            "Process Optimization",
-            "Career Development",
-            "Design Operations",
-            "Stakeholder Management",
-            "Design Culture Building",
-          ],
-        },
-      ]
-        */
 ---
 
 <section class="py-20 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
     {
-      services.map((service) => {
+      resolved.map((service) => {
         return (
           <div class="mb-20 last:mb-0 grid md:grid-cols-2 gap-12 items-start">
             <div class="space-y-6">
@@ -99,7 +29,7 @@ const services = entries.items.map((item) => {
               </h2>
               <p
                 class="text-lg text-foreground/80"
-                set:html={documentToHtmlString(service.description)}
+                set:html={service.descriptionHtml}
               />
               <a
                 aria-label={`Learn more about ${service.title}`}

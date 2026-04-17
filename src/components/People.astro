@@ -1,57 +1,64 @@
 ---
-import { contentfulClient } from "../lib/contentful";
-import type { PeopleInfo } from "../lib/contentful";
-
-const entries = await contentfulClient.getEntries<PeopleInfo>({
-  content_type: "peopleInformation",
-});
-
-// https://www.contentful.com/developers/docs/concepts/links/
-const findUrl = (id: string) =>
-  entries?.includes?.Asset?.find((asset) => asset.sys.id === id)?.fields?.file
-    ?.url;
-
-// All this does is shortens the object chain
-const people = entries.items.map((item) => {
-  const { title, name, keyCompetencies, story, picture, linkedin } =
-    item.fields;
-  const pictureUrl = findUrl(picture?.sys.id);
-  return {
-    title,
-    name,
-    keyCompetencies,
-    story,
-    picture: pictureUrl,
-    linkedin,
-  };
-});
+import { User } from "lucide-react";
+import { teamMembers } from "../data/people";
 ---
 
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-  {
-    people.map((person) => (
-      <div class="relative group">
-        <div class="relative overflow-hidden rounded-2xl aspect-[3/4]">
-          <img
-            alt={person.name}
-            class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-            src={person.picture}
-          />
+{
+  teamMembers.length === 0 ? (
+    <p class="text-center text-lg text-muted-foreground max-w-xl mx-auto">
+      Team profiles will appear here as we add them. You can edit{" "}
+      <code class="text-sm bg-secondary px-1.5 py-0.5 rounded">src/data/people.ts</code>{" "}
+      to add people, photos, and links.
+    </p>
+  ) : (
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {teamMembers.map((person) => (
+        <div class="relative group">
+          <div class="relative overflow-hidden rounded-2xl aspect-[3/4] bg-secondary">
+            {person.pictureSrc ? (
+              <img
+                alt={person.name}
+                class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                src={person.pictureSrc}
+              />
+            ) : (
+              <div
+                aria-hidden="true"
+                class="flex h-full w-full items-center justify-center text-foreground/25"
+              >
+                <User className="h-24 w-24" strokeWidth={1.25} />
+              </div>
+            )}
+          </div>
+          <div class="mt-4">
+            <h3 class="text-xl font-semibold">{person.name}</h3>
+            {person.title ? (
+              <p class="text-accent-sage mt-1">{person.title}</p>
+            ) : null}
+            {person.storyHtml?.trim() ? (
+              <div class="mt-2 text-gray-600" set:html={person.storyHtml} />
+            ) : null}
+            {person.keyCompetencies?.length ? (
+              <p class="mt-2 text-gray-600">
+                <strong>Key Competencies:</strong>{" "}
+                {person.keyCompetencies.join(", ")}
+              </p>
+            ) : null}
+            {person.linkedin ? (
+              <p class="mt-4 flex items-center gap-x-3">
+                <a
+                  href={person.linkedin}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  LinkedIn Profile
+                </a>
+              </p>
+            ) : null}
+          </div>
         </div>
-        <div class="mt-4">
-          <h3 class="text-xl font-semibold">{person.name}</h3>
-          <p class="text-accent-sage">{person.title}</p>
-          <p class="mt-2 text-gray-600">{person.story}</p>
-          <p class="mt-2 text-gray-600">
-            <strong>Key Competencies:</strong> {person.keyCompetencies}
-          </p>
-          <p class="mt-4 flex items-center gap-x-3">
-            <a href={person.linkedin} rel="noopener noreferrer" target="_blank">
-              LinkedIn Profile
-            </a>
-          </p>
-        </div>
-      </div>
-    ))
-  }
-</div>
+      ))}
+    </div>
+  )
+}

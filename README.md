@@ -36,6 +36,8 @@ Now open `http://localhost:8080` in your browser.
 - [React](https://reactjs.org/)
 - [shadcn-ui](https://ui.shadcn.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- DNS hosting at https://1984.hosting
+- Web site hosting at https://netlify.com
 
 ## 🚀 Project Structure
 
@@ -72,17 +74,9 @@ All commands are run from the root of the project, from a terminal:
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
-## Content via Contentful
+## Site content
 
-Jukka: Login via GitHub.
-
-Create an `.env` file in the root of the project with the following content:
-
-```sh
-CONTENTFUL_SPACE_ID=jgqf8lrrjobv
-CONTENTFUL_DELIVERY_TOKEN=qwerty
-CONTENTFUL_PREVIEW_TOKEN=qwerty
-```
+Services are listed in `src/data/services.ts`. Team profiles live in `src/data/people.ts` and render on the `/team` page.
 
 ## SVG to PNG
 
