@@ -75,17 +75,17 @@ import { teamMembers } from "../data/people";
             {member.storyHtml && (
               <div
                 class="text-body"
-                style={{ color: "var(--sand)", opacity: 0.7 }}
                 set:html={member.storyHtml}
+                style={{ color: "var(--sand)", opacity: 0.7 }}
               />
             )}
             {member.linkedin && (
               <a
-                href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
                 class="text-mono-label mt-4 inline-block transition-colors duration-300 hover:text-[var(--amber)]"
+                href={member.linkedin}
+                rel="noopener noreferrer"
                 style={{ color: "var(--clay)" }}
+                target="_blank"
               >
                 LinkedIn →
               </a>
@@ -170,8 +170,8 @@ import { teamMembers } from "../data/people";
       craft.
     </p>
     <a
-      href="/contact"
       class="inline-block text-mono-label transition-all duration-300 hover:brightness-110"
+      href="/contact"
       style={{
         background: "var(--amber)",
         color: "var(--void)",

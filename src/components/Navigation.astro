@@ -11,14 +11,14 @@ const { pathname } = Astro.url;
 ---
 
 <nav
-  id="main-nav"
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  id="main-nav"
   style="padding: 1.5rem 4vw;"
 >
   <div class="flex items-center justify-between">
     <a
-      href="/"
       class="text-[var(--sand)] text-base font-medium tracking-tight"
+      href="/"
       style="font-family: 'DM Sans', sans-serif;"
     >
       design leaders
@@ -33,8 +33,8 @@ const { pathname } = Astro.url;
             (link.href.startsWith("/#") && pathname === "/");
           return (
             <a
-              href={link.href}
               class="relative text-mono-label transition-opacity duration-300 hover:opacity-100"
+              href={link.href}
               style={{
                 color: "var(--sand)",
                 opacity: isActive ? 1 : 0.6,
@@ -53,21 +53,21 @@ const { pathname } = Astro.url;
 
     <!-- Mobile hamburger -->
     <button
-      id="mobile-menu-btn"
-      class="md:hidden flex flex-col gap-1.5 p-2"
       aria-label="Toggle menu"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      id="mobile-menu-btn"
     >
       <span
+        class="block w-5 h-px transition-transform duration-300"
         id="hamburger-top"
-        class="block w-5 h-px transition-transform duration-300"
         style={{ background: "var(--sand)" }}></span>
       <span
-        id="hamburger-middle"
         class="block w-5 h-px transition-opacity duration-300"
+        id="hamburger-middle"
         style={{ background: "var(--sand)" }}></span>
       <span
-        id="hamburger-bottom"
         class="block w-5 h-px transition-transform duration-300"
+        id="hamburger-bottom"
         style={{ background: "var(--sand)" }}></span>
     </button>
   </div>
@@ -75,15 +75,15 @@ const { pathname } = Astro.url;
 
 <!-- Mobile overlay -->
 <div
-  id="mobile-menu"
   class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 hidden"
+  id="mobile-menu"
   style={{ background: "rgba(5,5,5,0.95)" }}
 >
   {
     navLinks.map((link) => (
       <a
-        href={link.href}
         class="text-display-lg"
+        href={link.href}
         style={{ color: "var(--sand)" }}
       >
         {link.label}
@@ -92,7 +92,8 @@ const { pathname } = Astro.url;
   }
 </div>
 
-<script>
+{/* eslint-disable-next-line astro/no-unsafe-inline-scripts */}
+<script is:inline>
   let scrolled = false;
   let menuOpen = false;
 

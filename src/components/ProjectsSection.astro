@@ -49,7 +49,10 @@ const projects = [
     {
       projects.map((project) => (
         <div
-          class={`group relative overflow-hidden cursor-pointer ${project.span}`}
+          class:list={[
+            `group relative overflow-hidden cursor-pointer`,
+            `${project.span}`,
+          ]}
           style={{
             background: "var(--deep)",
             aspectRatio: project.span === "col-span-full" ? "2 / 1" : "1 / 1",

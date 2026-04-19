@@ -30,8 +30,8 @@ import Layout from "../layouts/Layout.astro";
       <div>
         <h2 class="text-title mb-4" style={{ color: "var(--sand)" }}>Email</h2>
         <a
-          href="mailto:hello@designleaders.fi"
           class="text-body hover:text-[var(--amber)] transition-colors"
+          href="mailto:hello@designleaders.fi"
           style={{ color: "var(--clay)" }}
         >
           hello@designleaders.fi
@@ -59,8 +59,8 @@ import Layout from "../layouts/Layout.astro";
 
       <!-- Success Message (hidden by default) -->
       <div
-        id="form-success"
         class="hidden mb-8 p-6"
+        id="form-success"
         style={{
           background: "rgba(214, 140, 69, 0.1)",
           border: "1px solid var(--amber)",
@@ -75,8 +75,8 @@ import Layout from "../layouts/Layout.astro";
 
       <!-- Error Message (hidden by default) -->
       <div
-        id="form-error"
         class="hidden mb-8 p-6"
+        id="form-error"
         style={{
           background: "rgba(239, 68, 68, 0.1)",
           border: "1px solid #ef4444",
@@ -90,12 +90,12 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <form
-        name="contact"
-        method="POST"
+        class="space-y-6"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        class="space-y-6"
         id="contact-form"
+        method="POST"
+        name="contact"
       >
         <!-- Honeypot field for spam prevention -->
         <p class="hidden">
@@ -106,65 +106,71 @@ import Layout from "../layouts/Layout.astro";
           >
         </p>
 
-        <input type="hidden" name="form-name" value="contact" />
+        <input name="form-name" type="hidden" value="contact" />
 
         <div>
           <label
             class="text-mono-label block mb-2"
+            for="name"
             style={{ color: "var(--sand)", opacity: 0.6 }}>Name</label
           >
           <input
-            type="text"
+            class="w-full bg-transparent border-b py-3 focus:outline-none focus:border-[var(--amber)] transition-colors"
+            id="name"
             name="name"
             required
-            class="w-full bg-transparent border-b py-3 focus:outline-none focus:border-[var(--amber)] transition-colors"
             style={{
               borderColor: "rgba(243,239,231,0.2)",
               color: "var(--sand)",
             }}
+            type="text"
           />
         </div>
         <div>
           <label
             class="text-mono-label block mb-2"
+            for="email"
             style={{ color: "var(--sand)", opacity: 0.6 }}>Email</label
           >
           <input
-            type="email"
+            class="w-full bg-transparent border-b py-3 focus:outline-none focus:border-[var(--amber)] transition-colors"
+            id="email"
             name="email"
             required
-            class="w-full bg-transparent border-b py-3 focus:outline-none focus:border-[var(--amber)] transition-colors"
             style={{
               borderColor: "rgba(243,239,231,0.2)",
               color: "var(--sand)",
             }}
+            type="email"
           />
         </div>
         <div>
           <label
             class="text-mono-label block mb-2"
+            for="message"
             style={{ color: "var(--sand)", opacity: 0.6 }}>Message</label
           >
           <textarea
-            name="message"
-            rows="4"
-            required
             class="w-full bg-transparent border-b py-3 focus:outline-none focus:border-[var(--amber)] transition-colors resize-none"
+            id="message"
+            name="message"
+            required
+            rows="4"
             style={{
               borderColor: "rgba(243,239,231,0.2)",
               color: "var(--sand)",
             }}></textarea>
         </div>
         <button
-          type="submit"
-          id="submit-btn"
           class="inline-block text-mono-label transition-all duration-300 hover:brightness-110"
+          id="submit-btn"
           style={{
             background: "var(--amber)",
             color: "var(--void)",
             padding: "14px 28px",
             borderRadius: "2px",
           }}
+          type="submit"
         >
           Send message
         </button>
@@ -172,7 +178,8 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <script>
+  {/* eslint-disable-next-line astro/no-unsafe-inline-scripts */}
+  <script is:inline>
     const form = document.getElementById("contact-form");
     const successMsg = document.getElementById("form-success");
     const errorMsg = document.getElementById("form-error");
@@ -199,7 +206,9 @@ import Layout from "../layouts/Layout.astro";
           headers: {
             Accept: "application/x-www-form-urlencoded;charset=UTF-8",
           },
-          body: new URLSearchParams(formData as any).toString(),
+          body: new URLSearchParams(
+            formData as unknown as Record<string, string>,
+          ).toString(),
         });
 
         if (response.ok) {
@@ -209,7 +218,7 @@ import Layout from "../layouts/Layout.astro";
         } else {
           throw new Error("Form submission failed");
         }
-      } catch (error) {
+      } catch {
         errorMsg?.classList.remove("hidden");
         errorMsg?.scrollIntoView({ behavior: "smooth", block: "center" });
       } finally {
