@@ -11,12 +11,15 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="Design of Systems and Leaders" property="og:title" />
-    <title>{title} - Design Leaders Finland</title>
+    <meta content="Design Leaders — Strategic Design & Product Studio" property="og:title" />
+    <title>{title} — Design Leaders</title>
     <meta content="Jukka Paasonen" name="author" />
     <link href="/favicon.ico" rel="icon" />
     <meta content="/favicon.png" property="og:image" />
-    <meta content="Design of Systems and Leaders" property="og:description" />
+    <meta content="Strategic design and product studio crafting digital products for forward-thinking teams." property="og:description" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <script is:inline type="text/javascript">
       (function (c, l, a, r, i, t, y) {
         c[a] =
@@ -35,10 +38,8 @@ import "../styles/global.css";
   </head>
 
   <body>
-    <div class="min-h-screen bg-background">
-      <Navigation />
-      <slot />
-      <Footer />
-    </div>
+    <Navigation />
+    <slot />
+    <Footer />
   </body>
 </html>

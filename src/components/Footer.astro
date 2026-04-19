@@ -1,9 +1,70 @@
 ---
 const currentYear = new Date().getFullYear();
+
+const navLinks = [
+  { label: 'Work', href: '/#work' },
+  { label: 'Services', href: '/services' },
+  { label: 'Team', href: '/team' },
+  { label: 'Apps', href: '/apps' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const socialLinks = ['LinkedIn', 'Dribbble', 'GitHub'];
 ---
 
-<footer class="py-8 px-4 sm:px-6 lg:px-8 bg-background border-t border-border">
-  <div class="max-w-7xl mx-auto text-center text-foreground">
-    <p>&copy; {currentYear} Design Leaders Finland. All rights reserved.</p>
+<footer style={{ background: 'var(--deep)', padding: '6rem 8vw 3rem' }}>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+    <!-- Column 1 - Logo & Address -->
+    <div>
+      <div
+        class="text-base font-medium mb-8"
+        style={{ color: 'var(--sand)', fontFamily: "'DM Sans', sans-serif" }}
+      >
+        design leaders
+      </div>
+      <p style={{ color: 'var(--sand)', opacity: 0.5 }} class="text-caption">
+        Sortedam Dossering 59C<br />
+        2100 Copenhagen
+      </p>
+    </div>
+
+    <!-- Column 2 - Navigation -->
+    <div class="flex flex-col gap-3">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="text-mono-label transition-opacity duration-300 hover:opacity-100"
+          style={{ color: 'var(--sand)', opacity: 0.5 }}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Column 3 - Social -->
+    <div class="flex flex-col gap-3">
+      {socialLinks.map((social) => (
+        <a
+          href="#"
+          class="text-mono-label transition-opacity duration-300 hover:opacity-100"
+          style={{ color: 'var(--sand)', opacity: 0.5 }}
+        >
+          {social}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div
+    class="flex flex-col md:flex-row justify-between items-center gap-4 mt-16 pt-8"
+    style={{ borderTop: '1px solid rgba(243,239,231,0.08)' }}
+  >
+    <span style={{ color: 'var(--sand)', opacity: 0.4 }} class="text-caption">
+      &copy; {currentYear} Design Leaders
+    </span>
+    <span style={{ color: 'var(--sand)', opacity: 0.4 }} class="text-caption">
+      Copenhagen, Denmark
+    </span>
   </div>
 </footer>

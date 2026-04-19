@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const apps = [
+  { name: 'Helsinki Transit', description: 'Real-time public transport tracking for the Helsinki region.', platforms: ['iOS', 'Android'] },
+  { name: 'Nordic Weather', description: 'Hyperlocal weather forecasts for Nordic countries.', platforms: ['iOS', 'watchOS'] },
+  { name: 'Finnish Learning', description: 'Interactive language learning app for Finnish basics.', platforms: ['iOS', 'Android', 'Web'] },
+  { name: 'Design System Kit', description: 'Component library and design tokens management tool.', platforms: ['iOS', 'macOS'] },
+];
+---
+
+<Layout title="Apps">
+  <!-- Hero -->
+  <section class="relative min-h-[50vh] flex flex-col items-center justify-center text-center" style="padding: 12rem 8vw 6rem;">
+    <h1 class="text-display-xl mb-6" style={{ color: 'var(--sand)', fontWeight: 300 }}>
+      Apps we have made
+    </h1>
+    <p class="text-body" style={{ color: 'var(--sand)', opacity: 0.7, maxWidth: '48ch' }}>
+      Mobile experiences crafted with care, shipped to app stores worldwide
+    </p>
+  </section>
+
+  <!-- Apps Grid -->
+  <section style={{ background: 'var(--surface)', padding: '6rem 8vw' }}>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {apps.map((app, index) => (
+        <div style={{ background: 'var(--deep)', padding: '2rem', borderRadius: '2px' }}>
+          <span class="text-mono-label block mb-4" style={{ color: 'var(--amber)' }}>0{index + 1}</span>
+          <h2 class="text-title mb-3" style={{ color: 'var(--sand)' }}>{app.name}</h2>
+          <p class="text-body mb-4" style={{ color: 'var(--sand)', opacity: 0.7 }}>{app.description}</p>
+          <div class="flex gap-2">
+            {app.platforms.map((platform) => (
+              <span class="text-mono-label" style={{ color: 'var(--clay)' }}>{platform}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="flex flex-col items-center justify-center text-center" style={{ background: 'var(--void)', padding: '6rem 8vw' }}>
+    <h2 class="text-display-lg mb-6" style={{ color: 'var(--sand)', fontWeight: 300 }}>Have an app idea?</h2>
+    <p class="text-body mb-8" style={{ color: 'var(--sand)', opacity: 0.6 }}>We can help bring it to life. Let's discuss your vision.</p>
+    <a href="/contact" class="inline-block text-mono-label transition-all duration-300 hover:brightness-110" style={{ background: 'var(--amber)', color: 'var(--void)', padding: '14px 28px', borderRadius: '2px' }}>
+      Start a conversation
+    </a>
+  </section>
+</Layout>

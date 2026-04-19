@@ -15,12 +15,6 @@
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
 
-  --color-accent-red: #b91c1c;
-  --color-accent-sage: #4b5f53;
-
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
 
@@ -29,6 +23,20 @@
 
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* kimi_agent color palette */
+  --color-void: #050505;
+  --color-surface: #0f0e0c;
+  --color-sand: #f3efe7;
+  --color-clay: #c67d5f;
+  --color-amber: #d68c45;
+  --color-deep: #1a1816;
+
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 @utility container {
@@ -42,13 +50,58 @@
   }
 }
 
+@utility text-display-xl {
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+@utility text-display-lg {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+@utility text-title {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+@utility text-body {
+  font-size: clamp(0.9375rem, 1.2vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.005em;
+}
+
+@utility text-caption {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+@utility text-mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
   looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
 */
 @layer base {
   *,
@@ -60,60 +113,45 @@
   }
 }
 
-@utility text-balance {
-  text-wrap: balance;
-}
-
 @layer base {
   :root {
-    --background: #ffffff; /* white */
-    --foreground: #161616; /* dark blue */
-    --card: #fafafa; /* very light gray */
-    --card-foreground: #161616; /* dark blue */
-    --popover: #ffffff; /* white */
-    --popover-foreground: #161616; /* dark blue */
-    --primary: #1a1a1a; /* dark navy */
-    --primary-foreground: #fafafa; /* very light gray */
-    --secondary: #f2f7ff; /* very light blue */
-    --secondary-foreground: #1a1a1a; /* dark navy */
-    --muted: #f2f7ff; /* very light blue */
-    --muted-foreground: #767676; /* medium gray */
-    --accent: #f2f7ff; /* very light blue */
-    --accent-foreground: #1a1a1a; /* dark navy */
-    --destructive: #cf3c3f; /* red */
-    --destructive-foreground: #fafafa; /* very light gray */
-    --border: #e6e6e6; /* light gray */
-    --input: #e6e6e6; /* light gray */
-    --ring: #1a1a1a; /* dark navy */
-    --radius: 0.75rem; /* border radius */
-  }
+    /* kimi_agent dark theme as default */
+    --void: #050505;
+    --surface: #0f0e0c;
+    --sand: #f3efe7;
+    --clay: #c67d5f;
+    --amber: #d68c45;
+    --deep: #1a1816;
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: #161616; /* dark blue */
-      --foreground: #fafafa; /* very light gray */
-      --card: #161616; /* dark blue */
-      --card-foreground: #fafafa; /* very light gray */
-      --popover: #161616; /* dark blue */
-      --popover-foreground: #fafafa; /* very light gray */
-      --primary: #fafafa; /* very light gray */
-      --primary-foreground: #1a1a1a; /* dark navy */
-      --secondary: #262626; /* dark gray */
-      --secondary-foreground: #fafafa; /* very light gray */
-      --muted: #262626; /* dark gray */
-      --muted-foreground: #a3a3a3; /* medium gray */
-      --accent: #262626; /* dark gray */
-      --accent-foreground: #fafafa; /* very light gray */
-      --destructive: #cf3c3f; /* dark red */
-      --destructive-foreground: #fafafa; /* very light gray */
-      --border: #262626; /* dark gray */
-      --input: #262626; /* dark gray */
-      --ring: #d9e6ff; /* light blue */
-    }
+    --background: 0 0% 2%;
+    --foreground: 40 20% 93%;
+    --card: 30 14% 6%;
+    --card-foreground: 40 20% 93%;
+    --popover: 30 14% 6%;
+    --popover-foreground: 40 20% 93%;
+    --primary: 30 60% 55%;
+    --primary-foreground: 0 0% 2%;
+    --secondary: 30 8% 10%;
+    --secondary-foreground: 40 20% 93%;
+    --muted: 30 8% 12%;
+    --muted-foreground: 40 10% 55%;
+    --accent: 30 60% 55%;
+    --accent-foreground: 0 0% 2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 8% 15%;
+    --input: 30 8% 15%;
+    --ring: 30 60% 55%;
+    --radius: 0.375rem;
   }
 
   * {
-    @apply border-border selection:bg-accent-red/10;
+    @apply border-border;
+  }
+
+  ::selection {
+    background: rgba(198, 125, 95, 0.3);
+    color: var(--sand);
   }
 
   html {
@@ -121,20 +159,21 @@
   }
 
   body {
-    @apply bg-background text-foreground min-h-screen transition-colors duration-300;
-    font-feature-settings: "salt";
-    font-family:
-      Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
-      sans-serif;
+    @apply bg-[var(--void)] text-[var(--sand)] min-h-screen;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    overflow-x: hidden;
   }
 }
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+@keyframes scroll-indicator {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(56px);
+  }
 }
 
-.card {
-  padding: 2em;
+.animate-scroll-indicator {
+  animation: scroll-indicator 2s ease-in-out infinite;
 }
