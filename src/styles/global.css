@@ -35,8 +35,8 @@
   --color-amber: #d68c45;
   --color-deep: #1a1816;
 
-  --font-sans: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 @utility container {
@@ -160,13 +160,14 @@
 
   body {
     @apply bg-[var(--void)] text-[var(--sand)] min-h-screen;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: "DM Sans", system-ui, sans-serif;
     overflow-x: hidden;
   }
 }
 
 @keyframes scroll-indicator {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {

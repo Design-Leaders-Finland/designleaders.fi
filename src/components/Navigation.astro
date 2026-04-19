@@ -1,10 +1,10 @@
 ---
 const navLinks = [
-  { label: 'Work', href: '/#work' },
-  { label: 'Services', href: '/services' },
-  { label: 'Team', href: '/team' },
-  { label: 'Apps', href: '/apps' },
-  { label: 'Contact', href: '/contact' },
+  { label: "Work", href: "/#work" },
+  { label: "Services", href: "/services" },
+  { label: "Team", href: "/team" },
+  { label: "Apps", href: "/apps" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const { pathname } = Astro.url;
@@ -26,22 +26,29 @@ const { pathname } = Astro.url;
 
     <!-- Desktop nav -->
     <div class="hidden md:flex items-center gap-8">
-      {navLinks.map((link) => {
-        const isActive = link.href === pathname || (link.href.startsWith('/#') && pathname === '/');
-        return (
-          <a
-            href={link.href}
-            class="relative text-mono-label transition-opacity duration-300 hover:opacity-100"
-            style={{
-              color: 'var(--sand)',
-              opacity: isActive ? 1 : 0.6,
-              borderBottom: isActive && !link.href.startsWith('/#') ? '1px solid var(--amber)' : '1px solid transparent',
-            }}
-          >
-            {link.label}
-          </a>
-        );
-      })}
+      {
+        navLinks.map((link) => {
+          const isActive =
+            link.href === pathname ||
+            (link.href.startsWith("/#") && pathname === "/");
+          return (
+            <a
+              href={link.href}
+              class="relative text-mono-label transition-opacity duration-300 hover:opacity-100"
+              style={{
+                color: "var(--sand)",
+                opacity: isActive ? 1 : 0.6,
+                borderBottom:
+                  isActive && !link.href.startsWith("/#")
+                    ? "1px solid var(--amber)"
+                    : "1px solid transparent",
+              }}
+            >
+              {link.label}
+            </a>
+          );
+        })
+      }
     </div>
 
     <!-- Mobile hamburger -->
@@ -53,18 +60,15 @@ const { pathname } = Astro.url;
       <span
         id="hamburger-top"
         class="block w-5 h-px transition-transform duration-300"
-        style={{ background: 'var(--sand)' }}
-      />
+        style={{ background: "var(--sand)" }}></span>
       <span
         id="hamburger-middle"
         class="block w-5 h-px transition-opacity duration-300"
-        style={{ background: 'var(--sand)' }}
-      />
+        style={{ background: "var(--sand)" }}></span>
       <span
         id="hamburger-bottom"
         class="block w-5 h-px transition-transform duration-300"
-        style={{ background: 'var(--sand)' }}
-      />
+        style={{ background: "var(--sand)" }}></span>
     </button>
   </div>
 </nav>
@@ -73,37 +77,39 @@ const { pathname } = Astro.url;
 <div
   id="mobile-menu"
   class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 hidden"
-  style={{ background: 'rgba(5,5,5,0.95)' }}
+  style={{ background: "rgba(5,5,5,0.95)" }}
 >
-  {navLinks.map((link) => (
-    <a
-      href={link.href}
-      class="text-display-lg"
-      style={{ color: 'var(--sand)' }}
-    >
-      {link.label}
-    </a>
-  ))}
+  {
+    navLinks.map((link) => (
+      <a
+        href={link.href}
+        class="text-display-lg"
+        style={{ color: "var(--sand)" }}
+      >
+        {link.label}
+      </a>
+    ))
+  }
 </div>
 
 <script>
   let scrolled = false;
   let menuOpen = false;
-  
-  const nav = document.getElementById('main-nav');
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const hamburgerTop = document.getElementById('hamburger-top');
-  const hamburgerMiddle = document.getElementById('hamburger-middle');
-  const hamburgerBottom = document.getElementById('hamburger-bottom');
+
+  const nav = document.getElementById("main-nav");
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const hamburgerTop = document.getElementById("hamburger-top");
+  const hamburgerMiddle = document.getElementById("hamburger-middle");
+  const hamburgerBottom = document.getElementById("hamburger-bottom");
 
   function updateNav() {
     const shouldBeScrolled = window.scrollY > window.innerHeight * 0.8;
     if (shouldBeScrolled !== scrolled) {
       scrolled = shouldBeScrolled;
       if (nav) {
-        nav.style.backdropFilter = scrolled ? 'blur(8px)' : 'none';
-        nav.style.background = scrolled ? 'rgba(5,5,5,0.7)' : 'transparent';
+        nav.style.backdropFilter = scrolled ? "blur(8px)" : "none";
+        nav.style.background = scrolled ? "rgba(5,5,5,0.7)" : "transparent";
       }
     }
   }
@@ -112,25 +118,25 @@ const { pathname } = Astro.url;
     menuOpen = !menuOpen;
     if (mobileMenu && hamburgerTop && hamburgerMiddle && hamburgerBottom) {
       if (menuOpen) {
-        mobileMenu.classList.remove('hidden');
-        hamburgerTop.style.transform = 'rotate(45deg) translateY(4px)';
-        hamburgerMiddle.style.opacity = '0';
-        hamburgerBottom.style.transform = 'rotate(-45deg) translateY(-4px)';
+        mobileMenu.classList.remove("hidden");
+        hamburgerTop.style.transform = "rotate(45deg) translateY(4px)";
+        hamburgerMiddle.style.opacity = "0";
+        hamburgerBottom.style.transform = "rotate(-45deg) translateY(-4px)";
       } else {
-        mobileMenu.classList.add('hidden');
-        hamburgerTop.style.transform = 'none';
-        hamburgerMiddle.style.opacity = '1';
-        hamburgerBottom.style.transform = 'none';
+        mobileMenu.classList.add("hidden");
+        hamburgerTop.style.transform = "none";
+        hamburgerMiddle.style.opacity = "1";
+        hamburgerBottom.style.transform = "none";
       }
     }
   }
 
-  window.addEventListener('scroll', updateNav, { passive: true });
-  mobileMenuBtn?.addEventListener('click', toggleMenu);
-  
+  window.addEventListener("scroll", updateNav, { passive: true });
+  mobileMenuBtn?.addEventListener("click", toggleMenu);
+
   // Close menu when clicking a link
-  mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
       if (menuOpen) toggleMenu();
     });
   });

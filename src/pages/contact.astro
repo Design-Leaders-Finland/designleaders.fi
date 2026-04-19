@@ -4,29 +4,44 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Contact">
   <!-- Hero -->
-  <section class="relative min-h-[40vh] flex items-center" style="padding: 12rem 8vw 4rem;">
+  <section
+    class="relative min-h-[40vh] flex items-center"
+    style="padding: 12rem 8vw 4rem;"
+  >
     <div class="max-w-4xl">
-      <h1 class="text-display-xl mb-6" style={{ color: 'var(--sand)', fontWeight: 300 }}>
+      <h1
+        class="text-display-xl mb-6"
+        style={{ color: "var(--sand)", fontWeight: 300 }}
+      >
         Let's talk
       </h1>
-      <p class="text-body" style={{ color: 'var(--sand)', opacity: 0.75, maxWidth: '50ch' }}>
+      <p
+        class="text-body"
+        style={{ color: "var(--sand)", opacity: 0.75, maxWidth: "50ch" }}
+      >
         Tell us about your project. We'll respond within 48 hours.
       </p>
     </div>
   </section>
 
   <!-- Contact Info -->
-  <section style={{ background: 'var(--surface)', padding: '6rem 8vw' }}>
+  <section style={{ background: "var(--surface)", padding: "6rem 8vw" }}>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl">
       <div>
-        <h2 class="text-title mb-4" style={{ color: 'var(--sand)' }}>Email</h2>
-        <a href="mailto:hello@designleaders.fi" class="text-body hover:text-[var(--amber)] transition-colors" style={{ color: 'var(--clay)' }}>
+        <h2 class="text-title mb-4" style={{ color: "var(--sand)" }}>Email</h2>
+        <a
+          href="mailto:hello@designleaders.fi"
+          class="text-body hover:text-[var(--amber)] transition-colors"
+          style={{ color: "var(--clay)" }}
+        >
           hello@designleaders.fi
         </a>
       </div>
       <div>
-        <h2 class="text-title mb-4" style={{ color: 'var(--sand)' }}>Address</h2>
-        <p class="text-body" style={{ color: 'var(--sand)', opacity: 0.7 }}>
+        <h2 class="text-title mb-4" style={{ color: "var(--sand)" }}>
+          Address
+        </h2>
+        <p class="text-body" style={{ color: "var(--sand)", opacity: 0.7 }}>
           Sortedam Dossering 59C<br />
           2100 Copenhagen<br />
           Denmark
@@ -36,18 +51,25 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <!-- Netlify Form -->
-  <section style={{ background: 'var(--void)', padding: '6rem 8vw' }}>
+  <section style={{ background: "var(--void)", padding: "6rem 8vw" }}>
     <div class="max-w-2xl">
-      <h2 class="text-display-lg mb-8" style={{ color: 'var(--sand)' }}>Send a message</h2>
+      <h2 class="text-display-lg mb-8" style={{ color: "var(--sand)" }}>
+        Send a message
+      </h2>
 
       <!-- Success Message (hidden by default) -->
       <div
         id="form-success"
         class="hidden mb-8 p-6"
-        style={{ background: 'rgba(214, 140, 69, 0.1)', border: '1px solid var(--amber)', borderRadius: '2px' }}
+        style={{
+          background: "rgba(214, 140, 69, 0.1)",
+          border: "1px solid var(--amber)",
+          borderRadius: "2px",
+        }}
       >
-        <p class="text-body" style={{ color: 'var(--sand)' }}>
-          <strong style={{ color: 'var(--amber)' }}>Thank you!</strong> Your message has been sent. We'll respond within 48 hours.
+        <p class="text-body" style={{ color: "var(--sand)" }}>
+          <strong style={{ color: "var(--amber)" }}>Thank you!</strong> Your message
+          has been sent. We'll respond within 48 hours.
         </p>
       </div>
 
@@ -55,10 +77,15 @@ import Layout from "../layouts/Layout.astro";
       <div
         id="form-error"
         class="hidden mb-8 p-6"
-        style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid #ef4444', borderRadius: '2px' }}
+        style={{
+          background: "rgba(239, 68, 68, 0.1)",
+          border: "1px solid #ef4444",
+          borderRadius: "2px",
+        }}
       >
-        <p class="text-body" style={{ color: 'var(--sand)' }}>
-          <strong style={{ color: '#ef4444' }}>Oops!</strong> Something went wrong. Please try again or email us directly at hello@designleaders.fi
+        <p class="text-body" style={{ color: "var(--sand)" }}>
+          <strong style={{ color: "#ef4444" }}>Oops!</strong> Something went wrong.
+          Please try again or email us directly at hello@designleaders.fi
         </p>
       </div>
 
@@ -72,46 +99,72 @@ import Layout from "../layouts/Layout.astro";
       >
         <!-- Honeypot field for spam prevention -->
         <p class="hidden">
-          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          <label
+            >Don't fill this out if you're human: <input
+              name="bot-field"
+            /></label
+          >
         </p>
 
         <input type="hidden" name="form-name" value="contact" />
 
         <div>
-          <label class="text-mono-label block mb-2" style={{ color: 'var(--sand)', opacity: 0.6 }}>Name</label>
+          <label
+            class="text-mono-label block mb-2"
+            style={{ color: "var(--sand)", opacity: 0.6 }}>Name</label
+          >
           <input
             type="text"
             name="name"
             required
             class="w-full bg-transparent border-b py-3 focus:outline-none focus:border-[var(--amber)] transition-colors"
-            style={{ borderColor: 'rgba(243,239,231,0.2)', color: 'var(--sand)' }}
+            style={{
+              borderColor: "rgba(243,239,231,0.2)",
+              color: "var(--sand)",
+            }}
           />
         </div>
         <div>
-          <label class="text-mono-label block mb-2" style={{ color: 'var(--sand)', opacity: 0.6 }}>Email</label>
+          <label
+            class="text-mono-label block mb-2"
+            style={{ color: "var(--sand)", opacity: 0.6 }}>Email</label
+          >
           <input
             type="email"
             name="email"
             required
             class="w-full bg-transparent border-b py-3 focus:outline-none focus:border-[var(--amber)] transition-colors"
-            style={{ borderColor: 'rgba(243,239,231,0.2)', color: 'var(--sand)' }}
+            style={{
+              borderColor: "rgba(243,239,231,0.2)",
+              color: "var(--sand)",
+            }}
           />
         </div>
         <div>
-          <label class="text-mono-label block mb-2" style={{ color: 'var(--sand)', opacity: 0.6 }}>Message</label>
+          <label
+            class="text-mono-label block mb-2"
+            style={{ color: "var(--sand)", opacity: 0.6 }}>Message</label
+          >
           <textarea
             name="message"
             rows="4"
             required
             class="w-full bg-transparent border-b py-3 focus:outline-none focus:border-[var(--amber)] transition-colors resize-none"
-            style={{ borderColor: 'rgba(243,239,231,0.2)', color: 'var(--sand)' }}
-          ></textarea>
+            style={{
+              borderColor: "rgba(243,239,231,0.2)",
+              color: "var(--sand)",
+            }}></textarea>
         </div>
         <button
           type="submit"
           id="submit-btn"
           class="inline-block text-mono-label transition-all duration-300 hover:brightness-110"
-          style={{ background: 'var(--amber)', color: 'var(--void)', padding: '14px 28px', borderRadius: '2px' }}
+          style={{
+            background: "var(--amber)",
+            color: "var(--void)",
+            padding: "14px 28px",
+            borderRadius: "2px",
+          }}
         >
           Send message
         </button>
@@ -120,49 +173,51 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <script>
-    const form = document.getElementById('contact-form');
-    const successMsg = document.getElementById('form-success');
-    const errorMsg = document.getElementById('form-error');
-    const submitBtn = document.getElementById('submit-btn');
+    const form = document.getElementById("contact-form");
+    const successMsg = document.getElementById("form-success");
+    const errorMsg = document.getElementById("form-error");
+    const submitBtn = document.getElementById("submit-btn");
 
-    form?.addEventListener('submit', async (e) => {
+    form?.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       // Hide previous messages
-      successMsg?.classList.add('hidden');
-      errorMsg?.classList.add('hidden');
+      successMsg?.classList.add("hidden");
+      errorMsg?.classList.add("hidden");
 
       // Disable submit button
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.style.opacity = '0.7';
+        submitBtn.textContent = "Sending...";
+        submitBtn.style.opacity = "0.7";
       }
 
       try {
         const formData = new FormData(form);
-        const response = await fetch('/', {
-          method: 'POST',
-          headers: { 'Accept': 'application/x-www-form-urlencoded;charset=UTF-8' },
-          body: new URLSearchParams(formData as any).toString()
+        const response = await fetch("/", {
+          method: "POST",
+          headers: {
+            Accept: "application/x-www-form-urlencoded;charset=UTF-8",
+          },
+          body: new URLSearchParams(formData as any).toString(),
         });
 
         if (response.ok) {
           form.reset();
-          successMsg?.classList.remove('hidden');
-          successMsg?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          successMsg?.classList.remove("hidden");
+          successMsg?.scrollIntoView({ behavior: "smooth", block: "center" });
         } else {
-          throw new Error('Form submission failed');
+          throw new Error("Form submission failed");
         }
       } catch (error) {
-        errorMsg?.classList.remove('hidden');
-        errorMsg?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        errorMsg?.classList.remove("hidden");
+        errorMsg?.scrollIntoView({ behavior: "smooth", block: "center" });
       } finally {
         // Re-enable submit button
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Send message';
-          submitBtn.style.opacity = '1';
+          submitBtn.textContent = "Send message";
+          submitBtn.style.opacity = "1";
         }
       }
     });
