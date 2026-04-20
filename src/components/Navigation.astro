@@ -13,11 +13,11 @@ const { pathname } = Astro.url;
 <nav
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
   id="main-nav"
-  style="padding: 1.5rem 4vw;"
+  style="padding: 2.5rem 2rem;"
 >
   <div class="flex items-center justify-between">
     <a
-      class="text-[var(--sand)] text-base font-medium tracking-tight"
+      class="text-base font-medium tracking-tight animate-gradient-text"
       href="/"
       style="font-family: 'DM Sans', sans-serif;"
     >
@@ -58,15 +58,15 @@ const { pathname } = Astro.url;
       id="mobile-menu-btn"
     >
       <span
-        class="block w-5 h-px transition-transform duration-300"
+        class="block w-8 h-px transition-transform duration-300"
         id="hamburger-top"
         style={{ background: "var(--sand)" }}></span>
       <span
-        class="block w-5 h-px transition-opacity duration-300"
+        class="block w-8 h-px transition-opacity duration-300"
         id="hamburger-middle"
         style={{ background: "var(--sand)" }}></span>
       <span
-        class="block w-5 h-px transition-transform duration-300"
+        class="block w-8 h-px transition-transform duration-300"
         id="hamburger-bottom"
         style={{ background: "var(--sand)" }}></span>
     </button>
@@ -77,7 +77,7 @@ const { pathname } = Astro.url;
 <div
   class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 hidden"
   id="mobile-menu"
-  style={{ background: "rgba(5,5,5,0.95)" }}
+  style={{ background: "var(--void-95)" }}
 >
   {
     navLinks.map((link) => (
@@ -110,7 +110,7 @@ const { pathname } = Astro.url;
       scrolled = shouldBeScrolled;
       if (nav) {
         nav.style.backdropFilter = scrolled ? "blur(8px)" : "none";
-        nav.style.background = scrolled ? "rgba(5,5,5,0.7)" : "transparent";
+        nav.style.background = scrolled ? "var(--void-70)" : "transparent";
       }
     }
   }
@@ -120,9 +120,9 @@ const { pathname } = Astro.url;
     if (mobileMenu && hamburgerTop && hamburgerMiddle && hamburgerBottom) {
       if (menuOpen) {
         mobileMenu.classList.remove("hidden");
-        hamburgerTop.style.transform = "rotate(45deg) translateY(4px)";
+        hamburgerTop.style.transform = "rotate(45deg) translateY(10px)";
         hamburgerMiddle.style.opacity = "0";
-        hamburgerBottom.style.transform = "rotate(-45deg) translateY(-4px)";
+        hamburgerBottom.style.transform = "rotate(-45deg) translateY(-10px)";
       } else {
         mobileMenu.classList.add("hidden");
         hamburgerTop.style.transform = "none";

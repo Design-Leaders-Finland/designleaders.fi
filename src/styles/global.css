@@ -119,9 +119,32 @@
     --void: #050505;
     --surface: #0f0e0c;
     --sand: #f3efe7;
-    --clay: #c67d5f;
-    --amber: #d68c45;
     --deep: #1a1816;
+
+    /* Base highlight color - change this to try different accent colors */
+    --highlight: #ff48a9;
+
+    /* Highlight derivatives using color-mix() */
+    --highlight-light: color-mix(in srgb, var(--highlight) 85%, white);
+    --highlight-dark: color-mix(in srgb, var(--highlight) 75%, black);
+    --highlight-10: color-mix(in srgb, var(--highlight) 10%, transparent);
+    --highlight-30: color-mix(in srgb, var(--highlight) 30%, transparent);
+    --highlight-40: color-mix(in srgb, var(--highlight) 40%, transparent);
+    --highlight-60: color-mix(in srgb, var(--highlight) 60%, transparent);
+
+    /* Semantic aliases (derived from highlight) */
+    --amber: var(--highlight);
+    --clay: var(--highlight-dark);
+
+    /* Neutral opacity variants */
+    --void-70: color-mix(in srgb, var(--void) 70%, transparent);
+    --void-95: color-mix(in srgb, var(--void) 95%, transparent);
+    --sand-20: color-mix(in srgb, var(--sand) 20%, transparent);
+    --sand-8: color-mix(in srgb, var(--sand) 8%, transparent);
+
+    /* Semantic colors (standalone) */
+    --error: #ef4444;
+    --error-10: color-mix(in srgb, var(--error) 10%, transparent);
 
     --background: 0 0% 2%;
     --foreground: 40 20% 93%;
@@ -150,7 +173,7 @@
   }
 
   ::selection {
-    background: rgba(198, 125, 95, 0.3);
+    background: var(--highlight-30);
     color: var(--sand);
   }
 
@@ -177,4 +200,32 @@
 
 .animate-scroll-indicator {
   animation: scroll-indicator 2s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-text {
+  background: linear-gradient(
+    90deg,
+    var(--highlight-40) 0%,
+    var(--highlight) 25%,
+    var(--highlight-60) 50%,
+    var(--highlight) 75%,
+    var(--highlight-40) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease-in-out infinite;
 }

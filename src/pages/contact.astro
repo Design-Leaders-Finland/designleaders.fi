@@ -62,7 +62,7 @@ import Layout from "../layouts/Layout.astro";
         class="hidden mb-8 p-6"
         id="form-success"
         style={{
-          background: "rgba(214, 140, 69, 0.1)",
+          background: "var(--highlight-10)",
           border: "1px solid var(--amber)",
           borderRadius: "2px",
         }}
@@ -78,14 +78,14 @@ import Layout from "../layouts/Layout.astro";
         class="hidden mb-8 p-6"
         id="form-error"
         style={{
-          background: "rgba(239, 68, 68, 0.1)",
-          border: "1px solid #ef4444",
+          background: "var(--error-10)",
+          border: "1px solid var(--error)",
           borderRadius: "2px",
         }}
       >
         <p class="text-body" style={{ color: "var(--sand)" }}>
-          <strong style={{ color: "#ef4444" }}>Oops!</strong> Something went wrong.
-          Please try again or email us directly at hello@designleaders.fi
+          <strong style={{ color: "var(--error)" }}>Oops!</strong> Something went
+          wrong. Please try again or email us directly at hello@designleaders.fi
         </p>
       </div>
 
@@ -120,7 +120,7 @@ import Layout from "../layouts/Layout.astro";
             name="name"
             required
             style={{
-              borderColor: "rgba(243,239,231,0.2)",
+              borderColor: "var(--sand-20)",
               color: "var(--sand)",
             }}
             type="text"
@@ -138,7 +138,7 @@ import Layout from "../layouts/Layout.astro";
             name="email"
             required
             style={{
-              borderColor: "rgba(243,239,231,0.2)",
+              borderColor: "var(--sand-20)",
               color: "var(--sand)",
             }}
             type="email"
@@ -157,7 +157,7 @@ import Layout from "../layouts/Layout.astro";
             required
             rows="4"
             style={{
-              borderColor: "rgba(243,239,231,0.2)",
+              borderColor: "var(--sand-20)",
               color: "var(--sand)",
             }}></textarea>
         </div>
