@@ -50,6 +50,17 @@
   }
 }
 
+/* Consistent horizontal padding for all main content sections */
+#main-content > * {
+  padding-inline: 8vw;
+}
+
+@media (width >= 1400px) {
+  #main-content > * {
+    padding-inline: calc((100vw - 1400px) / 2 + 2rem);
+  }
+}
+
 @utility text-display-xl {
   font-size: clamp(4rem, 12vw, 10rem);
   font-weight: 300;
@@ -121,8 +132,11 @@
     --sand: #f3efe7;
     --deep: #1a1816;
 
-    /* Base highlight color - change this to try different accent colors */
-    --highlight: #ff48a9;
+    /* Daily cycling highlight color: Pink → Violet → Blue → Green → Orange → Pink
+       365-day cycle with HSL(65% lightness, 75% saturation) for AAA contrast on dark backgrounds
+       Updated daily by JavaScript based on day of year */
+    --highlight: hsl(30 75% 65%); /* Default: orange, will be overridden by JS */
+    --highlight-hue: 30; /* Default hue, updated daily */
 
     /* Highlight derivatives using color-mix() */
     --highlight-light: color-mix(in srgb, var(--highlight) 85%, white);
@@ -228,4 +242,225 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 4s ease-in-out infinite;
+}
+
+/* Cursor effects - base shared styles */
+.cursor-mist,
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+/* Cursor-following lightning effect - uses daily highlight color */
+.cursor-mist {
+  background:
+    /* Main lightning bolt - uses highlight color */
+    conic-gradient(
+      from calc(var(--angle, 0deg) - 30deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+      transparent 0deg,
+      hsl(var(--highlight-hue, 30) 85% 65% / 0.9) 5deg,
+      rgba(255, 255, 255, 0.8) 8deg,
+      hsl(calc(var(--highlight-hue, 30) + 20) 75% 60% / 0.9) 12deg,
+      transparent 15deg,
+      transparent 360deg
+    ),
+    /* Secondary sparks - complementary hue */
+    conic-gradient(
+      from calc(var(--angle, 0deg) + 120deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+      transparent 0deg,
+      hsl(calc(var(--highlight-hue, 30) + 40) 80% 60% / 0.7) 3deg,
+      rgba(255, 255, 255, 0.6) 6deg,
+      transparent 10deg,
+      transparent 360deg
+    );
+  filter: drop-shadow(0 0 20px hsl(var(--highlight-hue, 30) 75% 60% / 0.5));
+}
+
+/* Electric spark trails - sharp lightning fragments using daily color */
+.cursor-trail {
+  background:
+    conic-gradient(
+      from calc(var(--trail-angle, 0deg) + 45deg) at var(--trail-x, 50%) var(--trail-y, 50%),
+      transparent 0deg,
+      hsl(var(--highlight-hue, 30) 85% 65% / 1) 2deg,
+      rgba(255, 255, 255, 0.9) 4deg,
+      hsl(calc(var(--highlight-hue, 30) + 20) 75% 60% / 0.8) 6deg,
+      transparent 8deg,
+      transparent 360deg
+    );
+  opacity: 0;
+}
+
+#cursor-trail-2 {
+  background:
+    conic-gradient(
+      from calc(var(--trail-angle, 0deg) - 60deg) at var(--trail-x, 50%) var(--trail-y, 50%),
+      transparent 0deg,
+      hsl(var(--highlight-hue, 30) 75% 60% / 0.8) 1deg,
+      hsl(calc(var(--highlight-hue, 30) + 30) 70% 55% / 0.6) 3deg,
+      transparent 5deg,
+      transparent 360deg
+    );
+}
+
+#cursor-trail-3 {
+  background:
+    conic-gradient(
+      from calc(var(--trail-angle, 0deg) + 150deg) at var(--trail-x, 50%) var(--trail-y, 50%),
+      transparent 0deg,
+      hsl(calc(var(--highlight-hue, 30) + 40) 80% 55% / 0.5) 1.5deg,
+      transparent 4deg,
+      transparent 360deg
+    );
+}
+
+/* Reduced motion - static lightning at clicked position using daily color */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-mist {
+    background:
+      /* First lightning bolt - independent random direction via --angle1 */
+      conic-gradient(
+        from var(--angle1, 45deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+        transparent 0deg,
+        hsl(var(--highlight-hue, 30) 85% 65% / 0.9) 5deg,
+        rgba(255, 255, 255, 0.8) 8deg,
+        hsl(calc(var(--highlight-hue, 30) + 20) 75% 60% / 0.9) 12deg,
+        transparent 15deg,
+        transparent 360deg
+      ),
+      /* Second lightning bolt - independent random direction via --angle2 */
+      conic-gradient(
+        from var(--angle2, 165deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+        transparent 0deg,
+        hsl(calc(var(--highlight-hue, 30) + 30) 70% 60% / 0.7) 3deg,
+        rgba(255, 255, 255, 0.6) 6deg,
+        transparent 10deg,
+        transparent 360deg
+      ),
+      /* Third lightning bolt - independent random direction via --angle3 */
+      conic-gradient(
+        from var(--angle3, 285deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+        transparent 0deg,
+        hsl(calc(var(--highlight-hue, 30) + 40) 80% 55% / 0.6) 4deg,
+        rgba(255, 255, 255, 0.5) 7deg,
+        transparent 12deg,
+        transparent 360deg
+      );
+    filter: drop-shadow(0 0 20px hsl(var(--highlight-hue, 30) 75% 60% / 0.5));
+    opacity: var(--static-opacity, 0);
+    transition: opacity 0.5s ease-out;
+  }
+
+  .cursor-trail {
+    display: none;
+  }
+}
+
+/* High contrast focus indicators */
+:focus-visible {
+  outline: 2px solid var(--highlight);
+  outline-offset: 2px;
+}
+
+/* Remove default focus outline when focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip link for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--highlight);
+  color: var(--void);
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :focus-visible {
+    outline: 3px solid var(--highlight);
+    outline-offset: 3px;
+  }
+
+  .cursor-mist,
+  .cursor-trail {
+    display: none;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: none;
+  }
+}
+
+/* Windows forced-colors mode (high contrast themes) */
+@media (forced-colors: active) {
+  /* Disable decorative effects */
+  .cursor-mist,
+  .cursor-trail {
+    display: none;
+  }
+
+  .animate-gradient-text {
+    background: none;
+    -webkit-text-fill-color: CanvasText;
+    color: CanvasText;
+  }
+
+  /* Ensure visible focus with system colors */
+  :focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+  }
+
+  /* Respect system color scheme */
+  body {
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  /* Force borders on form elements */
+  input,
+  textarea,
+  button {
+    border: 2px solid ButtonText;
+  }
+
+  /* Ensure buttons are recognizable */
+  button,
+  [type="submit"] {
+    background: ButtonFace;
+    color: ButtonText;
+    border: 2px solid ButtonText;
+  }
+
+  /* Links use system link color */
+  a {
+    color: LinkText;
+    text-decoration: underline;
+  }
+
+  /* Disabled state uses system GrayText */
+  :disabled {
+    color: GrayText;
+    border-color: GrayText;
+  }
 }

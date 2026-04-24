@@ -21,7 +21,7 @@ import { teamMembers } from "../data/people";
         style={{ color: "var(--sand)", opacity: 0.75, maxWidth: "50ch" }}
       >
         A small but mighty team of designers, engineers, and strategists based
-        in Copenhagen and beyond.
+        in Helsinki, Finland.
       </p>
     </div>
   </section>
@@ -81,7 +81,7 @@ import { teamMembers } from "../data/people";
             )}
             {member.linkedin && (
               <a
-                class="text-mono-label mt-4 inline-block transition-colors duration-300 hover:text-[var(--amber)]"
+                class="text-mono-label mt-4 inline-block transition-colors duration-300 hover:text-[var(--highlight)] focus:text-[var(--highlight)] focus:outline-none"
                 href={member.linkedin}
                 rel="noopener noreferrer"
                 style={{ color: "var(--clay)" }}
@@ -111,8 +111,7 @@ import { teamMembers } from "../data/people";
           Remote-first
         </h3>
         <p class="text-body" style={{ color: "var(--sand)", opacity: 0.7 }}>
-          We work from Copenhagen, Helsinki, and everywhere in between. Results
-          matter more than location.
+          We work from Helsinki, Finland. Results matter more than location.
         </p>
       </div>
       <div>
@@ -164,16 +163,16 @@ import { teamMembers } from "../data/people";
     </h2>
     <p
       class="text-body mb-8"
-      style={{ color: "var(--sand)", opacity: 0.6, maxWidth: "40ch" }}
+      style={{ color: "var(--sand)", opacity: 0.7, maxWidth: "40ch" }}
     >
       Always open to meeting talented designers and engineers who care about
       craft.
     </p>
     <a
-      class="inline-block text-mono-label transition-all duration-300 hover:brightness-110"
+      class="inline-block text-mono-label transition-all duration-300 hover:brightness-110 focus:brightness-110 focus:outline-none"
       href="/contact"
       style={{
-        background: "var(--amber)",
+        background: "var(--highlight)",
         color: "var(--void)",
         padding: "14px 28px",
         borderRadius: "2px",

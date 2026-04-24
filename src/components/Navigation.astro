@@ -21,7 +21,7 @@ const { pathname } = Astro.url;
       href="/"
       style="font-family: 'DM Sans', sans-serif;"
     >
-      design leaders
+     Design Leaders Finland
     </a>
 
     <!-- Desktop nav -->
@@ -33,14 +33,14 @@ const { pathname } = Astro.url;
             (link.href.startsWith("/#") && pathname === "/");
           return (
             <a
-              class="relative text-mono-label transition-opacity duration-300 hover:opacity-100"
+              class="relative text-mono-label transition-opacity duration-300 hover:opacity-100 focus:opacity-100 focus:outline-none"
               href={link.href}
               style={{
                 color: "var(--sand)",
                 opacity: isActive ? 1 : 0.6,
                 borderBottom:
                   isActive && !link.href.startsWith("/#")
-                    ? "1px solid var(--amber)"
+                    ? "1px solid var(--highlight)"
                     : "1px solid transparent",
               }}
             >
@@ -54,7 +54,9 @@ const { pathname } = Astro.url;
     <!-- Mobile hamburger -->
     <button
       aria-label="Toggle menu"
-      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class="md:hidden flex flex-col gap-1.5 p-2 focus:outline-none"
       id="mobile-menu-btn"
     >
       <span
@@ -77,12 +79,13 @@ const { pathname } = Astro.url;
 <div
   class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 hidden"
   id="mobile-menu"
+  aria-hidden="true"
   style={{ background: "var(--void-95)" }}
 >
   {
     navLinks.map((link) => (
       <a
-        class="text-display-lg"
+        class="text-display-lg focus:outline-none"
         href={link.href}
         style={{ color: "var(--sand)" }}
       >
@@ -94,54 +97,88 @@ const { pathname } = Astro.url;
 
 {/* eslint-disable-next-line astro/no-unsafe-inline-scripts */}
 <script is:inline>
-  let scrolled = false;
-  let menuOpen = false;
+  function initNavigation() {
+    let scrolled = false;
+    let menuOpen = false;
 
-  const nav = document.getElementById("main-nav");
-  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const hamburgerTop = document.getElementById("hamburger-top");
-  const hamburgerMiddle = document.getElementById("hamburger-middle");
-  const hamburgerBottom = document.getElementById("hamburger-bottom");
+    const nav = document.getElementById("main-nav");
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const hamburgerTop = document.getElementById("hamburger-top");
+    const hamburgerMiddle = document.getElementById("hamburger-middle");
+    const hamburgerBottom = document.getElementById("hamburger-bottom");
 
-  function updateNav() {
-    const shouldBeScrolled = window.scrollY > window.innerHeight * 0.8;
-    if (shouldBeScrolled !== scrolled) {
-      scrolled = shouldBeScrolled;
-      if (nav) {
-        nav.style.backdropFilter = scrolled ? "blur(8px)" : "none";
-        nav.style.background = scrolled ? "var(--void-70)" : "transparent";
+    function updateNav() {
+      const shouldBeScrolled = window.scrollY > window.innerHeight * 0.8;
+      if (shouldBeScrolled !== scrolled) {
+        scrolled = shouldBeScrolled;
+        if (nav) {
+          nav.style.backdropFilter = scrolled ? "blur(8px)" : "none";
+          nav.style.background = scrolled ? "var(--void-70)" : "transparent";
+        }
       }
     }
-  }
 
-  function toggleMenu() {
-    menuOpen = !menuOpen;
-    if (mobileMenu && hamburgerTop && hamburgerMiddle && hamburgerBottom) {
-      if (menuOpen) {
-        mobileMenu.classList.remove("hidden");
-        hamburgerTop.style.transform = "rotate(45deg) translateY(10px)";
-        hamburgerMiddle.style.opacity = "0";
-        hamburgerBottom.style.transform = "rotate(-45deg) translateY(-10px)";
-      } else {
-        mobileMenu.classList.add("hidden");
-        hamburgerTop.style.transform = "none";
-        hamburgerMiddle.style.opacity = "1";
-        hamburgerBottom.style.transform = "none";
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      if (mobileMenu && mobileMenuBtn && hamburgerTop && hamburgerMiddle && hamburgerBottom) {
+        if (menuOpen) {
+          mobileMenu.classList.remove("hidden");
+          mobileMenu.setAttribute("aria-hidden", "false");
+          mobileMenuBtn.setAttribute("aria-expanded", "true");
+          hamburgerTop.style.transform = "rotate(45deg) translateY(10px)";
+          hamburgerMiddle.style.opacity = "0";
+          hamburgerBottom.style.transform = "rotate(-45deg) translateY(-10px)";
+          // Focus first link when menu opens
+          const firstLink = mobileMenu.querySelector("a");
+          firstLink?.focus();
+        } else {
+          mobileMenu.classList.add("hidden");
+          mobileMenu.setAttribute("aria-hidden", "true");
+          mobileMenuBtn.setAttribute("aria-expanded", "false");
+          hamburgerTop.style.transform = "none";
+          hamburgerMiddle.style.opacity = "1";
+          hamburgerBottom.style.transform = "none";
+          // Return focus to button when menu closes
+          mobileMenuBtn.focus();
+        }
       }
     }
-  }
 
-  window.addEventListener("scroll", updateNav, { passive: true });
-  mobileMenuBtn?.addEventListener("click", toggleMenu);
+    window.addEventListener("scroll", updateNav, { passive: true });
 
-  // Close menu when clicking a link
-  mobileMenu?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      if (menuOpen) toggleMenu();
+    // Attach mobile menu click handler
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener("click", toggleMenu);
+      mobileMenuBtn.style.cursor = "pointer";
+    }
+
+    // Close menu when clicking a link
+    mobileMenu?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (menuOpen) toggleMenu();
+      });
     });
-  });
 
-  // Initial state
-  updateNav();
+    // Reset menu state on page load
+    menuOpen = false;
+    if (mobileMenu) {
+      mobileMenu.classList.add("hidden");
+      mobileMenu.setAttribute("aria-hidden", "true");
+    }
+    if (mobileMenuBtn) {
+      mobileMenuBtn.setAttribute("aria-expanded", "false");
+    }
+    if (hamburgerTop && hamburgerMiddle && hamburgerBottom) {
+      hamburgerTop.style.transform = "none";
+      hamburgerMiddle.style.opacity = "1";
+      hamburgerBottom.style.transform = "none";
+    }
+  }
+
+  // Run on initial load
+  initNavigation();
+
+  // Re-run on Astro page transitions (for View Transitions)
+  document.addEventListener('astro:page-load', initNavigation);
 </script>

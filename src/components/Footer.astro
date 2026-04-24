@@ -24,11 +24,10 @@ const socialLinks = [
         class="text-base font-medium mb-8"
         style={{ color: "var(--sand)", fontFamily: "'DM Sans', sans-serif" }}
       >
-        design leaders
+        Design Leaders Finland
       </div>
-      <p class="text-caption" style={{ color: "var(--sand)", opacity: 0.5 }}>
-        Sortedam Dossering 59C<br />
-        2100 Copenhagen
+      <p class="text-caption" style={{ color: "var(--sand)", opacity: 0.7 }}>
+        Helsinki, Finland
       </p>
     </div>
 
@@ -37,9 +36,9 @@ const socialLinks = [
       {
         navLinks.map((link) => (
           <a
-            class="text-mono-label transition-opacity duration-300 hover:opacity-100"
+            class="text-mono-label transition-opacity duration-300 hover:opacity-100 focus:opacity-100 focus:outline-none"
             href={link.href}
-            style={{ color: "var(--sand)", opacity: 0.5 }}
+            style={{ color: "var(--sand)", opacity: 0.7 }}
           >
             {link.label}
           </a>
@@ -52,10 +51,10 @@ const socialLinks = [
       {
         socialLinks.map((social) => (
           <a
-            class="text-mono-label transition-opacity duration-300 hover:opacity-100"
+            class="text-mono-label transition-opacity duration-300 hover:opacity-100 focus:opacity-100 focus:outline-none"
             href={social.href}
             rel="noopener noreferrer"
-            style={{ color: "var(--sand)", opacity: 0.5 }}
+            style={{ color: "var(--sand)", opacity: 0.7 }}
             target="_blank"
           >
             {social.label}
@@ -70,11 +69,20 @@ const socialLinks = [
     class="flex flex-col md:flex-row justify-between items-center gap-4 mt-16 pt-8"
     style={{ borderTop: "1px solid var(--sand-8)" }}
   >
-    <span class="text-caption" style={{ color: "var(--sand)", opacity: 0.4 }}>
-      &copy; {currentYear} Design Leaders
+    <span class="text-caption" style={{ color: "var(--sand)", opacity: 0.6 }}>
+      &copy; {currentYear} Design Leaders Finland Oy
     </span>
-    <span class="text-caption" style={{ color: "var(--sand)", opacity: 0.4 }}>
-      Copenhagen, Denmark
+    <span class="text-caption" style={{ color: "var(--sand)", opacity: 0.6 }}>
+      Helsinki, Finland
     </span>
   </div>
+
+  <!-- 365-day color spectrum - populated by JavaScript -->
+  <div
+    id="footer-spectrum"
+    class="w-full mt-8"
+    style={{ height: "1rem" }}
+    aria-hidden="true"
+    title="Year color cycle: Pink → Violet → Blue → Green → Orange"
+  ></div>
 </footer>

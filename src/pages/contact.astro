@@ -30,7 +30,7 @@ import Layout from "../layouts/Layout.astro";
       <div>
         <h2 class="text-title mb-4" style={{ color: "var(--sand)" }}>Email</h2>
         <a
-          class="text-body hover:text-[var(--amber)] transition-colors"
+          class="text-body hover:text-[var(--highlight)] focus:text-[var(--highlight)] transition-colors focus:outline-none"
           href="mailto:hello@designleaders.fi"
           style={{ color: "var(--clay)" }}
         >
@@ -42,9 +42,7 @@ import Layout from "../layouts/Layout.astro";
           Address
         </h2>
         <p class="text-body" style={{ color: "var(--sand)", opacity: 0.7 }}>
-          Sortedam Dossering 59C<br />
-          2100 Copenhagen<br />
-          Denmark
+          Helsinki, Finland
         </p>
       </div>
     </div>
@@ -63,12 +61,12 @@ import Layout from "../layouts/Layout.astro";
         id="form-success"
         style={{
           background: "var(--highlight-10)",
-          border: "1px solid var(--amber)",
+          border: "1px solid var(--highlight)",
           borderRadius: "2px",
         }}
       >
         <p class="text-body" style={{ color: "var(--sand)" }}>
-          <strong style={{ color: "var(--amber)" }}>Thank you!</strong> Your message
+          <strong style={{ color: "var(--highlight)" }}>Thank you!</strong> Your message
           has been sent. We'll respond within 48 hours.
         </p>
       </div>
@@ -115,7 +113,7 @@ import Layout from "../layouts/Layout.astro";
             style={{ color: "var(--sand)", opacity: 0.6 }}>Name</label
           >
           <input
-            class="w-full bg-transparent border-b py-3 focus:outline-none focus:border-[var(--amber)] transition-colors"
+            class="w-full bg-transparent border-b py-3 focus:border-[var(--highlight)] active:border-[var(--highlight)] transition-colors"
             id="name"
             name="name"
             required
@@ -133,7 +131,7 @@ import Layout from "../layouts/Layout.astro";
             style={{ color: "var(--sand)", opacity: 0.6 }}>Email</label
           >
           <input
-            class="w-full bg-transparent border-b py-3 focus:outline-none focus:border-[var(--amber)] transition-colors"
+            class="w-full bg-transparent border-b py-3 focus:border-[var(--highlight)] active:border-[var(--highlight)] transition-colors"
             id="email"
             name="email"
             required
@@ -151,7 +149,7 @@ import Layout from "../layouts/Layout.astro";
             style={{ color: "var(--sand)", opacity: 0.6 }}>Message</label
           >
           <textarea
-            class="w-full bg-transparent border-b py-3 focus:outline-none focus:border-[var(--amber)] transition-colors resize-none"
+            class="w-full bg-transparent border-b py-3 focus:border-[var(--highlight)] active:border-[var(--highlight)] transition-colors resize-none"
             id="message"
             name="message"
             required
@@ -162,10 +160,10 @@ import Layout from "../layouts/Layout.astro";
             }}></textarea>
         </div>
         <button
-          class="inline-block text-mono-label transition-all duration-300 hover:brightness-110"
+          class="inline-block text-mono-label transition-all duration-300 hover:brightness-110 focus:brightness-110 active:scale-95"
           id="submit-btn"
           style={{
-            background: "var(--amber)",
+            background: "var(--highlight)",
             color: "var(--void)",
             padding: "14px 28px",
             borderRadius: "2px",
