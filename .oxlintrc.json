@@ -1,0 +1,50 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "typescript",
+    "unicorn",
+    "oxc",
+    "react",
+    "react-perf",
+    "nextjs",
+    "import",
+    "jsdoc",
+    "jsx-a11y",
+    "node",
+    "promise",
+    "jest",
+    "vitest",
+    "vue"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "pedantic": "warn",
+    "perf": "warn",
+    "style": "warn",
+    "restriction": "off",
+    "nursery": "warn"
+  },
+  "rules": {
+    "eslint/no-unused-vars": "error"
+  },
+  "env": {
+    "builtin": true,
+    "browser": true,
+    "es2024": true
+  },
+  "globals": {},
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    ".astro",
+    "package-lock.json"
+  ],
+  "settings": {
+    "jsx-a11y": {
+      "components": {
+        "Link": "a"
+      }
+    }
+  }
+}

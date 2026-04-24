@@ -4,8 +4,10 @@
   "version": "0.3.0",
   "type": "module",
   "scripts": {
-    "lint": "eslint .",
-    "format": "prettier --write .",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt && prettier --write '**/*.astro'",
+    "format:check": "oxfmt --check && prettier --check '**/*.astro'",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -16,22 +18,17 @@
     "zod": "3.25.76"
   },
   "devDependencies": {
-    "@eslint/js": "9.39.4",
     "@tailwindcss/vite": "4.2.2",
     "@types/node": "24.12.2",
-    "@typescript-eslint/parser": "8.58.2",
     "browserslist": "4.28.2",
-    "eslint": "9.39.4",
-    "eslint-plugin-astro": "1.7.0",
-    "eslint-plugin-jsx-a11y": "6.10.2",
-    "globals": "16.5.0",
     "lightningcss": "1.32.0",
+    "oxfmt": "latest",
+    "oxlint": "latest",
     "postcss": "8.5.10",
     "prettier": "3.8.3",
     "prettier-plugin-astro": "0.14.1",
     "tailwindcss": "4.2.2",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.58.2",
     "vite": "6.4.2"
   }
 }

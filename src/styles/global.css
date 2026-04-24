@@ -272,52 +272,49 @@
     ),
     /* Secondary sparks - complementary hue */
     conic-gradient(
-      from calc(var(--angle, 0deg) + 120deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
-      transparent 0deg,
-      hsl(calc(var(--highlight-hue, 30) + 40) 80% 60% / 0.7) 3deg,
-      rgba(255, 255, 255, 0.6) 6deg,
-      transparent 10deg,
-      transparent 360deg
-    );
+        from calc(var(--angle, 0deg) + 120deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+        transparent 0deg,
+        hsl(calc(var(--highlight-hue, 30) + 40) 80% 60% / 0.7) 3deg,
+        rgba(255, 255, 255, 0.6) 6deg,
+        transparent 10deg,
+        transparent 360deg
+      );
   filter: drop-shadow(0 0 20px hsl(var(--highlight-hue, 30) 75% 60% / 0.5));
 }
 
 /* Electric spark trails - sharp lightning fragments using daily color */
 .cursor-trail {
-  background:
-    conic-gradient(
-      from calc(var(--trail-angle, 0deg) + 45deg) at var(--trail-x, 50%) var(--trail-y, 50%),
-      transparent 0deg,
-      hsl(var(--highlight-hue, 30) 85% 65% / 1) 2deg,
-      rgba(255, 255, 255, 0.9) 4deg,
-      hsl(calc(var(--highlight-hue, 30) + 20) 75% 60% / 0.8) 6deg,
-      transparent 8deg,
-      transparent 360deg
-    );
+  background: conic-gradient(
+    from calc(var(--trail-angle, 0deg) + 45deg) at var(--trail-x, 50%) var(--trail-y, 50%),
+    transparent 0deg,
+    hsl(var(--highlight-hue, 30) 85% 65% / 1) 2deg,
+    rgba(255, 255, 255, 0.9) 4deg,
+    hsl(calc(var(--highlight-hue, 30) + 20) 75% 60% / 0.8) 6deg,
+    transparent 8deg,
+    transparent 360deg
+  );
   opacity: 0;
 }
 
 #cursor-trail-2 {
-  background:
-    conic-gradient(
-      from calc(var(--trail-angle, 0deg) - 60deg) at var(--trail-x, 50%) var(--trail-y, 50%),
-      transparent 0deg,
-      hsl(var(--highlight-hue, 30) 75% 60% / 0.8) 1deg,
-      hsl(calc(var(--highlight-hue, 30) + 30) 70% 55% / 0.6) 3deg,
-      transparent 5deg,
-      transparent 360deg
-    );
+  background: conic-gradient(
+    from calc(var(--trail-angle, 0deg) - 60deg) at var(--trail-x, 50%) var(--trail-y, 50%),
+    transparent 0deg,
+    hsl(var(--highlight-hue, 30) 75% 60% / 0.8) 1deg,
+    hsl(calc(var(--highlight-hue, 30) + 30) 70% 55% / 0.6) 3deg,
+    transparent 5deg,
+    transparent 360deg
+  );
 }
 
 #cursor-trail-3 {
-  background:
-    conic-gradient(
-      from calc(var(--trail-angle, 0deg) + 150deg) at var(--trail-x, 50%) var(--trail-y, 50%),
-      transparent 0deg,
-      hsl(calc(var(--highlight-hue, 30) + 40) 80% 55% / 0.5) 1.5deg,
-      transparent 4deg,
-      transparent 360deg
-    );
+  background: conic-gradient(
+    from calc(var(--trail-angle, 0deg) + 150deg) at var(--trail-x, 50%) var(--trail-y, 50%),
+    transparent 0deg,
+    hsl(calc(var(--highlight-hue, 30) + 40) 80% 55% / 0.5) 1.5deg,
+    transparent 4deg,
+    transparent 360deg
+  );
 }
 
 /* Reduced motion - static lightning at clicked position using daily color */
@@ -335,23 +332,23 @@
         transparent 360deg
       ),
       /* Second lightning bolt - independent random direction via --angle2 */
-      conic-gradient(
-        from var(--angle2, 165deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
-        transparent 0deg,
-        hsl(calc(var(--highlight-hue, 30) + 30) 70% 60% / 0.7) 3deg,
-        rgba(255, 255, 255, 0.6) 6deg,
-        transparent 10deg,
-        transparent 360deg
-      ),
+        conic-gradient(
+          from var(--angle2, 165deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+          transparent 0deg,
+          hsl(calc(var(--highlight-hue, 30) + 30) 70% 60% / 0.7) 3deg,
+          rgba(255, 255, 255, 0.6) 6deg,
+          transparent 10deg,
+          transparent 360deg
+        ),
       /* Third lightning bolt - independent random direction via --angle3 */
-      conic-gradient(
-        from var(--angle3, 285deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
-        transparent 0deg,
-        hsl(calc(var(--highlight-hue, 30) + 40) 80% 55% / 0.6) 4deg,
-        rgba(255, 255, 255, 0.5) 7deg,
-        transparent 12deg,
-        transparent 360deg
-      );
+        conic-gradient(
+          from var(--angle3, 285deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+          transparent 0deg,
+          hsl(calc(var(--highlight-hue, 30) + 40) 80% 55% / 0.6) 4deg,
+          rgba(255, 255, 255, 0.5) 7deg,
+          transparent 12deg,
+          transparent 360deg
+        );
     filter: drop-shadow(0 0 20px hsl(var(--highlight-hue, 30) 75% 60% / 0.5));
     opacity: var(--static-opacity, 0);
     transition: opacity 0.5s ease-out;
