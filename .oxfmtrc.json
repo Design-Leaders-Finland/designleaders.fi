@@ -18,12 +18,7 @@
   "htmlWhitespaceSensitivity": "css",
   "embeddedLanguageFormatting": "auto",
   "vueIndentScriptAndStyle": false,
-  "ignorePatterns": [
-    "dist",
-    "node_modules",
-    ".astro",
-    "package-lock.json"
-  ],
+  "ignorePatterns": ["dist", "node_modules", ".astro", "package-lock.json"],
   "sortImports": {
     "groups": [
       "builtin",
@@ -54,11 +49,11 @@
     "addDefaultToDescription": true,
     "bracketSpacing": true,
     "capitalizeDescriptions": true,
-    "commentLineStrategy": "preserve",
+    "commentLineStrategy": "keep",
     "descriptionTag": true,
     "descriptionWithDot": true,
     "keepUnparsableExampleIndent": false,
-    "lineWrappingStyle": "compact",
+    "lineWrappingStyle": "greedy",
     "preferCodeFences": true
   }
 }

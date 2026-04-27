@@ -33,6 +33,7 @@ import "../styles/global.css";
     <ClientRouter />
     {/* eslint-disable-next-line astro/no-unsafe-inline-scripts */}
     <script is:inline type="text/javascript">
+      /* eslint-disable func-names, max-params, prefer-destructuring */
       (function (c, l, a, r, i, t, y) {
         c[a] =
           c[a] ||
@@ -42,10 +43,11 @@ import "../styles/global.css";
           };
         t = l.createElement(r);
         t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
+        t.src = `https://www.clarity.ms/tag/${i}`;
         y = l.getElementsByTagName(r)[0];
         y.parentNode.insertBefore(t, y);
       })(window, document, "clarity", "script", "redpng6bcj");
+      /* eslint-enable func-names, max-params, prefer-destructuring */
     </script>
   </head>
 
@@ -64,7 +66,9 @@ import "../styles/global.css";
     {/* eslint-disable-next-line astro/no-unsafe-inline-scripts */}
     <script is:inline>
       // Check for reduced motion preference
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
 
       // Daily color cycle: 365 days, cycling through pink → violet → blue → green → orange
       function getDailyHue() {
@@ -75,8 +79,10 @@ import "../styles/global.css";
         const hueRange = 300;
         const startHue = 330;
         const progress = (dayOfYear % 365) / 365;
-        let hue = startHue - (progress * hueRange);
-        if (hue < 0) hue += 360;
+        let hue = startHue - progress * hueRange;
+        if (hue < 0) {
+          hue += 360;
+        }
         return Math.round(hue);
       }
 
@@ -87,42 +93,56 @@ import "../styles/global.css";
           const progress = day / 365;
           const hueRange = 300;
           const startHue = 330;
-          let hue = startHue - (progress * hueRange);
-          if (hue < 0) hue += 360;
-          const percent = (day / 364 * 100).toFixed(2);
+          let hue = startHue - progress * hueRange;
+          if (hue < 0) {
+            hue += 360;
+          }
+          const percent = ((day / 364) * 100).toFixed(2);
           stops.push(`hsl(${Math.round(hue)} 75% 65%) ${percent}%`);
         }
-        return `linear-gradient(to right, ${stops.join(', ')})`;
+        return `linear-gradient(to right, ${stops.join(", ")})`;
       }
 
       // Lightning cursor state
-      let mouseX = 0, mouseY = 0;
-      let currentX = 0, currentY = 0;
-      let trail1X = 0, trail1Y = 0;
-      let trail2X = 0, trail2Y = 0;
-      let trail3X = 0, trail3Y = 0;
+      let mouseX = 0,
+        mouseY = 0;
+      let currentX = 0,
+        currentY = 0;
+      let trail1X = 0,
+        trail1Y = 0;
+      let trail2X = 0,
+        trail2Y = 0;
+      let trail3X = 0,
+        trail3Y = 0;
       let animationId = null;
 
       // Track mouse position globally
-      document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      }, { passive: true });
+      document.addEventListener(
+        "mousemove",
+        (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        },
+        { passive: true },
+      );
 
       // Initialize all dynamic features - re-queries elements each call
       function initLightning() {
-        const mist = document.getElementById('cursor-mist');
-        const trail1 = document.getElementById('cursor-trail-1');
-        const trail2 = document.getElementById('cursor-trail-2');
-        const trail3 = document.getElementById('cursor-trail-3');
+        const mist = document.querySelector("#cursor-mist");
+        const trail1 = document.querySelector("#cursor-trail-1");
+        const trail2 = document.querySelector("#cursor-trail-2");
+        const trail3 = document.querySelector("#cursor-trail-3");
 
         // Apply daily color
         const dailyHue = getDailyHue();
-        document.documentElement.style.setProperty('--highlight-hue', dailyHue);
-        document.documentElement.style.setProperty('--highlight', `hsl(${dailyHue} 75% 65%)`);
+        document.documentElement.style.setProperty("--highlight-hue", dailyHue);
+        document.documentElement.style.setProperty(
+          "--highlight",
+          `hsl(${dailyHue} 75% 65%)`,
+        );
 
         // Apply footer spectrum
-        const footerSpectrum = document.getElementById('footer-spectrum');
+        const footerSpectrum = document.querySelector("#footer-spectrum");
         if (footerSpectrum) {
           footerSpectrum.style.background = generate365DaySpectrum();
         }
@@ -136,42 +156,44 @@ import "../styles/global.css";
         if (prefersReducedMotion) {
           // Reduced motion: click to place static lightning
           if (mist) {
-            mist.style.setProperty('--static-opacity', '0');
+            mist.style.setProperty("--static-opacity", "0");
           }
 
           // Remove old click listeners by cloning and replacing
           const oldClickHandler = window._lightningClickHandler;
           if (oldClickHandler) {
-            document.removeEventListener('click', oldClickHandler);
+            document.removeEventListener("click", oldClickHandler);
           }
 
           window._lightningClickHandler = (e) => {
-            const mist = document.getElementById('cursor-mist');
-            if (mist) {
+            const clickMist = document.querySelector("#cursor-mist");
+            if (clickMist) {
               const angle1 = Math.random() * 360;
               const angle2 = Math.random() * 360;
               const angle3 = Math.random() * 360;
-              mist.style.setProperty('--cursor-x', e.clientX + 'px');
-              mist.style.setProperty('--cursor-y', e.clientY + 'px');
-              mist.style.setProperty('--angle1', angle1 + 'deg');
-              mist.style.setProperty('--angle2', angle2 + 'deg');
-              mist.style.setProperty('--angle3', angle3 + 'deg');
-              mist.style.setProperty('--static-opacity', '0.9');
+              clickMist.style.setProperty("--cursor-x", `${e.clientX}px`);
+              clickMist.style.setProperty("--cursor-y", `${e.clientY}px`);
+              clickMist.style.setProperty("--angle1", `${angle1}deg`);
+              clickMist.style.setProperty("--angle2", `${angle2}deg`);
+              clickMist.style.setProperty("--angle3", `${angle3}deg`);
+              clickMist.style.setProperty("--static-opacity", "0.9");
 
               setTimeout(() => {
-                const m = document.getElementById('cursor-mist');
-                if (m) m.style.setProperty('--static-opacity', '0');
+                const m = document.querySelector("#cursor-mist");
+                if (m) {
+                  m.style.setProperty("--static-opacity", "0");
+                }
               }, 400);
             }
           };
-          document.addEventListener('click', window._lightningClickHandler);
+          document.addEventListener("click", window._lightningClickHandler);
         } else {
           // Full motion: animated cursor-following lightning
           function animate() {
-            const mist = document.getElementById('cursor-mist');
-            const trail1 = document.getElementById('cursor-trail-1');
-            const trail2 = document.getElementById('cursor-trail-2');
-            const trail3 = document.getElementById('cursor-trail-3');
+            const animMist = document.querySelector("#cursor-mist");
+            const animTrail1 = document.querySelector("#cursor-trail-1");
+            const animTrail2 = document.querySelector("#cursor-trail-2");
+            const animTrail3 = document.querySelector("#cursor-trail-3");
 
             const dx = mouseX - currentX;
             const dy = mouseY - currentY;
@@ -187,28 +209,28 @@ import "../styles/global.css";
             trail3X += (trail2X - trail3X) * 0.04;
             trail3Y += (trail2Y - trail3Y) * 0.04;
 
-            if (mist) {
-              mist.style.setProperty('--cursor-x', currentX + 'px');
-              mist.style.setProperty('--cursor-y', currentY + 'px');
-              mist.style.setProperty('--angle', angle + 'deg');
+            if (animMist) {
+              animMist.style.setProperty("--cursor-x", `${currentX}px`);
+              animMist.style.setProperty("--cursor-y", `${currentY}px`);
+              animMist.style.setProperty("--angle", `${angle}deg`);
             }
-            if (trail1) {
-              trail1.style.setProperty('--trail-x', trail1X + 'px');
-              trail1.style.setProperty('--trail-y', trail1Y + 'px');
-              trail1.style.setProperty('--trail-angle', angle + 'deg');
-              trail1.style.opacity = Math.min(velocity / 25, 0.9);
+            if (animTrail1) {
+              animTrail1.style.setProperty("--trail-x", `${trail1X}px`);
+              animTrail1.style.setProperty("--trail-y", `${trail1Y}px`);
+              animTrail1.style.setProperty("--trail-angle", `${angle}deg`);
+              animTrail1.style.opacity = Math.min(velocity / 25, 0.9);
             }
-            if (trail2) {
-              trail2.style.setProperty('--trail-x', trail2X + 'px');
-              trail2.style.setProperty('--trail-y', trail2Y + 'px');
-              trail2.style.setProperty('--trail-angle', (angle + 30) + 'deg');
-              trail2.style.opacity = Math.min(velocity / 40, 0.7);
+            if (animTrail2) {
+              animTrail2.style.setProperty("--trail-x", `${trail2X}px`);
+              animTrail2.style.setProperty("--trail-y", `${trail2Y}px`);
+              animTrail2.style.setProperty("--trail-angle", `${angle + 30}deg`);
+              animTrail2.style.opacity = Math.min(velocity / 40, 0.7);
             }
-            if (trail3) {
-              trail3.style.setProperty('--trail-x', trail3X + 'px');
-              trail3.style.setProperty('--trail-y', trail3Y + 'px');
-              trail3.style.setProperty('--trail-angle', (angle - 20) + 'deg');
-              trail3.style.opacity = Math.min(velocity / 60, 0.5);
+            if (animTrail3) {
+              animTrail3.style.setProperty("--trail-x", `${trail3X}px`);
+              animTrail3.style.setProperty("--trail-y", `${trail3Y}px`);
+              animTrail3.style.setProperty("--trail-angle", `${angle - 20}deg`);
+              animTrail3.style.opacity = Math.min(velocity / 60, 0.5);
             }
             animationId = requestAnimationFrame(animate);
           }
@@ -220,7 +242,7 @@ import "../styles/global.css";
       initLightning();
 
       // Re-run on Astro page transitions (for View Transitions)
-      document.addEventListener('astro:page-load', initLightning);
+      document.addEventListener("astro:page-load", initLightning);
     </script>
   </body>
 </html>

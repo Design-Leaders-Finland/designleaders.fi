@@ -5,9 +5,7 @@
   "type": "module",
   "scripts": {
     "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
-    "format": "oxfmt && prettier --write '**/*.astro'",
-    "format:check": "oxfmt --check && prettier --check '**/*.astro'",
+    "format": "oxfmt && prettier --write **/*.astro",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",

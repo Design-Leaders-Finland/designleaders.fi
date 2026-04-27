@@ -1,5 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import Card from "../components/Card.astro";
+import Badge from "../components/Badge.astro";
+import Button from "../components/Button.astro";
 import { teamMembers } from "../data/people";
 ---
 
@@ -27,7 +31,7 @@ import { teamMembers } from "../data/people";
   </section>
 
   <!-- Team Grid -->
-  <section style={{ background: "var(--surface)", padding: "6rem 8vw" }}>
+  <Section background="surface">
     <h2 class="text-display-lg mb-12" style={{ color: "var(--sand)" }}>
       Meet the team
     </h2>
@@ -57,18 +61,7 @@ import { teamMembers } from "../data/people";
             {member.keyCompetencies && (
               <div class="flex flex-wrap gap-2 mb-4">
                 {member.keyCompetencies.map((comp) => (
-                  <span
-                    class="text-caption"
-                    style={{
-                      background: "var(--deep)",
-                      color: "var(--sand)",
-                      padding: "4px 8px",
-                      borderRadius: "2px",
-                      opacity: 0.8,
-                    }}
-                  >
-                    {comp}
-                  </span>
+                  <Badge size="small">{comp}</Badge>
                 ))}
               </div>
             )}
@@ -94,91 +87,52 @@ import { teamMembers } from "../data/people";
         ))
       }
     </div>
-  </section>
+  </Section>
 
   <!-- Values (kept from original studio page) -->
-  <section style={{ background: "var(--void)", padding: "6rem 8vw" }}>
+  <Section background="void">
     <h2 class="text-display-lg mb-12" style={{ color: "var(--sand)" }}>
       How we work
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
-        <span
-          class="text-mono-label block mb-4"
-          style={{ color: "var(--clay)" }}>01</span
-        >
-        <h3 class="text-title mb-3" style={{ color: "var(--sand)" }}>
-          Remote-first
-        </h3>
-        <p class="text-body" style={{ color: "var(--sand)", opacity: 0.7 }}>
-          We work from Helsinki, Finland. Results matter more than location.
-        </p>
-      </div>
-      <div>
-        <span
-          class="text-mono-label block mb-4"
-          style={{ color: "var(--clay)" }}>02</span
-        >
-        <h3 class="text-title mb-3" style={{ color: "var(--sand)" }}>
-          Collaborative
-        </h3>
-        <p class="text-body" style={{ color: "var(--sand)", opacity: 0.7 }}>
-          We embed with your team, not alongside it. True partnership produces
-          the best work.
-        </p>
-      </div>
-      <div>
-        <span
-          class="text-mono-label block mb-4"
-          style={{ color: "var(--clay)" }}>03</span
-        >
-        <h3 class="text-title mb-3" style={{ color: "var(--sand)" }}>
-          Craft-focused
-        </h3>
-        <p class="text-body" style={{ color: "var(--sand)", opacity: 0.7 }}>
-          Details matter. We take pride in the polish of every deliverable, from
-          strategy to pixels.
-        </p>
-      </div>
+      <Card number="01" numberColor="clay" title="Remote-first">
+        We work from Helsinki, Finland. Results matter more than location.
+      </Card>
+      <Card number="02" numberColor="clay" title="Collaborative">
+        We embed with your team, not alongside it. True partnership produces the
+        best work.
+      </Card>
+      <Card number="03" numberColor="clay" title="Craft-focused">
+        Details matter. We take pride in the polish of every deliverable, from
+        strategy to pixels.
+      </Card>
     </div>
-  </section>
+  </Section>
 
-  <!-- CTA -->
-  <section
-    class="flex flex-col items-center justify-center text-center"
-    style={{
-      background: "var(--deep)",
-      padding: "8rem 8vw",
-      minHeight: "40vh",
-    }}
-  >
-    <p class="text-mono-label mb-4" style={{ color: "var(--clay)" }}>
-      Join the team
-    </p>
-    <h2
-      class="text-display-lg mb-6"
-      style={{ color: "var(--sand)", fontWeight: 300 }}
-    >
-      We're hiring
+  {/* Trainee Position */}
+  <Section background="surface">
+    <h2 class="text-display-lg mb-12" style={{ color: "var(--sand)" }}>
+      Trainee position
     </h2>
-    <p
-      class="text-body mb-8"
-      style={{ color: "var(--sand)", opacity: 0.7, maxWidth: "40ch" }}
-    >
-      Always open to meeting talented designers and engineers who care about
-      craft.
-    </p>
-    <a
-      class="inline-block text-mono-label transition-all duration-300 hover:brightness-110 focus:brightness-110 focus:outline-none"
-      href="/contact"
-      style={{
-        background: "var(--highlight)",
-        color: "var(--void)",
-        padding: "14px 28px",
-        borderRadius: "2px",
-      }}
-    >
-      Get in touch
-    </a>
-  </section>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <Card number="01" title="The role" subtitle="Engineering trainee">
+        Web and Flutter development. Build real products for your portfolio.
+      </Card>
+      <Card
+        number="02"
+        title="What you'll learn"
+        subtitle="AI-assisted development"
+      >
+        GitHub Copilot and agentic coding. TypeScript, Rust, WebAssembly,
+        Flutter.
+      </Card>
+      <Card number="03" title="The details" subtitle="10–20 weeks, 90% remote">
+        Helsinki, Finland.
+      </Card>
+    </div>
+
+    <div class="mt-8">
+      <Button href="/contact">Get in touch</Button>
+    </div>
+  </Section>
 </Layout>

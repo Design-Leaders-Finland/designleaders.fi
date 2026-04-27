@@ -2,45 +2,37 @@
 // Projects grid section - simplified from kimi_agent
 const projects = [
   {
-    title: "Fintech Design System",
     category: "Design Systems / Fintech",
     span: "col-span-full",
+    title: "Fintech Design System",
   },
   {
-    title: "E-commerce Redesign",
     category: "Design Quality / E-commerce",
     span: "col-span-1",
+    title: "E-commerce Redesign",
   },
   {
-    title: "Design Team Scaling",
     category: "Leadership / Enterprise",
     span: "col-span-1",
+    title: "Design Team Scaling",
   },
   {
-    title: "Brand Identity System",
     category: "Strategy / Brand",
     span: "col-span-1",
+    title: "Brand Identity System",
   },
   {
-    title: "Product Redesign",
     category: "UX / SaaS",
     span: "col-span-1",
+    title: "Product Redesign",
   },
 ];
 ---
 
-<section
-  id="work"
-  style={{ background: "var(--surface)", padding: "6rem 8vw" }}
->
+<section id="work" class="bg-surface pt-24 pb-24 px-[8vw]">
   <div class="flex items-end justify-between mb-12">
-    <h2 class="text-display-lg" style={{ color: "var(--sand)" }}>
-      Selected work
-    </h2>
-    <span
-      class="text-mono-label block"
-      style={{ color: "var(--sand)", opacity: 0.7 }}
-    >
+    <h2 class="text-display-lg text-sand">Selected work</h2>
+    <span class="text-mono-label block text-sand opacity-70">
       2019 — 2024
     </span>
   </div>
@@ -50,25 +42,17 @@ const projects = [
       projects.map((project) => (
         <div
           class:list={[
-            `group relative overflow-hidden cursor-pointer`,
+            `group relative overflow-hidden cursor-pointer bg-deep`,
             `${project.span}`,
+            project.span === "col-span-full" ? "aspect-[2/1]" : "aspect-square",
           ]}
-          style={{
-            background: "var(--deep)",
-            aspectRatio: project.span === "col-span-full" ? "2 / 1" : "1 / 1",
-          }}
         >
           <div class="absolute inset-0 bg-gradient-to-t from-[var(--void)] to-transparent opacity-60" />
           <div class="absolute bottom-0 left-0 right-0 p-6">
-            <span
-              class="text-mono-label block mb-2"
-              style={{ color: "var(--clay)" }}
-            >
+            <span class="text-mono-label block mb-2 text-clay">
               {project.category}
             </span>
-            <h3 class="text-title" style={{ color: "var(--sand)" }}>
-              {project.title}
-            </h3>
+            <h3 class="text-title text-sand">{project.title}</h3>
           </div>
         </div>
       ))

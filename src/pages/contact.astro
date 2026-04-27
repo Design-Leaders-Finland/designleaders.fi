@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
 ---
 
 <Layout title="Contact">
@@ -25,7 +26,7 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <!-- Contact Info -->
-  <section style={{ background: "var(--surface)", padding: "6rem 8vw" }}>
+  <Section background="surface">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl">
       <div>
         <h2 class="text-title mb-4" style={{ color: "var(--sand)" }}>Email</h2>
@@ -46,10 +47,10 @@ import Layout from "../layouts/Layout.astro";
         </p>
       </div>
     </div>
-  </section>
+  </Section>
 
   <!-- Netlify Form -->
-  <section style={{ background: "var(--void)", padding: "6rem 8vw" }}>
+  <Section background="void">
     <div class="max-w-2xl">
       <h2 class="text-display-lg mb-8" style={{ color: "var(--sand)" }}>
         Send a message
@@ -174,14 +175,14 @@ import Layout from "../layouts/Layout.astro";
         </button>
       </form>
     </div>
-  </section>
+  </Section>
 
   {/* eslint-disable-next-line astro/no-unsafe-inline-scripts */}
   <script is:inline>
-    const form = document.getElementById("contact-form");
-    const successMsg = document.getElementById("form-success");
-    const errorMsg = document.getElementById("form-error");
-    const submitBtn = document.getElementById("submit-btn");
+    const form = document.querySelector("#contact-form");
+    const successMsg = document.querySelector("#form-success");
+    const errorMsg = document.querySelector("#form-error");
+    const submitBtn = document.querySelector("#submit-btn");
 
     form?.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -200,13 +201,13 @@ import Layout from "../layouts/Layout.astro";
       try {
         const formData = new FormData(form);
         const response = await fetch("/", {
-          method: "POST",
-          headers: {
-            Accept: "application/x-www-form-urlencoded;charset=UTF-8",
-          },
           body: new URLSearchParams(
             formData as unknown as Record<string, string>,
           ).toString(),
+          headers: {
+            Accept: "application/x-www-form-urlencoded;charset=UTF-8",
+          },
+          method: "POST",
         });
 
         if (response.ok) {

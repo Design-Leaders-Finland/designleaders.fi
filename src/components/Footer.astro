@@ -2,33 +2,28 @@
 const currentYear = new Date().getFullYear();
 
 const navLinks = [
-  { label: "Work", href: "/#work" },
-  { label: "Services", href: "/services" },
-  { label: "Team", href: "/team" },
-  { label: "Apps", href: "/apps" },
-  { label: "Contact", href: "/contact" },
+  { href: "/#work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/team", label: "Team" },
+  { href: "/apps", label: "Apps" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const socialLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Dribbble", href: "https://dribbble.com" },
-  { label: "GitHub", href: "https://github.com" },
+  { href: "https://linkedin.com", label: "LinkedIn" },
+  { href: "https://dribbble.com", label: "Dribbble" },
+  { href: "https://github.com", label: "GitHub" },
 ];
 ---
 
-<footer style={{ background: "var(--deep)", padding: "6rem 8vw 3rem" }}>
+<footer class="bg-deep pt-24 pb-12 px-[8vw]">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
     <!-- Column 1 - Logo & Address -->
     <div>
-      <div
-        class="text-base font-medium mb-8"
-        style={{ color: "var(--sand)", fontFamily: "'DM Sans', sans-serif" }}
-      >
+      <div class="text-base font-medium mb-8 text-sand">
         Design Leaders Finland
       </div>
-      <p class="text-caption" style={{ color: "var(--sand)", opacity: 0.7 }}>
-        Helsinki, Finland
-      </p>
+      <p class="text-caption text-sand opacity-70">Helsinki, Finland</p>
     </div>
 
     <!-- Column 2 - Navigation -->
@@ -36,9 +31,8 @@ const socialLinks = [
       {
         navLinks.map((link) => (
           <a
-            class="text-mono-label transition-opacity duration-300 hover:opacity-100 focus:opacity-100 focus:outline-none"
+            class="text-mono-label transition-opacity duration-300 hover:opacity-100 focus:opacity-100 focus:outline-none text-sand opacity-70"
             href={link.href}
-            style={{ color: "var(--sand)", opacity: 0.7 }}
           >
             {link.label}
           </a>
@@ -51,10 +45,9 @@ const socialLinks = [
       {
         socialLinks.map((social) => (
           <a
-            class="text-mono-label transition-opacity duration-300 hover:opacity-100 focus:opacity-100 focus:outline-none"
+            class="text-mono-label transition-opacity duration-300 hover:opacity-100 focus:opacity-100 focus:outline-none text-sand opacity-70"
             href={social.href}
             rel="noopener noreferrer"
-            style={{ color: "var(--sand)", opacity: 0.7 }}
             target="_blank"
           >
             {social.label}
@@ -66,23 +59,20 @@ const socialLinks = [
 
   <!-- Bottom bar -->
   <div
-    class="flex flex-col md:flex-row justify-between items-center gap-4 mt-16 pt-8"
-    style={{ borderTop: "1px solid var(--sand-8)" }}
+    class="flex flex-col md:flex-row justify-between items-center gap-4 mt-16 pt-8 border-t border-sand-8"
   >
-    <span class="text-caption" style={{ color: "var(--sand)", opacity: 0.6 }}>
+    <span class="text-caption text-sand opacity-60">
       &copy; {currentYear} Design Leaders Finland Oy
     </span>
-    <span class="text-caption" style={{ color: "var(--sand)", opacity: 0.6 }}>
-      Helsinki, Finland
-    </span>
+    <span class="text-caption text-sand opacity-60"> Helsinki, Finland </span>
   </div>
 
   <!-- 365-day color spectrum - populated by JavaScript -->
   <div
     id="footer-spectrum"
-    class="w-full mt-8"
-    style={{ height: "1rem" }}
+    class="w-full mt-8 h-4"
     aria-hidden="true"
     title="Year color cycle: Pink → Violet → Blue → Green → Orange"
-  ></div>
+  >
+  </div>
 </footer>

@@ -1,30 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import Badge from "../components/Badge.astro";
+import Button from "../components/Button.astro";
 
 const services = [
   {
-    title: "Strategy",
+    deliverables: ["Product audits", "Research & insights", "Roadmap planning"],
     description:
       "Product strategy, research, and roadmap planning for ambitious products.",
-    deliverables: ["Product audits", "Research & insights", "Roadmap planning"],
+    title: "Strategy",
   },
   {
-    title: "Design",
+    deliverables: ["Design systems", "UI/UX design", "Prototyping"],
     description:
       "UI/UX design systems, interaction design, and visual identity.",
-    deliverables: ["Design systems", "UI/UX design", "Prototyping"],
+    title: "Design",
   },
   {
-    title: "Engineering",
+    deliverables: ["Frontend dev", "Design systems", "Technical architecture"],
     description:
       "Frontend architecture, React/TypeScript, and design system implementation.",
-    deliverables: ["Frontend dev", "Design systems", "Technical architecture"],
+    title: "Engineering",
   },
   {
-    title: "Leadership",
+    deliverables: ["Team structuring", "Process design", "Hiring support"],
     description:
       "Design team building, process design, and design ops consulting.",
-    deliverables: ["Team structuring", "Process design", "Hiring support"],
+    title: "Leadership",
   },
 ];
 ---
@@ -53,7 +56,7 @@ const services = [
   </section>
 
   <!-- Services Grid -->
-  <section style={{ background: "var(--surface)", padding: "6rem 8vw" }}>
+  <Section background="surface">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {
         services.map((service, index) => (
@@ -80,30 +83,19 @@ const services = [
             </p>
             <div class="flex flex-wrap gap-2">
               {service.deliverables.map((d) => (
-                <span
-                  class="text-mono-label"
-                  style={{
-                    background: "var(--deep)",
-                    color: "var(--sand)",
-                    padding: "6px 12px",
-                    borderRadius: "2px",
-                    opacity: 0.8,
-                  }}
-                >
-                  {d}
-                </span>
+                <Badge>{d}</Badge>
               ))}
             </div>
           </div>
         ))
       }
     </div>
-  </section>
+  </Section>
 
   <!-- CTA -->
-  <section
+  <Section
+    background="void"
     class="flex flex-col items-center justify-center text-center"
-    style={{ background: "var(--void)", padding: "6rem 8vw" }}
   >
     <h2
       class="text-display-lg mb-6"
@@ -111,17 +103,6 @@ const services = [
     >
       Ready to start?
     </h2>
-    <a
-      class="inline-block text-mono-label transition-all duration-300 hover:brightness-110 focus:brightness-110 focus:outline-none"
-      href="/contact"
-      style={{
-        background: "var(--highlight)",
-        color: "var(--void)",
-        padding: "14px 28px",
-        borderRadius: "2px",
-      }}
-    >
-      Discuss your project
-    </a>
-  </section>
+    <Button href="/contact">Discuss your project</Button>
+  </Section>
 </Layout>

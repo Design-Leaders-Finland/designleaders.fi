@@ -1,27 +1,25 @@
 ---
 const navLinks = [
-  { label: "Work", href: "/#work" },
-  { label: "Services", href: "/services" },
-  { label: "Team", href: "/team" },
-  { label: "Apps", href: "/apps" },
-  { label: "Contact", href: "/contact" },
+  { href: "/#work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/team", label: "Team" },
+  { href: "/apps", label: "Apps" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const { pathname } = Astro.url;
 ---
 
 <nav
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-10 bg-void/75"
   id="main-nav"
-  style="padding: 2.5rem 2rem;"
 >
   <div class="flex items-center justify-between">
     <a
       class="text-base font-medium tracking-tight animate-gradient-text"
       href="/"
-      style="font-family: 'DM Sans', sans-serif;"
     >
-     Design Leaders Finland
+      Design Leaders Finland
     </a>
 
     <!-- Desktop nav -->
@@ -33,7 +31,7 @@ const { pathname } = Astro.url;
             (link.href.startsWith("/#") && pathname === "/");
           return (
             <a
-              class="relative text-mono-label transition-opacity duration-300 hover:opacity-100 focus:opacity-100 focus:outline-none"
+              class="relative text-mono-label transition-opacity duration-300 hover:opacity-100 focus:opacity-100 focus:outline-none group"
               href={link.href}
               style={{
                 color: "var(--sand)",
@@ -45,6 +43,9 @@ const { pathname } = Astro.url;
               }}
             >
               {link.label}
+              {!isActive && (
+                <span class="absolute bottom-0 left-0 w-0 h-px transition-all duration-300 group-hover:w-full bg-sand" />
+              )}
             </a>
           );
         })
@@ -60,35 +61,27 @@ const { pathname } = Astro.url;
       id="mobile-menu-btn"
     >
       <span
-        class="block w-8 h-px transition-transform duration-300"
-        id="hamburger-top"
-        style={{ background: "var(--sand)" }}></span>
+        class="block w-8 h-px transition-transform duration-300 bg-sand"
+        id="hamburger-top"></span>
       <span
-        class="block w-8 h-px transition-opacity duration-300"
-        id="hamburger-middle"
-        style={{ background: "var(--sand)" }}></span>
+        class="block w-8 h-px transition-opacity duration-300 bg-sand"
+        id="hamburger-middle"></span>
       <span
-        class="block w-8 h-px transition-transform duration-300"
-        id="hamburger-bottom"
-        style={{ background: "var(--sand)" }}></span>
+        class="block w-8 h-px transition-transform duration-300 bg-sand"
+        id="hamburger-bottom"></span>
     </button>
   </div>
 </nav>
 
 <!-- Mobile overlay -->
 <div
-  class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 hidden"
+  class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 hidden bg-void-95"
   id="mobile-menu"
   aria-hidden="true"
-  style={{ background: "var(--void-95)" }}
 >
   {
     navLinks.map((link) => (
-      <a
-        class="text-display-lg focus:outline-none"
-        href={link.href}
-        style={{ color: "var(--sand)" }}
-      >
+      <a class="text-display-lg focus:outline-none text-sand" href={link.href}>
         {link.label}
       </a>
     ))
@@ -101,12 +94,12 @@ const { pathname } = Astro.url;
     let scrolled = false;
     let menuOpen = false;
 
-    const nav = document.getElementById("main-nav");
-    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const hamburgerTop = document.getElementById("hamburger-top");
-    const hamburgerMiddle = document.getElementById("hamburger-middle");
-    const hamburgerBottom = document.getElementById("hamburger-bottom");
+    const nav = document.querySelector("#main-nav");
+    const mobileMenuBtn = document.querySelector("#mobile-menu-btn");
+    const mobileMenu = document.querySelector("#mobile-menu");
+    const hamburgerTop = document.querySelector("#hamburger-top");
+    const hamburgerMiddle = document.querySelector("#hamburger-middle");
+    const hamburgerBottom = document.querySelector("#hamburger-bottom");
 
     function updateNav() {
       const shouldBeScrolled = window.scrollY > window.innerHeight * 0.8;
@@ -121,7 +114,13 @@ const { pathname } = Astro.url;
 
     function toggleMenu() {
       menuOpen = !menuOpen;
-      if (mobileMenu && mobileMenuBtn && hamburgerTop && hamburgerMiddle && hamburgerBottom) {
+      if (
+        mobileMenu &&
+        mobileMenuBtn &&
+        hamburgerTop &&
+        hamburgerMiddle &&
+        hamburgerBottom
+      ) {
         if (menuOpen) {
           mobileMenu.classList.remove("hidden");
           mobileMenu.setAttribute("aria-hidden", "false");
@@ -156,7 +155,9 @@ const { pathname } = Astro.url;
     // Close menu when clicking a link
     mobileMenu?.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        if (menuOpen) toggleMenu();
+        if (menuOpen) {
+          toggleMenu();
+        }
       });
     });
 
@@ -180,5 +181,5 @@ const { pathname } = Astro.url;
   initNavigation();
 
   // Re-run on Astro page transitions (for View Transitions)
-  document.addEventListener('astro:page-load', initNavigation);
+  document.addEventListener("astro:page-load", initNavigation);
 </script>

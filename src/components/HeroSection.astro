@@ -1,41 +1,22 @@
 ---
-// Simple Astro hero section matching kimi_agent design
+import Button from "./Button.astro";
 ---
 
-<section
-  class="relative min-h-screen flex items-center"
-  style="padding: 12rem 8vw 6rem;"
->
+<section class="relative min-h-screen flex items-center pt-48 pb-24 px-[8vw]">
   <div
     class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full"
   >
     <div>
-      <h1
-        class="text-display-xl mb-6"
-        style={{ color: "var(--sand)", fontWeight: 300, lineHeight: 1 }}
-      >
+      <h1 class="text-display-xl mb-6 text-sand font-light leading-none">
         Strategic design<br />
-        <span style={{ color: "var(--highlight)" }}>&</span> product studio
+        <span class="text-highlight">&</span> product studio
       </h1>
-      <p
-        class="text-body mt-6"
-        style={{ color: "var(--sand)", opacity: 0.8, maxWidth: "32ch" }}
-      >
+      <p class="text-body mt-6 text-sand opacity-80 max-w-[32ch]">
         Strategy, design, and engineering for forward-thinking teams
       </p>
-      <a
-        class="inline-block mt-8 text-mono-label transition-all duration-300 hover:brightness-110 focus:brightness-110 focus:outline-none"
-        href="/contact"
-        style={{
-          background: "var(--highlight)",
-          color: "var(--void)",
-          padding: "14px 28px",
-          borderRadius: "2px",
-          width: "fit-content",
-        }}
-      >
-        Start a project
-      </a>
+      <div class="mt-8">
+        <Button href="/contact">Start a project</Button>
+      </div>
     </div>
   </div>
 </section>

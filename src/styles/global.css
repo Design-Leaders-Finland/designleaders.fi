@@ -109,6 +109,92 @@
   text-wrap: balance;
 }
 
+/* Text colors using CSS custom properties */
+@utility text-sand {
+  color: var(--sand);
+}
+
+@utility text-clay {
+  color: var(--clay);
+}
+
+@utility text-highlight {
+  color: var(--highlight);
+}
+
+@utility text-amber {
+  color: var(--amber);
+}
+
+@utility text-void {
+  color: var(--void);
+}
+
+/* Background colors */
+@utility bg-void {
+  background-color: var(--void);
+}
+
+@utility bg-surface {
+  background-color: var(--surface);
+}
+
+@utility bg-deep {
+  background-color: var(--deep);
+}
+
+@utility bg-void-70 {
+  background-color: var(--void-70);
+}
+
+@utility bg-void-95 {
+  background-color: var(--void-95);
+}
+
+@utility bg-highlight {
+  background-color: var(--highlight);
+}
+
+@utility bg-sand-8 {
+  background-color: var(--sand-8);
+}
+
+@utility bg-sand-20 {
+  background-color: var(--sand-20);
+}
+
+/* Border colors */
+@utility border-sand-8 {
+  border-color: var(--sand-8);
+}
+
+@utility border-highlight {
+  border-color: var(--highlight);
+}
+
+@utility border-transparent {
+  border-color: transparent;
+}
+
+/* Opacity utilities */
+@utility opacity-60 {
+  opacity: 0.6;
+}
+
+@utility opacity-70 {
+  opacity: 0.7;
+}
+
+@utility opacity-80 {
+  opacity: 0.8;
+}
+
+/* Custom spacing for padding */
+@utility py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -196,7 +282,7 @@
   }
 
   body {
-    @apply bg-[var(--void)] text-[var(--sand)] min-h-screen;
+    @apply min-h-screen bg-[var(--void)] text-[var(--sand)];
     font-family: "DM Sans", system-ui, sans-serif;
     overflow-x: hidden;
   }

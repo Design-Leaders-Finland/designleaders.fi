@@ -1,25 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import Button from "../components/Button.astro";
 
 const apps = [
   {
-    name: "Helsinki Transit",
     description: "Real-time public transport tracking for the Helsinki region.",
+    name: "Helsinki Transit",
     platforms: ["iOS", "Android"],
   },
   {
-    name: "Nordic Weather",
     description: "Hyperlocal weather forecasts for Nordic countries.",
+    name: "Nordic Weather",
     platforms: ["iOS", "watchOS"],
   },
   {
-    name: "Finnish Learning",
     description: "Interactive language learning app for Finnish basics.",
+    name: "Finnish Learning",
     platforms: ["iOS", "Android", "Web"],
   },
   {
-    name: "Design System Kit",
     description: "Component library and design tokens management tool.",
+    name: "Design System Kit",
     platforms: ["iOS", "macOS"],
   },
 ];
@@ -46,7 +48,7 @@ const apps = [
   </section>
 
   <!-- Apps Grid -->
-  <section style={{ background: "var(--surface)", padding: "6rem 8vw" }}>
+  <Section background="surface">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {
         apps.map((app, index) => (
@@ -83,12 +85,12 @@ const apps = [
         ))
       }
     </div>
-  </section>
+  </Section>
 
   <!-- CTA -->
-  <section
+  <Section
+    background="void"
     class="flex flex-col items-center justify-center text-center"
-    style={{ background: "var(--void)", padding: "6rem 8vw" }}
   >
     <h2
       class="text-display-lg mb-6"
@@ -99,17 +101,6 @@ const apps = [
     <p class="text-body mb-8" style={{ color: "var(--sand)", opacity: 0.7 }}>
       We can help bring it to life. Let's discuss your vision.
     </p>
-    <a
-      class="inline-block text-mono-label transition-all duration-300 hover:brightness-110 focus:brightness-110 focus:outline-none"
-      href="/contact"
-      style={{
-        background: "var(--highlight)",
-        color: "var(--void)",
-        padding: "14px 28px",
-        borderRadius: "2px",
-      }}
-    >
-      Start a conversation
-    </a>
-  </section>
+    <Button href="/contact">Start a conversation</Button>
+  </Section>
 </Layout>

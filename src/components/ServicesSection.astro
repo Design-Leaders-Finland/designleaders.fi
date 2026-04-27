@@ -1,66 +1,53 @@
 ---
+import Section from "./Section.astro";
+import Card from "./Card.astro";
+
 // Services section - simplified from kimi_agent
 const services = [
   {
-    title: "Strategy",
     description:
       "Product strategy, research, and roadmap planning for ambitious products.",
+    title: "Strategy",
   },
   {
-    title: "Design",
     description:
       "UI/UX design systems, interaction design, and visual identity.",
+    title: "Design",
   },
   {
-    title: "Engineering",
     description:
       "Frontend architecture, React/TypeScript, and design system implementation.",
+    title: "Engineering",
   },
   {
-    title: "Leadership",
     description:
       "Design team building, process design, and design ops consulting.",
+    title: "Leadership",
   },
 ];
 ---
 
-<section style={{ background: "var(--void)", padding: "6rem 8vw" }}>
-  <h2 class="text-display-lg mb-12" style={{ color: "var(--sand)" }}>
-    Services
-  </h2>
+<Section background="void">
+  <h2 class="text-display-lg mb-12 text-sand">Services</h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
     {
       services.map((service, index) => (
-        <div
-          class="group"
-          style={{
-            borderTop: "1px solid var(--sand-8)",
-            paddingTop: "2rem",
-          }}
+        <Card
+          number={`0${index + 1}`}
+          numberColor="highlight"
+          title={service.title}
         >
-          <span
-            class="text-mono-label block mb-4"
-            style={{ color: "var(--highlight)" }}
-          >
-            0{index + 1}
-          </span>
-          <h3 class="text-title mb-3" style={{ color: "var(--sand)" }}>
-            {service.title}
-          </h3>
-          <p class="text-body" style={{ color: "var(--sand)", opacity: 0.7 }}>
-            {service.description}
-          </p>
-        </div>
+          {service.description}
+        </Card>
       ))
     }
   </div>
 
   <div class="mt-12 text-center">
     <a
-      class="inline-flex items-center gap-2 text-mono-label transition-colors duration-300 hover:text-[var(--highlight)] focus:text-[var(--highlight)] focus:outline-none"
+      class="inline-flex items-center gap-2 text-mono-label transition-colors duration-300 hover:text-[var(--highlight)] focus:text-[var(--highlight)] focus:outline-none text-clay"
       href="/services"
-      style={{ color: "var(--clay)" }}
     >
       View all services
       <svg fill="none" height="16" viewBox="0 0 16 16" width="16">
@@ -69,4 +56,4 @@ const services = [
       </svg>
     </a>
   </div>
-</section>
+</Section>
