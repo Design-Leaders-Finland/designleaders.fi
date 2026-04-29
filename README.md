@@ -78,6 +78,10 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 Services are listed in `src/data/services.ts`. Team profiles live in `src/data/people.ts` and render on the `/team` page.
 
+## Contact form
+
+https://docs.netlify.com/manage/forms/setup/
+
 ## SVG to PNG
 
 First use [`resvg`](https://github.com/linebender/resvg/tree/main/crates/resvg) to get png file from svg, by zooming it 4 times:

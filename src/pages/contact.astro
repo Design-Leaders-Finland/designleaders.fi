@@ -1,0 +1,233 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+---
+
+<Layout title="Contact">
+  <!-- Hero -->
+  <section
+    class="relative min-h-[40vh] flex items-center"
+    style="padding: 12rem 8vw 4rem;"
+  >
+    <div class="max-w-4xl">
+      <h1
+        class="text-display-xl mb-6"
+        style={{ color: "var(--sand)", fontWeight: 300 }}
+      >
+        Let's talk
+      </h1>
+      <p
+        class="text-body"
+        style={{ color: "var(--sand)", opacity: 0.75, maxWidth: "50ch" }}
+      >
+        Tell us about your project. We'll respond within 48 hours.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <Section background="surface">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl">
+      <div>
+        <h2 class="text-title mb-4" style={{ color: "var(--sand)" }}>Email</h2>
+        <a
+          class="text-body hover:text-[var(--highlight)] focus:text-[var(--highlight)] transition-colors focus:outline-none"
+          href="mailto:hello@designleaders.fi"
+          style={{ color: "var(--clay)" }}
+        >
+          hello@designleaders.fi
+        </a>
+      </div>
+      <div>
+        <h2 class="text-title mb-4" style={{ color: "var(--sand)" }}>
+          Address
+        </h2>
+        <p class="text-body" style={{ color: "var(--sand)", opacity: 0.7 }}>
+          Helsinki, Finland
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Netlify Form -->
+  <Section background="void">
+    <div class="max-w-2xl">
+      <h2 class="text-display-lg mb-8" style={{ color: "var(--sand)" }}>
+        Send a message
+      </h2>
+
+      <!-- Success Message (hidden by default) -->
+      <div
+        class="hidden mb-8 p-6"
+        id="form-success"
+        style={{
+          background: "var(--highlight-10)",
+          border: "1px solid var(--highlight)",
+          borderRadius: "2px",
+        }}
+      >
+        <p class="text-body" style={{ color: "var(--sand)" }}>
+          <strong style={{ color: "var(--highlight)" }}>Thank you!</strong> Your message
+          has been sent. We'll respond within 48 hours.
+        </p>
+      </div>
+
+      <!-- Error Message (hidden by default) -->
+      <div
+        class="hidden mb-8 p-6"
+        id="form-error"
+        style={{
+          background: "var(--error-10)",
+          border: "1px solid var(--error)",
+          borderRadius: "2px",
+        }}
+      >
+        <p class="text-body" style={{ color: "var(--sand)" }}>
+          <strong style={{ color: "var(--error)" }}>Oops!</strong> Something went
+          wrong. Please try again or email us directly at hello@designleaders.fi
+        </p>
+      </div>
+
+      <form
+        class="space-y-6"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        id="contact-form"
+        method="POST"
+        name="contact"
+      >
+        <!-- Honeypot field for spam prevention -->
+        <p class="hidden">
+          <label
+            >Don't fill this out if you're human: <input
+              name="bot-field"
+            /></label
+          >
+        </p>
+
+        <input name="form-name" type="hidden" value="contact" />
+
+        <div>
+          <label
+            class="text-mono-label block mb-2"
+            for="name"
+            style={{ color: "var(--sand)", opacity: 0.6 }}>Name</label
+          >
+          <input
+            class="w-full bg-transparent border-b py-3 focus:border-[var(--highlight)] active:border-[var(--highlight)] transition-colors"
+            id="name"
+            name="name"
+            required
+            style={{
+              borderColor: "var(--sand-20)",
+              color: "var(--sand)",
+            }}
+            type="text"
+          />
+        </div>
+        <div>
+          <label
+            class="text-mono-label block mb-2"
+            for="email"
+            style={{ color: "var(--sand)", opacity: 0.6 }}>Email</label
+          >
+          <input
+            class="w-full bg-transparent border-b py-3 focus:border-[var(--highlight)] active:border-[var(--highlight)] transition-colors"
+            id="email"
+            name="email"
+            required
+            style={{
+              borderColor: "var(--sand-20)",
+              color: "var(--sand)",
+            }}
+            type="email"
+          />
+        </div>
+        <div>
+          <label
+            class="text-mono-label block mb-2"
+            for="message"
+            style={{ color: "var(--sand)", opacity: 0.6 }}>Message</label
+          >
+          <textarea
+            class="w-full bg-transparent border-b py-3 focus:border-[var(--highlight)] active:border-[var(--highlight)] transition-colors resize-none"
+            id="message"
+            name="message"
+            required
+            rows="4"
+            style={{
+              borderColor: "var(--sand-20)",
+              color: "var(--sand)",
+            }}></textarea>
+        </div>
+        <button
+          class="inline-block text-mono-label transition-all duration-300 hover:brightness-110 focus:brightness-110 active:scale-95"
+          id="submit-btn"
+          style={{
+            background: "var(--highlight)",
+            color: "var(--void)",
+            padding: "14px 28px",
+            borderRadius: "2px",
+          }}
+          type="submit"
+        >
+          Send message
+        </button>
+      </form>
+    </div>
+  </Section>
+
+  {/* eslint-disable-next-line astro/no-unsafe-inline-scripts */}
+  <script is:inline>
+    const form = document.querySelector("#contact-form");
+    const successMsg = document.querySelector("#form-success");
+    const errorMsg = document.querySelector("#form-error");
+    const submitBtn = document.querySelector("#submit-btn");
+
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Hide previous messages
+      successMsg?.classList.add("hidden");
+      errorMsg?.classList.add("hidden");
+
+      // Disable submit button
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+        submitBtn.style.opacity = "0.7";
+      }
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch("/", {
+          body: new URLSearchParams(
+            formData as unknown as Record<string, string>,
+          ).toString(),
+          headers: {
+            Accept: "application/x-www-form-urlencoded;charset=UTF-8",
+          },
+          method: "POST",
+        });
+
+        if (response.ok) {
+          form.reset();
+          successMsg?.classList.remove("hidden");
+          successMsg?.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          throw new Error("Form submission failed");
+        }
+      } catch {
+        errorMsg?.classList.remove("hidden");
+        errorMsg?.scrollIntoView({ behavior: "smooth", block: "center" });
+      } finally {
+        // Re-enable submit button
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Send message";
+          submitBtn.style.opacity = "1";
+        }
+      }
+    });
+  </script>
+</Layout>

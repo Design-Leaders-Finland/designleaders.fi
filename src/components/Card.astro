@@ -1,0 +1,32 @@
+---
+interface Props {
+  number: string;
+  numberColor?: "amber" | "highlight" | "clay";
+  title: string;
+  subtitle?: string;
+}
+
+const { number, numberColor = "amber", title, subtitle } = Astro.props;
+
+const numberColors = {
+  amber: "var(--amber)",
+  clay: "var(--clay)",
+  highlight: "var(--highlight)",
+};
+---
+
+<div class="border-t border-sand-8 pt-8">
+  <span
+    class="text-mono-label block mb-4"
+    style={{ color: numberColors[numberColor] }}
+  >
+    {number}
+  </span>
+  <h3 class="text-title mb-2 text-sand">
+    {title}
+  </h3>
+  {subtitle && <p class="text-mono-label mb-4 text-clay">{subtitle}</p>}
+  <p class="text-body text-sand opacity-70">
+    <slot />
+  </p>
+</div>

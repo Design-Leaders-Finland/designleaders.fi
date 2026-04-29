@@ -1,0 +1,59 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "quoteProps": "as-needed",
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "insertFinalNewline": true,
+  "singleAttributePerLine": false,
+  "proseWrap": "preserve",
+  "htmlWhitespaceSensitivity": "css",
+  "embeddedLanguageFormatting": "auto",
+  "vueIndentScriptAndStyle": false,
+  "ignorePatterns": ["dist", "node_modules", ".astro", "package-lock.json"],
+  "sortImports": {
+    "groups": [
+      "builtin",
+      "external",
+      ["internal", "subpath"],
+      ["parent", "sibling", "index"],
+      "style",
+      "unknown"
+    ],
+    "newlinesBetween": true,
+    "order": "asc",
+    "ignoreCase": true,
+    "internalPattern": ["~/", "@/"],
+    "partitionByNewline": false,
+    "partitionByComment": false,
+    "sortSideEffects": false
+  },
+  "sortPackageJson": {
+    "sortScripts": true
+  },
+  "sortTailwindcss": {
+    "attributes": ["class", "className"],
+    "functions": ["clsx", "cn", "cva", "tw"],
+    "preserveDuplicates": false,
+    "preserveWhitespace": false
+  },
+  "jsdoc": {
+    "addDefaultToDescription": true,
+    "bracketSpacing": true,
+    "capitalizeDescriptions": true,
+    "commentLineStrategy": "keep",
+    "descriptionTag": true,
+    "descriptionWithDot": true,
+    "keepUnparsableExampleIndent": false,
+    "lineWrappingStyle": "greedy",
+    "preferCodeFences": true
+  }
+}

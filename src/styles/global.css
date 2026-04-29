@@ -15,12 +15,6 @@
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
 
-  --color-accent-red: #b91c1c;
-  --color-accent-sage: #4b5f53;
-
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
 
@@ -29,6 +23,20 @@
 
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* kimi_agent color palette */
+  --color-void: #050505;
+  --color-surface: #0f0e0c;
+  --color-sand: #f3efe7;
+  --color-clay: #c67d5f;
+  --color-amber: #d68c45;
+  --color-deep: #1a1816;
+
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 @utility container {
@@ -42,13 +50,155 @@
   }
 }
 
+/* Consistent horizontal padding for all main content sections */
+#main-content > * {
+  padding-inline: 8vw;
+}
+
+@media (width >= 1400px) {
+  #main-content > * {
+    padding-inline: calc((100vw - 1400px) / 2 + 2rem);
+  }
+}
+
+@utility text-display-xl {
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+@utility text-display-lg {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+@utility text-title {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+@utility text-body {
+  font-size: clamp(0.9375rem, 1.2vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.005em;
+}
+
+@utility text-caption {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+@utility text-mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* Text colors using CSS custom properties */
+@utility text-sand {
+  color: var(--sand);
+}
+
+@utility text-clay {
+  color: var(--clay);
+}
+
+@utility text-highlight {
+  color: var(--highlight);
+}
+
+@utility text-amber {
+  color: var(--amber);
+}
+
+@utility text-void {
+  color: var(--void);
+}
+
+/* Background colors */
+@utility bg-void {
+  background-color: var(--void);
+}
+
+@utility bg-surface {
+  background-color: var(--surface);
+}
+
+@utility bg-deep {
+  background-color: var(--deep);
+}
+
+@utility bg-void-70 {
+  background-color: var(--void-70);
+}
+
+@utility bg-void-95 {
+  background-color: var(--void-95);
+}
+
+@utility bg-highlight {
+  background-color: var(--highlight);
+}
+
+@utility bg-sand-8 {
+  background-color: var(--sand-8);
+}
+
+@utility bg-sand-20 {
+  background-color: var(--sand-20);
+}
+
+/* Border colors */
+@utility border-sand-8 {
+  border-color: var(--sand-8);
+}
+
+@utility border-highlight {
+  border-color: var(--highlight);
+}
+
+@utility border-transparent {
+  border-color: transparent;
+}
+
+/* Opacity utilities */
+@utility opacity-60 {
+  opacity: 0.6;
+}
+
+@utility opacity-70 {
+  opacity: 0.7;
+}
+
+@utility opacity-80 {
+  opacity: 0.8;
+}
+
+/* Custom spacing for padding */
+@utility py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
   looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
 */
 @layer base {
   *,
@@ -60,60 +210,71 @@
   }
 }
 
-@utility text-balance {
-  text-wrap: balance;
-}
-
 @layer base {
   :root {
-    --background: #ffffff; /* white */
-    --foreground: #161616; /* dark blue */
-    --card: #fafafa; /* very light gray */
-    --card-foreground: #161616; /* dark blue */
-    --popover: #ffffff; /* white */
-    --popover-foreground: #161616; /* dark blue */
-    --primary: #1a1a1a; /* dark navy */
-    --primary-foreground: #fafafa; /* very light gray */
-    --secondary: #f2f7ff; /* very light blue */
-    --secondary-foreground: #1a1a1a; /* dark navy */
-    --muted: #f2f7ff; /* very light blue */
-    --muted-foreground: #767676; /* medium gray */
-    --accent: #f2f7ff; /* very light blue */
-    --accent-foreground: #1a1a1a; /* dark navy */
-    --destructive: #cf3c3f; /* red */
-    --destructive-foreground: #fafafa; /* very light gray */
-    --border: #e6e6e6; /* light gray */
-    --input: #e6e6e6; /* light gray */
-    --ring: #1a1a1a; /* dark navy */
-    --radius: 0.75rem; /* border radius */
-  }
+    /* kimi_agent dark theme as default */
+    --void: #050505;
+    --surface: #0f0e0c;
+    --sand: #f3efe7;
+    --deep: #1a1816;
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: #161616; /* dark blue */
-      --foreground: #fafafa; /* very light gray */
-      --card: #161616; /* dark blue */
-      --card-foreground: #fafafa; /* very light gray */
-      --popover: #161616; /* dark blue */
-      --popover-foreground: #fafafa; /* very light gray */
-      --primary: #fafafa; /* very light gray */
-      --primary-foreground: #1a1a1a; /* dark navy */
-      --secondary: #262626; /* dark gray */
-      --secondary-foreground: #fafafa; /* very light gray */
-      --muted: #262626; /* dark gray */
-      --muted-foreground: #a3a3a3; /* medium gray */
-      --accent: #262626; /* dark gray */
-      --accent-foreground: #fafafa; /* very light gray */
-      --destructive: #cf3c3f; /* dark red */
-      --destructive-foreground: #fafafa; /* very light gray */
-      --border: #262626; /* dark gray */
-      --input: #262626; /* dark gray */
-      --ring: #d9e6ff; /* light blue */
-    }
+    /* Daily cycling highlight color: Pink → Violet → Blue → Green → Orange → Pink
+       365-day cycle with HSL(65% lightness, 75% saturation) for AAA contrast on dark backgrounds
+       Updated daily by JavaScript based on day of year */
+    --highlight: hsl(30 75% 65%); /* Default: orange, will be overridden by JS */
+    --highlight-hue: 30; /* Default hue, updated daily */
+
+    /* Highlight derivatives using color-mix() */
+    --highlight-light: color-mix(in srgb, var(--highlight) 85%, white);
+    --highlight-dark: color-mix(in srgb, var(--highlight) 75%, black);
+    --highlight-10: color-mix(in srgb, var(--highlight) 10%, transparent);
+    --highlight-30: color-mix(in srgb, var(--highlight) 30%, transparent);
+    --highlight-40: color-mix(in srgb, var(--highlight) 40%, transparent);
+    --highlight-60: color-mix(in srgb, var(--highlight) 60%, transparent);
+
+    /* Semantic aliases (derived from highlight) */
+    --amber: var(--highlight);
+    --clay: var(--highlight-dark);
+
+    /* Neutral opacity variants */
+    --void-70: color-mix(in srgb, var(--void) 70%, transparent);
+    --void-95: color-mix(in srgb, var(--void) 95%, transparent);
+    --sand-20: color-mix(in srgb, var(--sand) 20%, transparent);
+    --sand-8: color-mix(in srgb, var(--sand) 8%, transparent);
+
+    /* Semantic colors (standalone) */
+    --error: #ef4444;
+    --error-10: color-mix(in srgb, var(--error) 10%, transparent);
+
+    --background: 0 0% 2%;
+    --foreground: 40 20% 93%;
+    --card: 30 14% 6%;
+    --card-foreground: 40 20% 93%;
+    --popover: 30 14% 6%;
+    --popover-foreground: 40 20% 93%;
+    --primary: 30 60% 55%;
+    --primary-foreground: 0 0% 2%;
+    --secondary: 30 8% 10%;
+    --secondary-foreground: 40 20% 93%;
+    --muted: 30 8% 12%;
+    --muted-foreground: 40 10% 55%;
+    --accent: 30 60% 55%;
+    --accent-foreground: 0 0% 2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 8% 15%;
+    --input: 30 8% 15%;
+    --ring: 30 60% 55%;
+    --radius: 0.375rem;
   }
 
   * {
-    @apply border-border selection:bg-accent-red/10;
+    @apply border-border;
+  }
+
+  ::selection {
+    background: var(--highlight-30);
+    color: var(--sand);
   }
 
   html {
@@ -121,20 +282,268 @@
   }
 
   body {
-    @apply bg-background text-foreground min-h-screen transition-colors duration-300;
-    font-feature-settings: "salt";
-    font-family:
-      Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
-      sans-serif;
+    @apply min-h-screen bg-[var(--void)] text-[var(--sand)];
+    font-family: "DM Sans", system-ui, sans-serif;
+    overflow-x: hidden;
   }
 }
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+@keyframes scroll-indicator {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(56px);
+  }
 }
 
-.card {
-  padding: 2em;
+.animate-scroll-indicator {
+  animation: scroll-indicator 2s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-text {
+  background: linear-gradient(
+    90deg,
+    var(--highlight-40) 0%,
+    var(--highlight) 25%,
+    var(--highlight-60) 50%,
+    var(--highlight) 75%,
+    var(--highlight-40) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+/* Cursor effects - base shared styles */
+.cursor-mist,
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+/* Cursor-following lightning effect - uses daily highlight color */
+.cursor-mist {
+  background:
+    /* Main lightning bolt - uses highlight color */
+    conic-gradient(
+      from calc(var(--angle, 0deg) - 30deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+      transparent 0deg,
+      hsl(var(--highlight-hue, 30) 85% 65% / 0.9) 5deg,
+      rgba(255, 255, 255, 0.8) 8deg,
+      hsl(calc(var(--highlight-hue, 30) + 20) 75% 60% / 0.9) 12deg,
+      transparent 15deg,
+      transparent 360deg
+    ),
+    /* Secondary sparks - complementary hue */
+    conic-gradient(
+        from calc(var(--angle, 0deg) + 120deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+        transparent 0deg,
+        hsl(calc(var(--highlight-hue, 30) + 40) 80% 60% / 0.7) 3deg,
+        rgba(255, 255, 255, 0.6) 6deg,
+        transparent 10deg,
+        transparent 360deg
+      );
+  filter: drop-shadow(0 0 20px hsl(var(--highlight-hue, 30) 75% 60% / 0.5));
+}
+
+/* Electric spark trails - sharp lightning fragments using daily color */
+.cursor-trail {
+  background: conic-gradient(
+    from calc(var(--trail-angle, 0deg) + 45deg) at var(--trail-x, 50%) var(--trail-y, 50%),
+    transparent 0deg,
+    hsl(var(--highlight-hue, 30) 85% 65% / 1) 2deg,
+    rgba(255, 255, 255, 0.9) 4deg,
+    hsl(calc(var(--highlight-hue, 30) + 20) 75% 60% / 0.8) 6deg,
+    transparent 8deg,
+    transparent 360deg
+  );
+  opacity: 0;
+}
+
+#cursor-trail-2 {
+  background: conic-gradient(
+    from calc(var(--trail-angle, 0deg) - 60deg) at var(--trail-x, 50%) var(--trail-y, 50%),
+    transparent 0deg,
+    hsl(var(--highlight-hue, 30) 75% 60% / 0.8) 1deg,
+    hsl(calc(var(--highlight-hue, 30) + 30) 70% 55% / 0.6) 3deg,
+    transparent 5deg,
+    transparent 360deg
+  );
+}
+
+#cursor-trail-3 {
+  background: conic-gradient(
+    from calc(var(--trail-angle, 0deg) + 150deg) at var(--trail-x, 50%) var(--trail-y, 50%),
+    transparent 0deg,
+    hsl(calc(var(--highlight-hue, 30) + 40) 80% 55% / 0.5) 1.5deg,
+    transparent 4deg,
+    transparent 360deg
+  );
+}
+
+/* Reduced motion - static lightning at clicked position using daily color */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-mist {
+    background:
+      /* First lightning bolt - independent random direction via --angle1 */
+      conic-gradient(
+        from var(--angle1, 45deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+        transparent 0deg,
+        hsl(var(--highlight-hue, 30) 85% 65% / 0.9) 5deg,
+        rgba(255, 255, 255, 0.8) 8deg,
+        hsl(calc(var(--highlight-hue, 30) + 20) 75% 60% / 0.9) 12deg,
+        transparent 15deg,
+        transparent 360deg
+      ),
+      /* Second lightning bolt - independent random direction via --angle2 */
+        conic-gradient(
+          from var(--angle2, 165deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+          transparent 0deg,
+          hsl(calc(var(--highlight-hue, 30) + 30) 70% 60% / 0.7) 3deg,
+          rgba(255, 255, 255, 0.6) 6deg,
+          transparent 10deg,
+          transparent 360deg
+        ),
+      /* Third lightning bolt - independent random direction via --angle3 */
+        conic-gradient(
+          from var(--angle3, 285deg) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+          transparent 0deg,
+          hsl(calc(var(--highlight-hue, 30) + 40) 80% 55% / 0.6) 4deg,
+          rgba(255, 255, 255, 0.5) 7deg,
+          transparent 12deg,
+          transparent 360deg
+        );
+    filter: drop-shadow(0 0 20px hsl(var(--highlight-hue, 30) 75% 60% / 0.5));
+    opacity: var(--static-opacity, 0);
+    transition: opacity 0.5s ease-out;
+  }
+
+  .cursor-trail {
+    display: none;
+  }
+}
+
+/* High contrast focus indicators */
+:focus-visible {
+  outline: 2px solid var(--highlight);
+  outline-offset: 2px;
+}
+
+/* Remove default focus outline when focus-visible is supported */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip link for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--highlight);
+  color: var(--void);
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :focus-visible {
+    outline: 3px solid var(--highlight);
+    outline-offset: 3px;
+  }
+
+  .cursor-mist,
+  .cursor-trail {
+    display: none;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: none;
+  }
+}
+
+/* Windows forced-colors mode (high contrast themes) */
+@media (forced-colors: active) {
+  /* Disable decorative effects */
+  .cursor-mist,
+  .cursor-trail {
+    display: none;
+  }
+
+  .animate-gradient-text {
+    background: none;
+    -webkit-text-fill-color: CanvasText;
+    color: CanvasText;
+  }
+
+  /* Ensure visible focus with system colors */
+  :focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+  }
+
+  /* Respect system color scheme */
+  body {
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  /* Force borders on form elements */
+  input,
+  textarea,
+  button {
+    border: 2px solid ButtonText;
+  }
+
+  /* Ensure buttons are recognizable */
+  button,
+  [type="submit"] {
+    background: ButtonFace;
+    color: ButtonText;
+    border: 2px solid ButtonText;
+  }
+
+  /* Links use system link color */
+  a {
+    color: LinkText;
+    text-decoration: underline;
+  }
+
+  /* Disabled state uses system GrayText */
+  :disabled {
+    color: GrayText;
+    border-color: GrayText;
+  }
 }

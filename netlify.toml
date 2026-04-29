@@ -3,24 +3,24 @@
 ID = "designleaders"
 
 [build]
-  publish = "dist"
-  command = "npm run build"
+publish = "dist"
+command = "npm run build"
 
 [[redirects]]
-  from = "https://designleaders.netlify.app/*"
-  to = "https://designleaders.fi/:splat"
-  status = 301
+from = "https://designleaders.netlify.app/*"
+to = "https://designleaders.fi/:splat"
+status = 301
 
 # 31536000 is one year
 
 [[headers]]
-  for = "/*"
-  [headers.values]
-    Accept-Ranges = "bytes"
-    Server = "@designleaders"
-    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    Timing-Allow-Origin = "*"
-    X-Content-Type-Options = "nosniff"
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
+for = "/*"
+[headers.values]
+Accept-Ranges = "bytes"
+Server = "@designleaders"
+Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+Timing-Allow-Origin = "*"
+X-Content-Type-Options = "nosniff"
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
 

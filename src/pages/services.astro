@@ -1,51 +1,108 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MainServices from "../components/MainServices.astro";
+import Section from "../components/Section.astro";
+import Badge from "../components/Badge.astro";
+import Button from "../components/Button.astro";
 
-import { ArrowLeft, ArrowRight } from "lucide-react";
+const services = [
+  {
+    deliverables: ["Product audits", "Research & insights", "Roadmap planning"],
+    description:
+      "Product strategy, research, and roadmap planning for ambitious products.",
+    title: "Strategy",
+  },
+  {
+    deliverables: ["Design systems", "UI/UX design", "Prototyping"],
+    description:
+      "UI/UX design systems, interaction design, and visual identity.",
+    title: "Design",
+  },
+  {
+    deliverables: ["Frontend dev", "Design systems", "Technical architecture"],
+    description:
+      "Frontend architecture, React/TypeScript, and design system implementation.",
+    title: "Engineering",
+  },
+  {
+    deliverables: ["Team structuring", "Process design", "Hiring support"],
+    description:
+      "Design team building, process design, and design ops consulting.",
+    title: "Leadership",
+  },
+];
 ---
 
-<Layout title="Home Page">
-  {/* Hero Section */}
-  <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto text-center">
-      <a
-        aria-label="Back to home page"
-        class="inline-flex items-center mb-8 text-sm font-medium text-foreground hover:text-accent-red transition-colors"
-        href="/"
+<Layout title="Services">
+  <!-- Hero -->
+  <section
+    class="relative min-h-[50vh] flex items-center"
+    style="padding: 12rem 8vw 6rem;"
+  >
+    <div class="max-w-4xl">
+      <h1
+        class="text-display-xl mb-6"
+        style={{ color: "var(--sand)", fontWeight: 300 }}
       >
-        <ArrowLeft className="w-4 h-4 mr-2" />
-        Back to Home
-      </a>
-      <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-foreground">
-        Our Services
+        What we do
       </h1>
-      <p class="text-lg sm:text-xl text-foreground/80 mb-8">
-        Comprehensive design consulting services to transform your digital
-        products and team capabilities.
+      <p
+        class="text-body"
+        style={{ color: "var(--sand)", opacity: 0.75, maxWidth: "50ch" }}
+      >
+        End-to-end product design and strategy for teams who want to move fast
+        without breaking things.
       </p>
     </div>
   </section>
 
-  <MainServices />
-
-  {/* CTA Section */}
-  <section class="py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6 text-foreground">
-        Ready to Transform Your Design Practice?
-      </h2>
-      <p class="text-lg text-foreground/80 mb-8">
-        Let's discuss how our services can help you achieve your design goals.
-      </p>
-      <a
-        aria-label="Get in touch with us"
-        class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-accent-red hover:bg-accent-red/90 rounded-lg transition-colors"
-        href="/#contact"
-      >
-        Get in Touch
-        <ArrowRight className="ml-2 h-5 w-5" />
-      </a>
+  <!-- Services Grid -->
+  <Section background="surface">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        services.map((service, index) => (
+          <div
+            style={{
+              borderTop: "1px solid var(--sand-8)",
+              paddingTop: "2rem",
+            }}
+          >
+            <span
+              class="text-mono-label block mb-4"
+              style={{ color: "var(--amber)" }}
+            >
+              0{index + 1}
+            </span>
+            <h2 class="text-display-lg mb-4" style={{ color: "var(--sand)" }}>
+              {service.title}
+            </h2>
+            <p
+              class="text-body mb-6"
+              style={{ color: "var(--sand)", opacity: 0.7 }}
+            >
+              {service.description}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {service.deliverables.map((d) => (
+                <Badge>{d}</Badge>
+              ))}
+            </div>
+          </div>
+        ))
+      }
     </div>
-  </section></Layout
->
+  </Section>
+
+  <!-- CTA -->
+  <Section
+    background="void"
+    class="flex flex-col items-center justify-center text-center"
+  >
+    <h2
+      class="text-display-lg mb-6"
+      style={{ color: "var(--sand)", fontWeight: 300 }}
+    >
+      Ready to start?
+    </h2>
+    <Button href="/contact">Discuss your project</Button>
+  </Section>
+</Layout>

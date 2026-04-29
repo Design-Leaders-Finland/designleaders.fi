@@ -1,0 +1,17 @@
+---
+interface Props {
+  href: string;
+  size?: "default" | "large";
+}
+
+const { href, size = "default" } = Astro.props;
+
+const paddingClasses = size === "large" ? "px-9 py-[18px]" : "px-7 py-[14px]";
+---
+
+<a
+  class={`inline-block text-mono-label transition-all duration-300 hover:brightness-110 focus:brightness-110 focus:outline-none bg-highlight text-void rounded-sm ${paddingClasses}`}
+  href={href}
+>
+  <slot />
+</a>

@@ -1,0 +1,59 @@
+---
+import Section from "./Section.astro";
+import Card from "./Card.astro";
+
+// Services section - simplified from kimi_agent
+const services = [
+  {
+    description:
+      "Product strategy, research, and roadmap planning for ambitious products.",
+    title: "Strategy",
+  },
+  {
+    description:
+      "UI/UX design systems, interaction design, and visual identity.",
+    title: "Design",
+  },
+  {
+    description:
+      "Frontend architecture, React/TypeScript, and design system implementation.",
+    title: "Engineering",
+  },
+  {
+    description:
+      "Design team building, process design, and design ops consulting.",
+    title: "Leadership",
+  },
+];
+---
+
+<Section background="void">
+  <h2 class="text-display-lg mb-12 text-sand">Services</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {
+      services.map((service, index) => (
+        <Card
+          number={`0${index + 1}`}
+          numberColor="highlight"
+          title={service.title}
+        >
+          {service.description}
+        </Card>
+      ))
+    }
+  </div>
+
+  <div class="mt-12 text-center">
+    <a
+      class="inline-flex items-center gap-2 text-mono-label transition-colors duration-300 hover:text-[var(--highlight)] focus:text-[var(--highlight)] focus:outline-none text-clay"
+      href="/services"
+    >
+      View all services
+      <svg fill="none" height="16" viewBox="0 0 16 16" width="16">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+        ></path>
+      </svg>
+    </a>
+  </div>
+</Section>

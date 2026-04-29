@@ -1,16 +1,14 @@
 export interface Service {
   title: string;
-  /** Simple HTML (e.g. wrapped in `<p>`) for the long description. */
+  /** @description Simple HTML (e.g. wrapped in `<p>`) for the long description. */
   descriptionHtml: string;
   features: string[];
-  /** Name of a `lucide-react` export, e.g. `CircuitBoard`. */
+  /** @description Name of a `lucide-react` export, e.g. `CircuitBoard`. */
   icon: string;
 }
 
 export const services: Service[] = [
   {
-    icon: "CircuitBoard",
-    title: "Prototyping",
     descriptionHtml:
       "<p>End-to-end prototyping services for both hardware and software solutions, bringing your ideas to life.</p>",
     features: [
@@ -21,10 +19,10 @@ export const services: Service[] = [
       "Technical Feasibility Studies",
       "Integration Planning",
     ],
+    icon: "CircuitBoard",
+    title: "Prototyping",
   },
   {
-    icon: "Sparkles",
-    title: "Design Systems",
     descriptionHtml:
       "<p>Build and maintain scalable design systems that enhance consistency and efficiency across your digital products.</p>",
     features: [
@@ -35,10 +33,10 @@ export const services: Service[] = [
       "Team Training & Workshops",
       "System Maintenance & Evolution",
     ],
+    icon: "Sparkles",
+    title: "Design Systems",
   },
   {
-    icon: "Zap",
-    title: "Design Quality",
     descriptionHtml:
       "<p>Establish and maintain exceptional design quality standards throughout your organization.</p>",
     features: [
@@ -49,10 +47,10 @@ export const services: Service[] = [
       "Performance Optimization",
       "Design Metrics & Analytics",
     ],
+    icon: "Zap",
+    title: "Design Quality",
   },
   {
-    icon: "Users",
-    title: "Design Leadership",
     descriptionHtml:
       "<p>Develop strong design leadership capabilities and establish effective design processes.</p>",
     features: [
@@ -63,5 +61,7 @@ export const services: Service[] = [
       "Stakeholder Management",
       "Design Culture Building",
     ],
+    icon: "Users",
+    title: "Design Leadership",
   },
 ];

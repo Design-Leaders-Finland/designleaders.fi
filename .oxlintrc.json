@@ -1,0 +1,60 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "typescript",
+    "unicorn",
+    "oxc",
+    "react",
+    "react-perf",
+    "nextjs",
+    "import",
+    "jsdoc",
+    "jsx-a11y",
+    "node",
+    "promise"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "pedantic": "warn",
+    "perf": "warn",
+    "style": "warn",
+    "restriction": "off",
+    "nursery": "warn"
+  },
+  "rules": {
+    "eslint/no-unused-vars": "error",
+    "eslint/no-ternary": "off",
+    "eslint/func-style": "off",
+    "eslint/max-statements": "off",
+    "eslint/max-lines-per-function": "off",
+    "eslint/no-magic-numbers": "off",
+    "eslint/id-length": "off",
+    "eslint/no-inner-declarations": "off",
+    "eslint/sort-imports": "off",
+    "eslint-plugin-import/no-named-export": "off",
+    "eslint-plugin-import/no-anonymous-default-export": "off",
+    "eslint-plugin-import/first": "off",
+    "eslint-plugin-import/no-unassigned-import": "off",
+    "eslint-plugin-unicorn/filename-case": "off",
+    "eslint-plugin-unicorn/no-null": "off",
+    "eslint-plugin-unicorn/prefer-global-this": "off",
+    "eslint-plugin-unicorn/prefer-query-selector": "off"
+  },
+  "env": {
+    "builtin": true,
+    "browser": true,
+    "es2024": true
+  },
+  "globals": {
+    "Astro": "readonly"
+  },
+  "ignorePatterns": ["dist", "node_modules", ".astro", "package-lock.json"],
+  "settings": {
+    "jsx-a11y": {
+      "components": {
+        "Link": "a"
+      }
+    }
+  }
+}
