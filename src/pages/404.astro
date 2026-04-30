@@ -5,24 +5,33 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Page Not Found">
+  <!-- Hero -->
   <section
-    class="pt-32 pb-20 px-4 sm:px-6 lg:px-8"
-    style={{ background: "var(--void)", minHeight: "60vh" }}
+    class="relative min-h-[50vh] flex items-center"
+    style="padding: 12rem 8vw 6rem;"
   >
-    <div class="text-center">
-      <h1 class="text-4xl font-bold mb-4" style={{ color: "var(--sand)" }}>
+    <div class="max-w-4xl">
+      <h1
+        class="text-display-xl mb-6"
+        style={{ color: "var(--sand)", fontWeight: 300 }}
+      >
         404
       </h1>
-      <p class="text-xl mb-4" style={{ color: "var(--sand)", opacity: 0.7 }}>
+      <p
+        class="text-body"
+        style={{ color: "var(--sand)", opacity: 0.75, maxWidth: "50ch" }}
+      >
         Oops! Page not found
       </p>
-      <a
-        class="text-mono-label underline hover:no-underline focus:no-underline focus:outline-none transition-all"
-        href="/"
-        style={{ color: "var(--highlight)" }}
-      >
-        Return to Home
-      </a>
+      <div class="mt-8">
+        <a
+          class="text-mono-label underline hover:no-underline focus:no-underline focus:outline-none transition-all"
+          href="/"
+          style={{ color: "var(--highlight)" }}
+        >
+          Return to Home →
+        </a>
+      </div>
     </div>
   </section>
 </Layout>

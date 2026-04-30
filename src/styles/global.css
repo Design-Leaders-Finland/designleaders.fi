@@ -279,6 +279,7 @@
 
   html {
     @apply scroll-smooth antialiased;
+    min-width: 320px;
   }
 
   body {
