@@ -1,7 +1,7 @@
 {
   "name": "designleaders.fi",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "scripts": {
     "lint": "oxlint",
@@ -12,20 +12,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "6.1.8",
+    "astro": "6.2.1",
     "zod": "3.25.76"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "4.2.2",
+    "@tailwindcss/vite": "4.2.4",
     "@types/node": "24.12.2",
     "browserslist": "4.28.2",
     "lightningcss": "1.32.0",
     "oxfmt": "latest",
     "oxlint": "latest",
-    "postcss": "8.5.10",
+    "postcss": "8.5.13",
     "prettier": "3.8.3",
     "prettier-plugin-astro": "0.14.1",
-    "tailwindcss": "4.2.2",
+    "tailwindcss": "4.2.4",
     "typescript": "5.9.3",
     "vite": "6.4.2"
   }
