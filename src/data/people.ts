@@ -24,7 +24,7 @@ export const teamMembers: TeamMember[] = [
     ],
     linkedin: "https://www.linkedin.com/in/anttijoonas/",
     name: "Antti Hämäläinen",
-    storyHtml: `From TV / Cinema digital VFX to illustrative branding with marketing automation twist and eventually at the edge of UI/UX / software design. As a cross-technical, result-oriented, and Front-End Development-fascinated designer with adaptable creation capabilities I'm inspired by compelling visuals, seamless user experience, plus conception, iteration, and the practical implementation of the above mentioned. I draw my motivation from inquisitive experimentation, the trial-and-error approach for perceiving new things, and shared experiences of success. I believe in the ideal of learning by doing and the importance of continuous reflection on the path to growth, both as a person and as a professional.`,
+    storyHtml: `From cinematic VFX and TV post production to illustrative branding, infused with marketing automation, and now at the forefront of UI/UX and software design — Antti brings a uniquely cross-disciplinary perspective to digital design. As a result-driven creative with a strong passion for front-end development, he crafts experiences that balance compelling visuals with intuitive and seamless usability. His approach blends concept, iteration, and hands-on implementation, ensuring ideas don’t just inspire but perform also. Driven by curiosity, Antti embraces experimentation and a trial-and-error mindset to uncover smarter, more effective solutions.`,
     title: "Versatile Designer",
   },
   {
