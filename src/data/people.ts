@@ -32,7 +32,7 @@ export const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/jukka-paasonen/",
     name: "Jukka Paasonen",
     storyHtml:
-      "Jukka Paasonen is the founder and leader of operations, bringing a rare blend of design, engineering, and security expertise into a single, cohesive vision. With a career spanning startups to global enterprises, he has built and led high-performing teams focused on accessible, scalable, and trustworthy digital experiences. Jukka is known for championing design systems, embedding security into user experience, and fostering a culture where empathy, craftsmanship, and measurable impact go hand in hand.",
+      "Jukka is a design engineering leader, teacher and open-source maintainer. After two decades leading front-end and design systems at Comptel, Finnair and OP, he now focuses on AI-assisted application security. He teaches user-centred design, cybersecurity, Rust and WebAssembly at Metropolia, and builds communities of practice around accessibility and quality. He maintains open-source tools, builds Rust and AI projects, and directs Design Leaders Finland.",
     title: "Founder, Head of Engineering",
   },
   {
